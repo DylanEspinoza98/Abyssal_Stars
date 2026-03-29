@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
 
     private void Disable()
     {
-        Destroy(gameObject);
+        _lifeTime = 0f;
+        gameObject.SetActive(false);
     }
 }
