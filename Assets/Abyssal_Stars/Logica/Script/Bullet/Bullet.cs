@@ -6,14 +6,14 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected float _maxLifeTime = 10f;
     private float _currentLifeTime;
 
-    // --- NUEVAS VARIABLES PARA EL POOLING ---
+   
     private BulletPool _myPool;
     private GameObject _myPrefabKey;
-    // ----------------------------------------
+    
 
     public Vector2 Velocity { get; set; }
 
-    // El Pool llamará a esto UNA SOLA VEZ al crear la bala
+    
     public void Setup(BulletPool pool, GameObject prefabKey)
     {
         _myPool = pool;
@@ -33,11 +33,11 @@ public abstract class Bullet : MonoBehaviour
 
         if (_currentLifeTime >= _maxLifeTime)
         {
-            ReturnToPool(); // <-- CAMBIO AQUÍ
+            ReturnToPool(); 
         }
     }
 
-    // Método para devolver la bala al "almacén" correctamente
+    
     protected void ReturnToPool()
     {
         if (_myPool != null)
@@ -46,7 +46,7 @@ public abstract class Bullet : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false); // Por si acaso no hay pool
+            gameObject.SetActive(false); 
         }
     }
 

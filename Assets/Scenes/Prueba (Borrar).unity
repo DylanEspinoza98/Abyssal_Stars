@@ -255,6 +255,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &905356501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6600640249921207629, guid: b6e27c8fe50667b45b8ba30c764a461e, type: 3}
+  m_PrefabInstance: {fileID: 4445136639827200016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &905356507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905356501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caed03ee9c69eeb42bc2aa147fcca07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _maxHealth: 3
+--- !u!1 &1698265501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8873400423258381309, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
+  m_PrefabInstance: {fileID: 1853243181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1698265506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698265501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a85651e932a0444b67061e4f581de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossController
+  _moveSpeed: 2
+  _zoneCenter: {x: 0, y: 2.5}
+  _zoneSize: {x: 4, y: 1.5}
+  _zigzagAmplitude: 1.5
+  _zigzagFrequency: 1.5
+  _circleRadius: 1.2
+  _circleSpeed: 1.2
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+  _bulletSpeed: 6
+  _spreadCount: 5
+  _spreadAngle: 60
+  _burstCount: 3
+  _burstInterval: 0.12
+  _phaseDuration: 4
+  _health: 100
 --- !u!1001 &1853243181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,6 +353,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: 6967862910049758967, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
+      propertyPath: _health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967862910049758967, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8873400423258381309, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
       propertyPath: m_Name
       value: Enemydummy (test)
@@ -313,9 +371,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 6967862910049758967, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8873400423258381309, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1698265506}
   m_SourcePrefab: {fileID: 100100000, guid: 3db8b2e16a5105441ad51096863874c7, type: 3}
 --- !u!1001 &4445136639827200016
 PrefabInstance:
@@ -400,7 +462,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6600640249921207629, guid: b6e27c8fe50667b45b8ba30c764a461e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 905356507}
   m_SourcePrefab: {fileID: 100100000, guid: b6e27c8fe50667b45b8ba30c764a461e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

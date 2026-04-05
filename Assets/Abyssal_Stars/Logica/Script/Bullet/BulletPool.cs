@@ -36,13 +36,13 @@ public class BulletPool : MonoBehaviour
         {
             bullet = Instantiate(prefab);
             bullet.Setup(this, prefabKey);
-            // IMPORTANTE: Le pasamos los datos del Pool para que sepa a dónde volver
+            // RECORDAR: Le pasamos los datos del Pool para que sepa a dónde volver
         }
 
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
-        bullet.Velocity = velocity;        // Asignamos velocidad primero
-        bullet.gameObject.SetActive(true); // Luego activamos (dispara el OnEnable)
+        bullet.Velocity = velocity;        
+        bullet.gameObject.SetActive(true); 
 
         return (T)bullet;
     }
