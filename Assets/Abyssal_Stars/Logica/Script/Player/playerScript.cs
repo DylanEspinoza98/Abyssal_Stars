@@ -1,26 +1,48 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class playerScript : MonoBehaviour
 {
     [Header("Movement")]
     public float movSpeed = 5f;
+    // --- NUEVAS VARIABLES PARA LÍMITES ---
+    [SerializeField] private float _limitX = 4.5f;
+    [SerializeField] private float _limitY = 8.5f;
+
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Collider2D col;
 
     [Header("Shooting Settings")]
     [SerializeField] private PlayerBullet _bulletPrefab;
     [SerializeField] private float _fireRate = 0.15f;
     [SerializeField] private float _bulletSpeed = 12f;
-
     private float _fireTimer;
+
+    [Header("Arcade Life Settings")]
+    [SerializeField] private int _totalLives = 3;
+    [SerializeField] private GameObject _explosionEffectPrefab;
+    [SerializeField] private float _respawnTime = 2f;
+    [SerializeField] private float _invincibilityDuration = 3f;
+
+    private Vector3 _startPosition;
+    private bool _isDead = false;
+    private bool _isInvincible = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
+
+        // Si el player es hijo de la cámara, (0,0) es el centro
+        _startPosition = new Vector3(0, 0, transform.localPosition.z);
     }
 
     void Update()
     {
+        if (_isDead) return;
         HandleMovement();
         HandleShooting();
     }
@@ -28,7 +50,6 @@ public class playerScript : MonoBehaviour
     private void HandleMovement()
     {
         Vector2 moveInput = Vector2.zero;
-
         if (Keyboard.current != null)
         {
             if (Keyboard.current.wKey.isPressed) moveInput.y = 1;
@@ -37,14 +58,73 @@ public class playerScript : MonoBehaviour
             if (Keyboard.current.dKey.isPressed) moveInput.x = 1;
         }
 
+        // Mantenemos tu sistema de Rigidbody que ya te funciona
         rb.linearVelocity = moveInput.normalized * movSpeed;
+
+        // --- ESTO ES LO ÚNICO QUE AGREGAMOS PARA LOS LÍMITES ---
+        // Bloqueamos la posición LOCAL (dentro de la cámara)
+        float clampedX = Mathf.Clamp(transform.localPosition.x, -_limitX, _limitX);
+        float clampedY = Mathf.Clamp(transform.localPosition.y, -_limitY, _limitY);
+
+        transform.localPosition = new Vector3(clampedX, clampedY, transform.localPosition.z);
+        // -------------------------------------------------------
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (_isDead || _isInvincible) return;
+        _totalLives--;
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        _isDead = true;
+        if (_explosionEffectPrefab != null)
+            Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
+
+        sr.enabled = false;
+        col.enabled = false;
+        rb.linearVelocity = Vector2.zero;
+
+        if (_totalLives > 0)
+        {
+            yield return new WaitForSeconds(_respawnTime);
+            Respawn();
+        }
+        else
+        {
+            Debug.Log("<color=black><b>GAME OVER</b></color>");
+        }
+    }
+
+    private void Respawn()
+    {
+        // Reaparece en el centro de la cámara
+        transform.localPosition = _startPosition;
+        sr.enabled = true;
+        col.enabled = true;
+        _isDead = false;
+        StartCoroutine(InvincibilityRoutine());
+    }
+
+    private IEnumerator InvincibilityRoutine()
+    {
+        _isInvincible = true;
+        float timer = 0;
+        while (timer < _invincibilityDuration)
+        {
+            sr.enabled = !sr.enabled;
+            yield return new WaitForSeconds(0.1f);
+            timer += 0.1f;
+        }
+        sr.enabled = true;
+        _isInvincible = false;
     }
 
     private void HandleShooting()
     {
-        if (_fireTimer > 0)
-            _fireTimer -= Time.deltaTime;
-
+        if (_fireTimer > 0) _fireTimer -= Time.deltaTime;
         if (Keyboard.current != null && Keyboard.current.spaceKey.isPressed && _fireTimer <= 0)
         {
             Shoot();

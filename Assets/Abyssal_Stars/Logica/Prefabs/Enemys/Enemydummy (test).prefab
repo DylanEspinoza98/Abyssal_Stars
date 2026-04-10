@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 953337085535880292}
   - component: {fileID: 6979854721788121398}
   - component: {fileID: 2745800932875836005}
-  - component: {fileID: 6967862910049758967}
   m_Layer: 8
   m_Name: Enemydummy (test)
   m_TagString: Untagged
@@ -129,16 +128,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.12
---- !u!114 &6967862910049758967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8873400423258381309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f57ede301892a498033dc0519f05cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _health: 3

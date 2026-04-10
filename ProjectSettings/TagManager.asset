@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 3397046879
+    locked: 0
+  - name: Explosion
+    uniqueID: 2385242731
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []

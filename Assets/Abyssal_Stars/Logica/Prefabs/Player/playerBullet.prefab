@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   _maxLifeTime: 3
+  _offScreenMargin: 0.1
+  _damage: 1
 --- !u!61 &7443667007939640578
 BoxCollider2D:
   m_ObjectHideFlags: 0
