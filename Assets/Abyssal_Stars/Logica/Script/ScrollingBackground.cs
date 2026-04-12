@@ -1,21 +1,23 @@
 using UnityEngine;
 
-public class ScrollingBackground : MonoBehaviour
+public class BackgroundScroll : MonoBehaviour
 {
-    private Transform _cam;
+    [Header("Ajustes de Velocidad")]
+    [SerializeField] private float _scrollSpeed = 0.5f;
+
+    private Material _bgMaterial;
+    private Vector2 _offset;
 
     void Start()
     {
-        _cam = Camera.main.transform;
+        
+        _bgMaterial = GetComponent<Renderer>().material;
     }
 
     void Update()
     {
-        // Sigue la cámara en Y, se queda fijo en X y Z
-        transform.position = new Vector3(
-            transform.position.x,
-            _cam.position.y,
-            transform.position.z
-        );
+        _offset.y += _scrollSpeed * Time.deltaTime;
+
+        _bgMaterial.mainTextureOffset = _offset;
     }
 }

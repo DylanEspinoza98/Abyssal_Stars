@@ -177,10 +177,10 @@ MonoBehaviour:
   _descendDuration: 0.5
   _orbitSpeed: 90
   _orbitRadius: 0.8
-  _orbitDuration: 2
   _bulletPrefab: {fileID: 6020517980567016966, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
-  _bulletCount: 5
+  _bulletCount: 8
   _fanAngle: 180
-  _timeBetweenBullets: 0.07
+  _timeBetweenBullets: 0.1
   _bulletSpeed: 2
+  _delayBetweenFans: 1.5
   _attackCycles: 3

@@ -128,4 +128,16 @@ public class CircularEnemy : EnemyBase
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, Quaternion.AngleAxis(angle, Vector3.forward), direction * _bulletSpeed);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerScript player = collision.GetComponent<playerScript>();
+            if (player != null)
+                player.TakeDamage(1);
+
+            ReturnToPool();
+        }
+    }
 }

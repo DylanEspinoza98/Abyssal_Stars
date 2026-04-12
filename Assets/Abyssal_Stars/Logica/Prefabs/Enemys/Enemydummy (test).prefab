@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 953337085535880292}
   - component: {fileID: 6979854721788121398}
   - component: {fileID: 2745800932875836005}
+  - component: {fileID: 7921333895217246646}
   m_Layer: 8
   m_Name: Enemydummy (test)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8873400423258381309}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0.567, y: 3.595, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &6979854721788121398
 SpriteRenderer:
   serializedVersion: 2
@@ -128,3 +129,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.12
+--- !u!114 &7921333895217246646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8873400423258381309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a85651e932a0444b67061e4f581de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossController
+  _moveSpeed: 2
+  _zoneCenter: {x: 0, y: 2.5}
+  _zoneSize: {x: 4, y: 1.5}
+  _zigzagAmplitude: 1.5
+  _zigzagFrequency: 1.5
+  _circleRadius: 1.2
+  _circleSpeed: 1.2
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+  _bulletSpeed: 6
+  _spreadCount: 5
+  _spreadAngle: 60
+  _burstCount: 3
+  _burstInterval: 0.12
+  _phaseDuration: 4
+  _health: 50
