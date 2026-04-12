@@ -22,6 +22,7 @@ public class playerScript : MonoBehaviour
 
     [Header("Arcade Life Settings")]
     [SerializeField] private int _totalLives = 3;
+    public int TotalLives => _totalLives;
     [SerializeField] private GameObject _explosionEffectPrefab;
     [SerializeField] private float _respawnTime = 2f;
     [SerializeField] private float _invincibilityDuration = 3f;
@@ -94,7 +95,7 @@ public class playerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("<color=black><b>GAME OVER</b></color>");
+            FindObjectOfType<GameOverManager>().ShowGameOver();
         }
     }
 
