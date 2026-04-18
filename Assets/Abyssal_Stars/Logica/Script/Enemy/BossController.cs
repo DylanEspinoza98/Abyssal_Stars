@@ -193,9 +193,9 @@ public class BossController : EnemyBase
             yield return new WaitForSeconds(0.4f - (i * 0.05f));
         }
 
-        if (GameOverManager.Instance != null)
+        if (VictoryManager.Instance != null)
         {
-            GameOverManager.Instance.ShowGameOver();
+            VictoryManager.Instance.ShowVictory();
         }
 
         base.Die();
