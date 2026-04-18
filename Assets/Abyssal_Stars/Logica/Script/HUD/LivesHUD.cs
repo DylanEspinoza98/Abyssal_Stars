@@ -1,22 +1,28 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LivesHUD : MonoBehaviour
 {
     [SerializeField] private playerScript _player;
-    [SerializeField] private Image[] _heartImages;
-
-    private int _lastLives = -1;
-
-    void Update()
+    [SerializeField] private RectTransform _livesRect;
+    [SerializeField] private float _iconWidth = 50f;
+    private void OnEnable()
     {
-        int currentLives = _player.TotalLives;
-        if (currentLives == _lastLives) return;
+        if (_player != null)
+            _player.OnLivesChanged += UpdateLivesDisplay;
+    }
+    private void OnDisable()
+    {
+        if (_player != null)
+            _player.OnLivesChanged -= UpdateLivesDisplay;
+    }
 
-        _lastLives = currentLives;
-        for (int i = 0; i < _heartImages.Length; i++)
-        {
-            _heartImages[i].enabled = i < currentLives;
-        }
+    void Start()
+    {
+        UpdateLivesDisplay(_player.TotalLives);
+    }
+
+    private void UpdateLivesDisplay(int currentLives)
+    {
+        _livesRect.sizeDelta = new Vector2(currentLives * _iconWidth, _livesRect.sizeDelta.y);
     }
 }

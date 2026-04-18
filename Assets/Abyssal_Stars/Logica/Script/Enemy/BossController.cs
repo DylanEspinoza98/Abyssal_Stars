@@ -1,25 +1,19 @@
 using UnityEngine;
+using System.Collections; 
 
-public class BossController : MonoBehaviour
+public class BossController : EnemyBase
 {
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 2f;
-
-    // Ahora estos valores son RELATIVOS al centro de la cámara
     [SerializeField] private Vector2 _zoneCenter = new Vector2(0f, 2.5f);
     [SerializeField] private Vector2 _zoneSize = new Vector2(4f, 1.5f);
-
     [SerializeField] private float _zigzagAmplitude = 1.5f;
     [SerializeField] private float _zigzagFrequency = 1.5f;
-
     [SerializeField] private float _circleRadius = 1.2f;
     [SerializeField] private float _circleSpeed = 1.2f;
 
-    private float _timeAccum = 0f;
-    private bool _useCircle = false;
-
     [Header("Shooting")]
-    [SerializeField] private EnemyBullet _bulletPrefab;
+    [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float _bulletSpeed = 6f;
     [SerializeField] private int _spreadCount = 5;
     [SerializeField] private float _spreadAngle = 60f;
@@ -29,90 +23,54 @@ public class BossController : MonoBehaviour
     [Header("Phase Settings")]
     [SerializeField] private float _phaseDuration = 4f;
 
+    private float _timeAccum = 0f;
+    private bool _useCircle = false;
     private float _phaseTimer = 0f;
     private int _currentPhase = 0;
     private bool _burstRunning = false;
-
-    [Header("Health")]
-    [SerializeField] private float _health = 100f; // Subí la vida porque es un Boss
-
     private bool _isEntering = true;
-    void Start()
+
+    private bool _isDying = false;
+
+    protected override void OnEnable()
     {
-        if (transform.parent == null)
+        base.OnEnable();
+
+        if (transform.parent == null && Camera.main != null)
             transform.SetParent(Camera.main.transform);
 
-        // Forzamos Z en 180 para que mire abajo
-        // Mantenemos X e Y en 0 para que no se vea de lado o estirado
         transform.localRotation = Quaternion.Euler(0, 0, 180f);
-
-        // Aseguramos la Z local para que no se esconda tras el fondo
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 10f);
+        _isEntering = true;
+        _phaseTimer = 0;
+        _currentPhase = 0;
+        _isDying = false; 
     }
 
-    public void TakeDamage(float amount)
+    protected override void Update()
     {
-        _health -= amount;
-        Debug.Log($"Boss golpeado! Vida restante: {_health}");
-        if (_health <= 0) Die();
-    }
-
-    private void Die()
-    {
-        Debug.Log("Boss destruido!");
-
-        // Llamamos al Manager para que muestre la pantalla de Game Over (o Win en este caso)
-        if (GameOverManager.Instance != null)
-        {
-            GameOverManager.Instance.ShowGameOver();
-        }
-
-        gameObject.SetActive(false);
-    }
-
-    void Update()
-    {
+        if (_isDying) return;
 
         _timeAccum += Time.deltaTime;
         _phaseTimer += Time.deltaTime;
 
         HandleMovement();
-
-        if (_phaseTimer >= _phaseDuration)
-        {
-            _phaseTimer = 0f;
-            _currentPhase = (_currentPhase + 1) % 3;
-            _useCircle = (_currentPhase == 2);
-        }
-
-        HandleMovement();
         HandleShooting();
-
-        // BLOQUEO DE ROTACIÓN: Pase lo que pase, mira hacia abajo
-        transform.localRotation = Quaternion.Euler(0, 0, 180f);
-
+        UpdatePhases();
     }
 
     private void HandleMovement()
     {
         if (_isEntering)
         {
-            // FASE DE ENTRADA: Baja lentamente hasta el centro de la zona
-            transform.localPosition = Vector3.MoveTowards(
-                transform.localPosition,
-                new Vector3(_zoneCenter.x, _zoneCenter.y, 10f),
-                _moveSpeed * Time.deltaTime
-            );
+            Vector3 entryPos = new Vector3(_zoneCenter.x, _zoneCenter.y, 10f);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, entryPos, _moveSpeed * Time.deltaTime);
 
-            // Si ya llegó cerca del centro, activamos el combate
-            if (Vector3.Distance(transform.localPosition, new Vector3(_zoneCenter.x, _zoneCenter.y, 10f)) < 0.1f)
-            {
+            if (Vector3.Distance(transform.localPosition, entryPos) < 0.1f)
                 _isEntering = false;
-            }
-            return; // No ejecutamos el zigzag mientras entra
+
+            return;
         }
 
-        // FASE DE COMBATE: Aquí va tu lógica de zigzag y círculos
         Vector3 targetLocalPos;
         if (_useCircle)
         {
@@ -133,9 +91,19 @@ public class BossController : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetLocalPos, _moveSpeed * Time.deltaTime);
     }
 
+    private void UpdatePhases()
+    {
+        if (_phaseTimer >= _phaseDuration)
+        {
+            _phaseTimer = 0;
+            _currentPhase = (_currentPhase + 1) % 3;
+            _useCircle = !_useCircle;
+        }
+    }
+
     private void HandleShooting()
     {
-        if (_burstRunning) return;
+        if (_isEntering || _burstRunning) return;
 
         switch (_currentPhase)
         {
@@ -164,11 +132,14 @@ public class BossController : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator FireBurst()
+    private IEnumerator FireBurst()
     {
         _burstRunning = true;
         for (int i = 0; i < _burstCount; i++)
         {
+            // Seguro por si muere a mitad de r�faga
+            if (_isDying || !gameObject.activeInHierarchy) yield break;
+
             SpawnBullet(Vector2.down);
             yield return new WaitForSeconds(_burstInterval);
         }
@@ -177,10 +148,13 @@ public class BossController : MonoBehaviour
 
     private void SpawnBullet(Vector2 direction)
     {
-        // La bala se spawnea en la posición del mundo (transform.position) 
-        // pero la dirección y lógica ya están listas
-        Quaternion rot = Quaternion.FromToRotation(Vector2.up, -direction);
-        BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, rot, direction * _bulletSpeed);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion bulletRotation = Quaternion.Euler(0, 0, angle - 90f);
+
+        if (BulletPool.Instance != null)
+        {
+            BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, bulletRotation, direction * _bulletSpeed);
+        }
     }
 
     private Vector2 Rotate(Vector2 v, float degrees)
@@ -191,15 +165,39 @@ public class BossController : MonoBehaviour
             v.x * Mathf.Sin(rad) + v.y * Mathf.Cos(rad)
         );
     }
-
-    private void OnDrawGizmosSelected()
+    protected override void Die()
     {
-        // Dibujamos el Gizmo relativo al padre (la cámara) para ver la zona en el editor
-        if (transform.parent != null)
+        if (_isDying) return;
+
+        StartCoroutine(TheatricalDeathRoutine());
+    }
+
+    private IEnumerator TheatricalDeathRoutine()
+    {
+        _isDying = true; 
+
+        if (AudioBeatDetector.Instance != null)
         {
-            Gizmos.matrix = transform.parent.localToWorldMatrix;
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireCube(_zoneCenter, _zoneSize);
+            AudioBeatDetector.Instance.StopMusic();
         }
+
+        int explosionCount = 6;
+        for (int i = 0; i < explosionCount; i++)
+        {
+            if (_explosionEffectPrefab != null)
+            {
+                Vector3 randomOffset = new Vector3(Random.Range(-2f, 2f), Random.Range(-1.5f, 1.5f), 0);
+                Instantiate(_explosionEffectPrefab, transform.position + randomOffset, Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(0.4f - (i * 0.05f));
+        }
+
+        if (GameOverManager.Instance != null)
+        {
+            GameOverManager.Instance.ShowGameOver();
+        }
+
+        base.Die();
     }
 }

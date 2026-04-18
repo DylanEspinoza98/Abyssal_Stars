@@ -25,20 +25,23 @@ public class EnemyPool : MonoBehaviour
             _pools.Add(prefabKey, new Queue<EnemyBase>());
 
         EnemyBase enemy;
+
         if (_pools[prefabKey].Count > 0)
+        {
             enemy = _pools[prefabKey].Dequeue();
+
+            enemy.transform.position = position;
+            enemy.transform.rotation = rotation;
+            enemy.gameObject.SetActive(true);
+        }
         else
         {
-            enemy = Instantiate(prefab);
+            enemy = Instantiate(prefab, position, rotation, transform);
             enemy.Setup(this, prefabKey);
-        }
 
-        //  EnemyPool como padre, no Camera.main
-        // Cambia la línea en tu GetEnemy:
-        enemy.transform.SetParent(Camera.main.transform);
-        enemy.transform.position = position;
-        enemy.transform.rotation = rotation;
-        enemy.gameObject.SetActive(true);
+            if (!enemy.gameObject.activeSelf)
+                enemy.gameObject.SetActive(true);
+        }
 
         return (T)enemy;
     }

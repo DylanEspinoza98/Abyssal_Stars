@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerScript
   movSpeed: 5
+  _focusSpeedMultiplier: 0.4
   _limitX: 2.8
   _limitY: 5
   _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
@@ -178,4 +179,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.07
+  m_Radius: 0.045

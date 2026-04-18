@@ -6,26 +6,32 @@ public abstract class EnemyBase : MonoBehaviour
     protected EnemyPool _myPool;
     protected GameObject _myPrefabKey;
 
-    [Header("Vida (0 = sin vida, muere al primer golpe)")]
+    [Header("Vida")]
     [SerializeField] private int _maxHealth = 0;
     private int _currentHealth;
 
+    [Header("Reciclaje")]
+    [SerializeField] private float _offScreenMargin = 0.3f;
+
     [Header("Feedback Visual")]
-    [SerializeField] private GameObject _explosionEffectPrefab;
     [SerializeField] private Color _hitColor = Color.red;
     [SerializeField] private float _hitFlashDuration = 0.1f;
+
+    [Header("Puntuación")]
+    [SerializeField] protected int _scoreValue = 100;
+
+    [Header("Feedback Visual")]
+    [SerializeField] protected GameObject _explosionEffectPrefab;
 
     private SpriteRenderer _sr;
     private Color _originalColor;
 
-   
     public void Setup(EnemyPool pool, GameObject prefabKey)
     {
         _myPool = pool;
         _myPrefabKey = prefabKey;
     }
 
-    
     protected virtual void OnEnable()
     {
         _currentHealth = _maxHealth;
@@ -39,9 +45,27 @@ public abstract class EnemyBase : MonoBehaviour
         if (_sr != null) _sr.color = _originalColor;
     }
 
+
+    protected virtual void Update()
+    {
+        if (IsOutOfScreen())
+        {
+            ReturnToPool();
+        }
+    }
+
+    private bool IsOutOfScreen()
+    {
+        if (Camera.main == null) return false;
+        Vector2 vp = Camera.main.WorldToViewportPoint(transform.position);
+
+        return vp.x < -_offScreenMargin || vp.x > 1 + _offScreenMargin ||
+               vp.y < -_offScreenMargin || vp.y > 1 + _offScreenMargin;
+    }
+
+
     public void TakeDamage(int amount)
     {
-        // Sin vida configurada = muere al instante
         if (_maxHealth <= 0)
         {
             Die();
@@ -56,22 +80,39 @@ public abstract class EnemyBase : MonoBehaviour
         }
         else
         {
-            // Flash de daño
-            if (_sr != null)
-                StartCoroutine(HitFlash());
+            if (_sr != null) StartCoroutine(HitFlash());
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerScript player = collision.GetComponent<playerScript>();
+            if (player != null)
+            {
+                player.TakeDamage(1);
+            }
+
+            if (!gameObject.CompareTag("Boss"))
+            {
+                ReturnToPool();
+            }
         }
     }
 
-  
-    private void Die()
+    protected virtual void Die()
     {
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddScore(_scoreValue);
+        }
+
         if (_explosionEffectPrefab != null)
             Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
 
         ReturnToPool();
     }
 
-    
     private IEnumerator HitFlash()
     {
         _sr.color = _hitColor;
