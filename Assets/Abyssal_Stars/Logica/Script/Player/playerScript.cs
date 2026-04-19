@@ -14,10 +14,6 @@ public class playerScript : MonoBehaviour
     [SerializeField] private float _limitX = 4.5f;
     [SerializeField] private float _limitY = 8.5f;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    private Collider2D col;
-
     [Header("Shooting Settings")]
     [SerializeField] private PlayerBullet _bulletPrefab;
     [SerializeField] private float _fireRate = 0.15f;
@@ -34,6 +30,13 @@ public class playerScript : MonoBehaviour
     private Vector3 _startPosition;
     private bool _isDead = false;
     private bool _isInvincible = false;
+
+    public bool IsInvincible => _isInvincible;
+
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Collider2D col;
+    
 
     public event Action<int> OnLivesChanged;
 
@@ -158,4 +161,5 @@ public class playerScript : MonoBehaviour
         Vector2 velocity = transform.up * _bulletSpeed;
         BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, transform.rotation, velocity);
     }
+
 }

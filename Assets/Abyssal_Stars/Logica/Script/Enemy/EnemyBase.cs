@@ -88,8 +88,11 @@ public abstract class EnemyBase : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerScript player = collision.GetComponent<playerScript>();
+
             if (player != null)
             {
+                if (player.IsInvincible) return;
+
                 player.TakeDamage(1);
             }
 
