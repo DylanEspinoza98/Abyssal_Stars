@@ -25,6 +25,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private SpriteRenderer _sr;
     private Color _originalColor;
+    private bool _isDefeated = false;
 
     public void Setup(EnemyPool pool, GameObject prefabKey)
     {
@@ -35,6 +36,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected virtual void OnEnable()
     {
         _currentHealth = _maxHealth;
+        _isDefeated = false;
 
         if (_sr == null)
         {
@@ -66,6 +68,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (_isDefeated) return;
+
         if (_maxHealth <= 0)
         {
             Die();
@@ -85,26 +89,29 @@ public abstract class EnemyBase : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_isDefeated) return;
+
         if (collision.CompareTag("Player"))
         {
-            playerScript player = collision.GetComponent<playerScript>();
-
+            PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null)
             {
                 if (player.IsInvincible) return;
-
                 player.TakeDamage(1);
             }
 
             if (!gameObject.CompareTag("Boss"))
             {
-                ReturnToPool();
+                Die();
             }
         }
     }
 
     protected virtual void Die()
     {
+        if (_isDefeated) return;
+        _isDefeated = true;
+
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.AddScore(_scoreValue);

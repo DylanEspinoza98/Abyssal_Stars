@@ -53,9 +53,9 @@ public class EnemyViking : EnemyBase
 
             _patienceTimer += Time.deltaTime;
 
-            if (playerScript.Instance != null && !_hasFired)
+            if (PlayerHealth.Instance != null && !_hasFired)
             {
-                float distToPlayer = Vector2.Distance(transform.position, playerScript.Instance.transform.position);
+                float distToPlayer = Vector2.Distance(transform.position, PlayerHealth.Instance.transform.position);
 
                 if (distToPlayer <= _attackRange)
                 {
@@ -77,9 +77,9 @@ public class EnemyViking : EnemyBase
         {
             if (!gameObject.activeInHierarchy) yield break;
 
-            if (playerScript.Instance != null)
+            if (PlayerHealth.Instance != null)
             {
-                Vector2 dir = (playerScript.Instance.transform.position - transform.position).normalized;
+                Vector2 dir = (PlayerHealth.Instance.transform.position - transform.position).normalized;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 Quaternion rot = Quaternion.Euler(0, 0, angle - 90f);
 

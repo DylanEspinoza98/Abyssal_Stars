@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 6187028549117265612}
   - component: {fileID: 8016316852799700363}
   - component: {fileID: 2493757942679165595}
-  - component: {fileID: 8895480097579259076}
   - component: {fileID: 4934835463181067043}
+  - component: {fileID: 5004307877106505669}
+  - component: {fileID: 1503121795634315065}
+  - component: {fileID: 392313629745919437}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,29 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8895480097579259076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6600640249921207629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3069741546796434497d9c2e3021b61f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerScript
-  movSpeed: 5
-  _focusSpeedMultiplier: 0.4
-  _limitX: 2.8
-  _limitY: 5
-  _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
-  _fireRate: 0.12
-  _bulletSpeed: 12
-  _totalLives: 3
-  _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
-  _respawnTime: 2
-  _invincibilityDuration: 3
 --- !u!58 &4934835463181067043
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +159,50 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.045
+--- !u!114 &5004307877106505669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600640249921207629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284ab457393dc84abebe9fbafdf57ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _totalLives: 3
+  _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
+  _respawnTime: 2
+  _invincibilityDuration: 3
+--- !u!114 &1503121795634315065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600640249921207629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108ca455c204b444b8aecf053fc1d796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  movSpeed: 5
+  _focusSpeedMultiplier: 0.4
+  _limitX: 4.5
+  _limitY: 8.5
+--- !u!114 &392313629745919437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600640249921207629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f708d76cfea324a8bec43095f4c364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShooter
+  _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
+  _fireRate: 0.15
+  _bulletSpeed: 12

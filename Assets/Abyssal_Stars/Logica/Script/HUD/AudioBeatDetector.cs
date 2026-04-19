@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using System; // ¡CRÍTICO para usar los event Action!
 
 public class AudioBeatDetector : MonoBehaviour
 {
     [Header("Configuracion de Audio")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private int _sampleSize = 1024;
-    [SerializeField] private int _beatsPerMeasure = 4;
 
     [Header("Banda de Bajos - Kamikaze")]
     [SerializeField] private int _bassStartSample = 0;
@@ -18,137 +18,63 @@ public class AudioBeatDetector : MonoBehaviour
     [SerializeField] private int _midEndSample = 40;
     [SerializeField] private float _midThreshold = 0.08f;
     [SerializeField] private float _midCooldown = 0.30f;
-    [SerializeField] private float _orbitadorMinInterval = 30f;
-
 
     [Header("Banda de Agudos - GateKeeper")]
     [SerializeField] private int _highStartSample = 41;
     [SerializeField] private int _highEndSample = 100;
     [SerializeField] private float _highThreshold = 0.05f;
-    [SerializeField] private float _highCooldown = 5f; 
+    [SerializeField] private float _highCooldown = 5f;
 
-
-    [Header("Banda de Medios-Altos - Vikingo")]
+    [Header("Banda de Medios-Altos - Viking")]
     [SerializeField] private int _vikingStartSample = 101;
     [SerializeField] private int _vikingEndSample = 250;
     [SerializeField] private float _vikingThreshold = 0.06f;
     [SerializeField] private float _vikingCooldown = 2.0f;
 
-    [Header("Prefabs de Enemigos")]
-    [SerializeField] private Kamikaze _kamikazePrefab;
-    [SerializeField] private CircularEnemy _circularEnemyPrefab;
-    [SerializeField] private EnemyGateKeeper _barreraPrefab;
-    [SerializeField] private EnemyViking _vikingPrefab;
-
-    [Header("Fase del Jefe")]
-    [SerializeField] private float _timeToBoss = 60f;
-    [SerializeField] private float _warningDuration = 3f;
-    [SerializeField] private GameObject _bossPrefab;
-
-    [Header("Puntos de Aparición Específicos")]
-    [SerializeField] private Transform _kamikazeSpawnPoint;
-    [SerializeField] private Transform _orbitadorSpawnPoint;
-    [SerializeField] private Transform _barreraSpawnPoint; 
-    [SerializeField] private Transform _bossSpawnPoint;
-    [SerializeField] private Transform _vikingSpawnPoint;
-
-    [Header("Ajustes de Despliegue")]
-    [SerializeField] private float _spawnRangeX = 2f;
-
     public static AudioBeatDetector Instance { get; private set; }
 
-    private float[] _samples;
-    private float _prevBassIntensity;
-    private float _lastBassTime;
-    private float _prevMidIntensity;
-    private float _lastMidTime;
-    private float _prevHighIntensity;
-    private float _lastHighTime;
-    private float _lastOrbitadorTime = -999f;
-    private int _beatCount = 0;
-    private float _prevVikingIntensity;
-    private float _lastVikingTime;
+    public event Action OnBassBeat;
+    public event Action OnMidBeat;
+    public event Action OnHighBeat;
+    public event Action OnVikingBeat;
 
-    private bool _bossSpawned = false;
-    private bool _warningTriggered = false;
-    private float _levelTimer = 0f;
+    private float[] _samples;
+    private float _prevBassIntensity, _prevMidIntensity, _prevHighIntensity, _prevVikingIntensity;
+    private float _lastBassTime, _lastMidTime, _lastHighTime, _lastVikingTime;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     void Start()
     {
         _samples = new float[_sampleSize];
         if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
-        _lastBassTime = Time.time;
-        _lastMidTime = Time.time;
-        _lastHighTime = Time.time;
-        _lastVikingTime = Time.time;
+
+        float t = Time.time;
+        _lastBassTime = t; _lastMidTime = t; _lastHighTime = t; _lastVikingTime = t;
     }
 
     void Update()
     {
         if (_audioSource == null || !_audioSource.isPlaying) return;
-        if (_bossSpawned) return;
-
-        _levelTimer += Time.deltaTime;
-
-        if (_levelTimer >= _timeToBoss)
-        {
-            SpawnBoss();
-            return;
-        }
-
-        if (_levelTimer >= _timeToBoss - _warningDuration)
-        {
-            if (!_warningTriggered)
-            {
-                if (BossWarningUI.Instance != null)
-                {
-                    BossWarningUI.Instance.ShowWarning(_warningDuration);
-                }
-                _warningTriggered = true;
-            }
-            return;
-        }
 
         _audioSource.GetSpectrumData(_samples, 0, FFTWindow.BlackmanHarris);
+
         DetectBass();
         DetectMids();
         DetectHighs();
         DetectVikingBeats();
     }
 
-    void SpawnBoss()
-    {
-        _bossSpawned = true;
-        if (_bossPrefab != null && _bossSpawnPoint != null)
-        {
-            Instantiate(_bossPrefab, _bossSpawnPoint.position, Quaternion.identity);
-        }
-    }
-
     void DetectBass()
     {
         float intensity = SumSamples(_bassStartSample, _bassEndSample);
-        bool isPeak = intensity > _prevBassIntensity;
-        bool overThresh = intensity > _bassThreshold;
-        bool cooledDown = Time.time - _lastBassTime > _bassCooldown;
-
-        if (isPeak && overThresh && cooledDown)
+        if (intensity > _prevBassIntensity && intensity > _bassThreshold && Time.time - _lastBassTime > _bassCooldown)
         {
-            _beatCount = (_beatCount % _beatsPerMeasure) + 1;
-            SpawnEnemy(_kamikazePrefab, _kamikazeSpawnPoint);
-            if (_beatCount == _beatsPerMeasure) TrySpawnOrbitador();
+            OnBassBeat?.Invoke(); 
             _lastBassTime = Time.time;
         }
         _prevBassIntensity = intensity;
@@ -157,13 +83,9 @@ public class AudioBeatDetector : MonoBehaviour
     void DetectMids()
     {
         float intensity = SumSamples(_midStartSample, _midEndSample);
-        bool isPeak = intensity > _prevMidIntensity;
-        bool overThresh = intensity > _midThreshold;
-        bool cooledDown = Time.time - _lastMidTime > _midCooldown;
-
-        if (isPeak && overThresh && cooledDown)
+        if (intensity > _prevMidIntensity && intensity > _midThreshold && Time.time - _lastMidTime > _midCooldown)
         {
-            TrySpawnOrbitador();
+            OnMidBeat?.Invoke();
             _lastMidTime = Time.time;
         }
         _prevMidIntensity = intensity;
@@ -172,67 +94,35 @@ public class AudioBeatDetector : MonoBehaviour
     void DetectHighs()
     {
         float intensity = SumSamples(_highStartSample, _highEndSample);
-        bool isPeak = intensity > _prevHighIntensity;
-        bool overThresh = intensity > _highThreshold;
-        bool cooledDown = Time.time - _lastHighTime > _highCooldown;
-
-        if (isPeak && overThresh && cooledDown)
+        if (intensity > _prevHighIntensity && intensity > _highThreshold && Time.time - _lastHighTime > _highCooldown)
         {
-            SpawnEnemy(_barreraPrefab, _barreraSpawnPoint);
+            OnHighBeat?.Invoke();
             _lastHighTime = Time.time;
         }
         _prevHighIntensity = intensity;
     }
+
     void DetectVikingBeats()
     {
         float intensity = SumSamples(_vikingStartSample, _vikingEndSample);
-        bool isPeak = intensity > _prevVikingIntensity;
-        bool overThresh = intensity > _vikingThreshold;
-        bool cooledDown = Time.time - _lastVikingTime > _vikingCooldown;
-
-        if (isPeak && overThresh && cooledDown)
+        if (intensity > _prevVikingIntensity && intensity > _vikingThreshold && Time.time - _lastVikingTime > _vikingCooldown)
         {
-            SpawnEnemy(_vikingPrefab, _vikingSpawnPoint);
+            OnVikingBeat?.Invoke();
             _lastVikingTime = Time.time;
         }
         _prevVikingIntensity = intensity;
-    }
-
-    void TrySpawnOrbitador()
-    {
-        if (Time.time - _lastOrbitadorTime > _orbitadorMinInterval)
-        {
-            SpawnEnemy(_circularEnemyPrefab, _orbitadorSpawnPoint);
-            _lastOrbitadorTime = Time.time;
-        }
     }
 
     float SumSamples(int from, int to)
     {
         float sum = 0f;
         int end = Mathf.Min(to, _samples.Length - 1);
-        for (int i = from; i <= end; i++)
-        {
-            sum += Mathf.Abs(_samples[i]);
-        }
+        for (int i = from; i <= end; i++) sum += Mathf.Abs(_samples[i]);
         return sum / (_audioSource.volume > 0 ? _audioSource.volume : 0.1f);
     }
 
-    void SpawnEnemy<T>(T prefab, Transform specificSpawnPoint) where T : EnemyBase
-    {
-        if (prefab == null || specificSpawnPoint == null) return;
-
-        Vector3 basePos = specificSpawnPoint.position;
-        float randomX = Random.Range(-_spawnRangeX, _spawnRangeX);
-        Vector3 finalPos = new Vector3(basePos.x + randomX, basePos.y, basePos.z);
-
-        EnemyPool.Instance.GetEnemy(prefab, finalPos, prefab.transform.rotation);
-    }
     public void StopMusic()
     {
-        if (_audioSource != null && _audioSource.isPlaying)
-        {
-            _audioSource.Stop();
-        }
+        if (_audioSource != null && _audioSource.isPlaying) _audioSource.Stop();
     }
 }

@@ -20,7 +20,7 @@ public class EnemyBullet : Bullet
     {
         if (collision.CompareTag("Player"))
         {
-            playerScript player = collision.GetComponent<playerScript>();
+            PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null) player.TakeDamage(_damage);
         }
 

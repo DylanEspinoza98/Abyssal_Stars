@@ -2,27 +2,32 @@ using UnityEngine;
 
 public class LivesHUD : MonoBehaviour
 {
-    [SerializeField] private playerScript _player;
     [SerializeField] private RectTransform _livesRect;
     [SerializeField] private float _iconWidth = 50f;
-    private void OnEnable()
-    {
-        if (_player != null)
-            _player.OnLivesChanged += UpdateLivesDisplay;
-    }
-    private void OnDisable()
-    {
-        if (_player != null)
-            _player.OnLivesChanged -= UpdateLivesDisplay;
-    }
 
     void Start()
     {
-        UpdateLivesDisplay(_player.TotalLives);
+        if (PlayerHealth.Instance != null)
+        {
+            PlayerHealth.Instance.OnLivesChanged += UpdateLivesDisplay;
+
+            UpdateLivesDisplay(PlayerHealth.Instance.TotalLives);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (PlayerHealth.Instance != null)
+        {
+            PlayerHealth.Instance.OnLivesChanged -= UpdateLivesDisplay;
+        }
     }
 
     private void UpdateLivesDisplay(int currentLives)
     {
-        _livesRect.sizeDelta = new Vector2(currentLives * _iconWidth, _livesRect.sizeDelta.y);
+        if (_livesRect != null)
+        {
+            _livesRect.sizeDelta = new Vector2(currentLives * _iconWidth, _livesRect.sizeDelta.y);
+        }
     }
 }
