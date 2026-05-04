@@ -19,6 +19,9 @@ public class EnemyViking : EnemyBase
     [SerializeField] private float _spawnGracePeriod = 1.5f;
     private float _patienceTimer;
 
+    [Header("Configuración de Animación")]
+    [SerializeField] private Animator _animator;
+
     private bool _hasFired = false;
     private bool _isExiting = false;
     private Vector3 _targetPosition;
@@ -31,8 +34,15 @@ public class EnemyViking : EnemyBase
         _isExiting = false;
         _patienceTimer = 0f;
 
-        _targetPosition = transform.localPosition + new Vector3(0, -3f, 0);
+        if (_animator == null) _animator = GetComponent<Animator>();
 
+        if (_animator != null)
+        {
+            _animator.ResetTrigger("Shoot"); 
+            _animator.Play("VikingIdle", 0, 0f); 
+        }
+
+        _targetPosition = transform.localPosition + new Vector3(0, -3f, 0);
         _exitDirection = new Vector2(transform.localPosition.x > 0 ? 1f : -1f, 0.5f).normalized;
     }
 
@@ -73,6 +83,11 @@ public class EnemyViking : EnemyBase
     {
         _hasFired = true;
 
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Shoot");
+        }
+
         for (int i = 0; i < _shotsPerBurst; i++)
         {
             if (!gameObject.activeInHierarchy) yield break;
@@ -87,6 +102,7 @@ public class EnemyViking : EnemyBase
             }
             yield return new WaitForSeconds(_timeBetweenShots);
         }
+
 
         _isExiting = true;
     }

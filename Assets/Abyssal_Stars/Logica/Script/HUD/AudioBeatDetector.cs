@@ -1,46 +1,46 @@
 ﻿using UnityEngine;
-using System; // ¡CRÍTICO para usar los event Action!
+using System;
 
 public class AudioBeatDetector : MonoBehaviour
 {
-    [Header("Configuracion de Audio")]
+    [Header("Configuración de Audio")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private int _sampleSize = 1024;
 
-    [Header("Banda de Bajos - Kamikaze")]
-    [SerializeField] private int _bassStartSample = 0;
-    [SerializeField] private int _bassEndSample = 10;
-    [SerializeField] private float _bassThreshold = 0.15f;
-    [SerializeField] private float _bassCooldown = 0.15f;
+    [Header("Frecuencias Bajas (Low)")]
+    [SerializeField] private int _lowStartSample = 0;
+    [SerializeField] private int _lowEndSample = 10;
+    [SerializeField] private float _lowThreshold = 0.15f;
+    [SerializeField] private float _lowCooldown = 0.15f;
 
-    [Header("Banda de Medios - Orbitador")]
+    [Header("Frecuencias Medias (Mid)")]
     [SerializeField] private int _midStartSample = 11;
     [SerializeField] private int _midEndSample = 40;
     [SerializeField] private float _midThreshold = 0.08f;
     [SerializeField] private float _midCooldown = 0.30f;
 
-    [Header("Banda de Agudos - GateKeeper")]
+    [Header("Frecuencias Altas (High)")]
     [SerializeField] private int _highStartSample = 41;
     [SerializeField] private int _highEndSample = 100;
     [SerializeField] private float _highThreshold = 0.05f;
     [SerializeField] private float _highCooldown = 5f;
 
-    [Header("Banda de Medios-Altos - Viking")]
-    [SerializeField] private int _vikingStartSample = 101;
-    [SerializeField] private int _vikingEndSample = 250;
-    [SerializeField] private float _vikingThreshold = 0.06f;
-    [SerializeField] private float _vikingCooldown = 2.0f;
+    [Header("Frecuencias Sub-Bajas (Sub-Low)")]
+    [SerializeField] private int _subLowStartSample = 101;
+    [SerializeField] private int _subLowEndSample = 250;
+    [SerializeField] private float _subLowThreshold = 0.06f;
+    [SerializeField] private float _subLowCooldown = 2.0f;
 
     public static AudioBeatDetector Instance { get; private set; }
 
-    public event Action OnBassBeat;
+    public event Action OnLowBeat;
     public event Action OnMidBeat;
     public event Action OnHighBeat;
-    public event Action OnVikingBeat;
+    public event Action OnSubLowBeat;
 
     private float[] _samples;
-    private float _prevBassIntensity, _prevMidIntensity, _prevHighIntensity, _prevVikingIntensity;
-    private float _lastBassTime, _lastMidTime, _lastHighTime, _lastVikingTime;
+    private float _prevLowIntensity, _prevMidIntensity, _prevHighIntensity, _prevSubLowIntensity;
+    private float _lastLowTime, _lastMidTime, _lastHighTime, _lastSubLowTime;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class AudioBeatDetector : MonoBehaviour
         if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
 
         float t = Time.time;
-        _lastBassTime = t; _lastMidTime = t; _lastHighTime = t; _lastVikingTime = t;
+        _lastLowTime = t; _lastMidTime = t; _lastHighTime = t; _lastSubLowTime = t;
     }
 
     void Update()
@@ -63,24 +63,24 @@ public class AudioBeatDetector : MonoBehaviour
 
         _audioSource.GetSpectrumData(_samples, 0, FFTWindow.BlackmanHarris);
 
-        DetectBass();
-        DetectMids();
-        DetectHighs();
-        DetectVikingBeats();
+        DetectLowBeats();
+        DetectMidBeats();
+        DetectHighBeats();
+        DetectSubLowBeats();
     }
 
-    void DetectBass()
+    void DetectLowBeats()
     {
-        float intensity = SumSamples(_bassStartSample, _bassEndSample);
-        if (intensity > _prevBassIntensity && intensity > _bassThreshold && Time.time - _lastBassTime > _bassCooldown)
+        float intensity = SumSamples(_lowStartSample, _lowEndSample);
+        if (intensity > _prevLowIntensity && intensity > _lowThreshold && Time.time - _lastLowTime > _lowCooldown)
         {
-            OnBassBeat?.Invoke(); 
-            _lastBassTime = Time.time;
+            OnLowBeat?.Invoke();
+            _lastLowTime = Time.time;
         }
-        _prevBassIntensity = intensity;
+        _prevLowIntensity = intensity;
     }
 
-    void DetectMids()
+    void DetectMidBeats()
     {
         float intensity = SumSamples(_midStartSample, _midEndSample);
         if (intensity > _prevMidIntensity && intensity > _midThreshold && Time.time - _lastMidTime > _midCooldown)
@@ -91,7 +91,7 @@ public class AudioBeatDetector : MonoBehaviour
         _prevMidIntensity = intensity;
     }
 
-    void DetectHighs()
+    void DetectHighBeats()
     {
         float intensity = SumSamples(_highStartSample, _highEndSample);
         if (intensity > _prevHighIntensity && intensity > _highThreshold && Time.time - _lastHighTime > _highCooldown)
@@ -102,15 +102,15 @@ public class AudioBeatDetector : MonoBehaviour
         _prevHighIntensity = intensity;
     }
 
-    void DetectVikingBeats()
+    void DetectSubLowBeats()
     {
-        float intensity = SumSamples(_vikingStartSample, _vikingEndSample);
-        if (intensity > _prevVikingIntensity && intensity > _vikingThreshold && Time.time - _lastVikingTime > _vikingCooldown)
+        float intensity = SumSamples(_subLowStartSample, _subLowEndSample);
+        if (intensity > _prevSubLowIntensity && intensity > _subLowThreshold && Time.time - _lastSubLowTime > _subLowCooldown)
         {
-            OnVikingBeat?.Invoke();
-            _lastVikingTime = Time.time;
+            OnSubLowBeat?.Invoke();
+            _lastSubLowTime = Time.time;
         }
-        _prevVikingIntensity = intensity;
+        _prevSubLowIntensity = intensity;
     }
 
     float SumSamples(int from, int to)

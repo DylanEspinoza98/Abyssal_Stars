@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0414
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+
 
 namespace SlimUI.ModernMenu{
 	public class UISettingsManager : MonoBehaviour {

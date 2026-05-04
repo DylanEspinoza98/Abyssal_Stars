@@ -5,22 +5,29 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Prefabs de Enemigos")]
-    [SerializeField] private Kamikaze _kamikazePrefab;
-    [SerializeField] private CircularEnemy _circularEnemyPrefab;
-    [SerializeField] private EnemyGateKeeper _barreraPrefab;
-    [SerializeField] private EnemyViking _vikingPrefab;
+    [Header("Prefabs por Frecuencia")]
+    [SerializeField] private EnemyBase _lowFreqEnemyPrefab;
+    [SerializeField] private EnemyBase _midFreqEnemyPrefab;  
+    [SerializeField] private EnemyBase _highFreqEnemyPrefab; 
+    [SerializeField] private EnemyBase _subLowFreqEnemyPrefab;
 
-    [Header("Puntos de Aparición Específicos")]
-    [SerializeField] private Transform _kamikazeSpawnPoint;
-    [SerializeField] private Transform _orbitadorSpawnPoint;
-    [SerializeField] private Transform _barreraSpawnPoint;
-    [SerializeField] private Transform _vikingSpawnPoint;
+    [Header("Puntos de Aparición")]
+    [SerializeField] private Transform _lowSpawnPoint;
+    [SerializeField] private Transform _midSpawnPoint;
+    [SerializeField] private Transform _highSpawnPoint;
+    [SerializeField] private Transform _subLowSpawnPoint;
     [SerializeField] private float _spawnRangeX = 2f;
 
-    [Header("Lógica de Orbitador")]
-    [SerializeField] private float _orbitadorMinInterval = 30f;
-    private float _lastOrbitadorTime = -999f;
+    [Header("Intervalos de Seguridad (Timers)")]
+    [SerializeField] private float _lowSpawnInterval = 0.5f;
+    [SerializeField] private float _midSpawnInterval = 2.0f;
+    [SerializeField] private float _highSpawnInterval = 1.0f;
+    [SerializeField] private float _subLowSpawnInterval = 5.0f;
+
+    private float _lastLowTime = -99f;
+    private float _lastMidTime = -99f;
+    private float _lastHighTime = -99f;
+    private float _lastSubLowTime = -99f;
 
     [Header("Fase del Jefe")]
     [SerializeField] private float _timeToBoss = 60f;
@@ -28,12 +35,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _bossPrefab;
     [SerializeField] private Transform _bossSpawnPoint;
 
-    private int _beatCount = 0;
-    private int _beatsPerMeasure = 4;
     private float _levelTimer = 0f;
     private bool _bossSpawned = false;
     private bool _warningTriggered = false;
-    private bool _isSpawningPaused = false; // Para detener enemigos cuando llega el jefe
+    private bool _isSpawningPaused = false;
 
     private void Awake()
     {
@@ -41,27 +46,26 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    // Dentro del GameManager.cs
     private void Start()
     {
-        // Nos suscribimos a los avisos del AudioBeatDetector
         if (AudioBeatDetector.Instance != null)
         {
-            AudioBeatDetector.Instance.OnBassBeat += HandleBassBeat;
-            AudioBeatDetector.Instance.OnMidBeat += HandleMidBeat;
-            AudioBeatDetector.Instance.OnHighBeat += HandleHighBeat;
-            AudioBeatDetector.Instance.OnVikingBeat += HandleVikingBeat;
+            AudioBeatDetector.Instance.OnLowBeat += HandleLowFreqBeat;
+            AudioBeatDetector.Instance.OnMidBeat += HandleMidFreqBeat;
+            AudioBeatDetector.Instance.OnHighBeat += HandleHighFreqBeat;
+            AudioBeatDetector.Instance.OnSubLowBeat += HandleSubLowFreqBeat;
         }
     }
 
     private void OnDestroy()
     {
-        // Limpieza de memoria vital
         if (AudioBeatDetector.Instance != null)
         {
-            AudioBeatDetector.Instance.OnBassBeat -= HandleBassBeat;
-            AudioBeatDetector.Instance.OnMidBeat -= HandleMidBeat;
-            AudioBeatDetector.Instance.OnHighBeat -= HandleHighBeat;
-            AudioBeatDetector.Instance.OnVikingBeat -= HandleVikingBeat;
+            AudioBeatDetector.Instance.OnLowBeat += HandleLowFreqBeat;
+            AudioBeatDetector.Instance.OnMidBeat += HandleMidFreqBeat;
+            AudioBeatDetector.Instance.OnHighBeat += HandleHighFreqBeat;
+            AudioBeatDetector.Instance.OnSubLowBeat += HandleSubLowFreqBeat;
         }
     }
 
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
         if (_levelTimer >= _timeToBoss - _warningDuration && !_warningTriggered)
         {
             _warningTriggered = true;
-            _isSpawningPaused = true; // Cortamos el flujo de enemigos normales
+            _isSpawningPaused = true;
 
             if (BossWarningUI.Instance != null)
             {
@@ -89,45 +93,52 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // --- REACCIONES A LA MÚSICA ---
-    private void HandleBassBeat()
+    private void HandleLowFreqBeat()
     {
         if (_isSpawningPaused) return;
 
-        _beatCount = (_beatCount % _beatsPerMeasure) + 1;
-        SpawnEnemy(_kamikazePrefab, _kamikazeSpawnPoint);
-
-        if (_beatCount == _beatsPerMeasure) TrySpawnOrbitador();
-    }
-
-    private void HandleMidBeat()
-    {
-        if (_isSpawningPaused) return;
-        TrySpawnOrbitador();
-    }
-
-    private void HandleHighBeat()
-    {
-        if (_isSpawningPaused) return;
-        SpawnEnemy(_barreraPrefab, _barreraSpawnPoint);
-    }
-
-    private void HandleVikingBeat()
-    {
-        if (_isSpawningPaused) return;
-        SpawnEnemy(_vikingPrefab, _vikingSpawnPoint);
-    }
-
-    private void TrySpawnOrbitador()
-    {
-        if (Time.time - _lastOrbitadorTime > _orbitadorMinInterval)
+        if (Time.time - _lastLowTime > _lowSpawnInterval)
         {
-            SpawnEnemy(_circularEnemyPrefab, _orbitadorSpawnPoint);
-            _lastOrbitadorTime = Time.time;
+            SpawnEnemy(_lowFreqEnemyPrefab, _lowSpawnPoint);
+            _lastLowTime = Time.time;
         }
     }
 
-    private void SpawnEnemy<T>(T prefab, Transform specificSpawnPoint) where T : EnemyBase
+    private void HandleMidFreqBeat()
+    {
+        if (_isSpawningPaused) return;
+
+        if (Time.time - _lastMidTime > _midSpawnInterval)
+        {
+            SpawnEnemy(_midFreqEnemyPrefab, _midSpawnPoint);
+            _lastMidTime = Time.time;
+        }
+    }
+
+    private void HandleHighFreqBeat()
+    {
+        if (_isSpawningPaused) return;
+
+        if (Time.time - _lastHighTime > _highSpawnInterval)
+        {
+            SpawnEnemy(_highFreqEnemyPrefab, _highSpawnPoint);
+            _lastHighTime = Time.time;
+        }
+    }
+
+    private void HandleSubLowFreqBeat()
+    {
+        if (_isSpawningPaused) return;
+
+        if (Time.time - _lastSubLowTime > _subLowSpawnInterval)
+        {
+            SpawnEnemy(_subLowFreqEnemyPrefab, _subLowSpawnPoint);
+            _lastSubLowTime = Time.time;
+        }
+    }
+
+
+    private void SpawnEnemy(EnemyBase prefab, Transform specificSpawnPoint)
     {
         if (prefab == null || specificSpawnPoint == null) return;
 

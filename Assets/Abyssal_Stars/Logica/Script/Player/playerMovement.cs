@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Esto obliga a Unity a añadir PlayerHealth si no está, evitando errores nulos
 [RequireComponent(typeof(PlayerHealth), typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _focusSpeedMultiplier = 0.4f;
     [SerializeField] private float _limitX = 4.5f;
     [SerializeField] private float _limitY = 8.5f;
+
+    [Header("Visuals")]
+    [SerializeField] private Animator _thrusterAnimator;
 
     private Rigidbody2D rb;
     private PlayerHealth health;
@@ -22,7 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (health != null && health.IsDead) return;
+        if (health != null && health.IsDead)
+        {
+            if (_thrusterAnimator != null) _thrusterAnimator.SetBool("isMoving", false);
+            return;
+        }
 
         HandleMovement();
     }
@@ -34,11 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Keyboard.current != null)
         {
-            if (Keyboard.current.leftShiftKey.isPressed)
-            {
-                currentSpeed *= _focusSpeedMultiplier;
-            }
-
+            if (Keyboard.current.leftShiftKey.isPressed) currentSpeed *= _focusSpeedMultiplier;
             if (Keyboard.current.wKey.isPressed) moveInput.y = 1;
             if (Keyboard.current.sKey.isPressed) moveInput.y = -1;
             if (Keyboard.current.aKey.isPressed) moveInput.x = -1;
@@ -46,6 +48,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.linearVelocity = moveInput.normalized * currentSpeed;
+
+        bool isMoving = moveInput != Vector2.zero;
+
+        if (_thrusterAnimator != null)
+        {
+            _thrusterAnimator.SetBool("isMoving", isMoving);
+        }
 
         float clampedX = Mathf.Clamp(transform.localPosition.x, -_limitX, _limitX);
         float clampedY = Mathf.Clamp(transform.localPosition.y, -_limitY, _limitY);

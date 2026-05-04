@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public bool IsDead => _isDead;
     public bool IsInvincible => _isInvincible;
 
-    private SpriteRenderer sr;
+    private SpriteRenderer[] _renderers;
     private Collider2D col;
     private Rigidbody2D rb;
 
@@ -34,7 +34,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        _renderers = GetComponentsInChildren<SpriteRenderer>();
+
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         _startPosition = new Vector3(0, 0, transform.localPosition.z);
@@ -53,10 +54,13 @@ public class PlayerHealth : MonoBehaviour
         _isDead = true;
         if (_explosionEffectPrefab != null)
             Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
+        foreach (SpriteRenderer sr in _renderers)
+        {
+            if (sr != null) sr.enabled = false;
+        }
 
-        sr.enabled = false;
         col.enabled = false;
-        rb.linearVelocity = Vector2.zero; 
+        rb.linearVelocity = Vector2.zero;
 
         if (_totalLives > 0)
         {
@@ -73,7 +77,12 @@ public class PlayerHealth : MonoBehaviour
     private void Respawn()
     {
         transform.localPosition = _startPosition;
-        sr.enabled = true;
+
+        foreach (SpriteRenderer sr in _renderers)
+        {
+            if (sr != null) sr.enabled = true;
+        }
+
         col.enabled = true;
         _isDead = false;
         StartCoroutine(InvincibilityRoutine());
@@ -83,13 +92,25 @@ public class PlayerHealth : MonoBehaviour
     {
         _isInvincible = true;
         float timer = 0;
+
         while (timer < _invincibilityDuration)
         {
-            sr.enabled = !sr.enabled;
+
+            foreach (SpriteRenderer sr in _renderers)
+            {
+                if (sr != null) sr.enabled = !sr.enabled;
+            }
+
             yield return new WaitForSeconds(0.1f);
             timer += 0.1f;
         }
-        sr.enabled = true;
+
+
+        foreach (SpriteRenderer sr in _renderers)
+        {
+            if (sr != null) sr.enabled = true;
+        }
+
         _isInvincible = false;
     }
 }

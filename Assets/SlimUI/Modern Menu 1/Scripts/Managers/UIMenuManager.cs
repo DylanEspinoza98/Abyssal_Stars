@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+#pragma warning disable 0414
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
