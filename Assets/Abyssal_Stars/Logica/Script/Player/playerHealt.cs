@@ -8,7 +8,9 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Arcade Life Settings")]
     [SerializeField] private int _totalLives = 3;
+    [SerializeField] private int _maxLives = 5;  // tope maximo de vidas
     public int TotalLives => _totalLives;
+
     [SerializeField] private GameObject _explosionEffectPrefab;
     [SerializeField] private float _respawnTime = 2f;
     [SerializeField] private float _invincibilityDuration = 3f;
@@ -35,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         _renderers = GetComponentsInChildren<SpriteRenderer>();
-
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         _startPosition = new Vector3(0, 0, transform.localPosition.z);
@@ -49,15 +50,23 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(DeathSequence());
     }
 
+    // NUEVO: suma una vida hasta el maximo
+    public void AddLife()
+    {
+        if (_totalLives >= _maxLives) return;
+        _totalLives++;
+        OnLivesChanged?.Invoke(_totalLives);
+    }
+
     private IEnumerator DeathSequence()
     {
         _isDead = true;
+
         if (_explosionEffectPrefab != null)
             Instantiate(_explosionEffectPrefab, transform.position, Quaternion.identity);
+
         foreach (SpriteRenderer sr in _renderers)
-        {
             if (sr != null) sr.enabled = false;
-        }
 
         col.enabled = false;
         rb.linearVelocity = Vector2.zero;
@@ -79,9 +88,7 @@ public class PlayerHealth : MonoBehaviour
         transform.localPosition = _startPosition;
 
         foreach (SpriteRenderer sr in _renderers)
-        {
             if (sr != null) sr.enabled = true;
-        }
 
         col.enabled = true;
         _isDead = false;
@@ -95,21 +102,15 @@ public class PlayerHealth : MonoBehaviour
 
         while (timer < _invincibilityDuration)
         {
-
             foreach (SpriteRenderer sr in _renderers)
-            {
                 if (sr != null) sr.enabled = !sr.enabled;
-            }
 
             yield return new WaitForSeconds(0.1f);
             timer += 0.1f;
         }
 
-
         foreach (SpriteRenderer sr in _renderers)
-        {
             if (sr != null) sr.enabled = true;
-        }
 
         _isInvincible = false;
     }

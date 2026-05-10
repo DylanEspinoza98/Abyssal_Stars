@@ -238,6 +238,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3557665273537569689, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
   m_PrefabInstance: {fileID: 7379923982795297728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &561836665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561836667}
+  - component: {fileID: 561836666}
+  m_Layer: 0
+  m_Name: PowerUpSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &561836666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561836665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04721b3551e0d5e4e8766985ef6aa869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
+  _lifePowerUpPrefab: {fileID: 961767552212471712, guid: b7445cd48cbbe0442839a487d4a222f0, type: 3}
+  _shotgunPowerUpPrefab: {fileID: 630935413856831786, guid: ee4dba2344cb65b47b88083c63546e77, type: 3}
+  _minInterval: 8
+  _maxInterval: 18
+  _spawnOffsetAboveCamera: 1.5
+  _minX: -3.5
+  _maxX: 3.5
+  _lifeProbability: 0.4
+--- !u!4 &561836667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561836665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848556178
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +931,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6892428002374599749, guid: ed2b97916083e704da44e949f907ab69, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892428002374599749, guid: ed2b97916083e704da44e949f907ab69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.55
+      objectReference: {fileID: 0}
     - target: {fileID: 7901000025538881569, guid: ed2b97916083e704da44e949f907ab69, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -895,3 +955,4 @@ SceneRoots:
   - {fileID: 1446310920}
   - {fileID: 8648978341534508911}
   - {fileID: 848556181}
+  - {fileID: 561836667}
