@@ -193,6 +193,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 848556181}
     m_Modifications:
     - target: {fileID: 2748972451225299984, guid: 278a213e4eec56b43824c14cca4331d4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2748972451225299984, guid: 278a213e4eec56b43824c14cca4331d4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
@@ -343,6 +347,7 @@ Transform:
   - {fileID: 1039498245}
   - {fileID: 1966892471}
   - {fileID: 1340560202}
+  - {fileID: 1914515495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &848556182
@@ -530,13 +535,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04721b3551e0d5e4e8766985ef6aa869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
-  _lifePowerUpPrefab: {fileID: 0}
-  _shotgunPowerUpPrefab: {fileID: 0}
+  _lifePowerUpPrefab: {fileID: 961767552212471712, guid: b7445cd48cbbe0442839a487d4a222f0, type: 3}
+  _shotgunPowerUpPrefab: {fileID: 630935413856831786, guid: ee4dba2344cb65b47b88083c63546e77, type: 3}
   _minInterval: 8
   _maxInterval: 18
   _spawnOffsetAboveCamera: 1.5
-  _minX: -3.5
-  _maxX: 3.5
+  _minX: -2.4
+  _maxX: 2.4
   _lifeProbability: 0.4
 --- !u!4 &1914515495
 Transform:
@@ -546,12 +551,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914515493}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 848556181}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1966892471 stripped
 Transform:
@@ -979,6 +984,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7763773758853038724, guid: ed2b97916083e704da44e949f907ab69, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 227.47095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763773758853038724, guid: ed2b97916083e704da44e949f907ab69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35.802246
+      objectReference: {fileID: 0}
     - target: {fileID: 7901000025538881569, guid: ed2b97916083e704da44e949f907ab69, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -995,4 +1008,3 @@ SceneRoots:
   - {fileID: 1446310920}
   - {fileID: 8648978341534508911}
   - {fileID: 848556181}
-  - {fileID: 1914515495}

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _totalLives: 3
+  _maxLives: 5
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _respawnTime: 2
   _invincibilityDuration: 3
@@ -190,8 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   movSpeed: 5
   _focusSpeedMultiplier: 0.4
-  _limitX: 4.5
-  _limitY: 8.5
+  _limitX: 2.7
+  _limitY: 4.8
   _thrusterAnimator: {fileID: 7663594900675000084}
 --- !u!114 &5752991582235901028
 MonoBehaviour:
@@ -208,6 +209,10 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
   _fireRate: 0.15
   _bulletSpeed: 12
+  _shotgunBullets: 5
+  _shotgunSpread: 30
+  _shotgunDuration: 10
+  _shotgunFireRate: 0.25
 --- !u!1 &5315316675712360337
 GameObject:
   m_ObjectHideFlags: 0
