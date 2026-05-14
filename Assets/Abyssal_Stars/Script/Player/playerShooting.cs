@@ -11,14 +11,18 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 12f;
 
     [Header("Modo Shotgun")]
-    [SerializeField] private int _shotgunBullets = 5;       // cantidad de perdigones
-    [SerializeField] private float _shotgunSpread = 30f;    // angulo total del abanico en grados
-    [SerializeField] private float _shotgunDuration = 10f;  // duracion del power up
-    [SerializeField] private float _shotgunFireRate = 0.25f;// cadencia del shotgun (un poco mas lenta)
+    [SerializeField] private int _shotgunBullets = 5;
+    [SerializeField] private float _shotgunSpread = 30f;
+    [SerializeField] private float _shotgunDuration = 10f;
+    [SerializeField] private float _shotgunFireRate = 0.25f;
+
+    [Header("Familiar")]
+    [SerializeField] private Familiar _familiarPrefab;
 
     private float _fireTimer;
     private bool _isShotgunActive = false;
     private Coroutine _shotgunCoroutine;
+    private Familiar _currentFamiliar;
     private PlayerHealth health;
 
     void Start()
@@ -47,17 +51,14 @@ public class PlayerShooter : MonoBehaviour
         }
     }
 
-    // Disparo normal: 1 bala hacia arriba
     private void ShootNormal()
     {
         Vector2 velocity = transform.up * _bulletSpeed;
         BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, transform.rotation, velocity);
     }
 
-    // Disparo shotgun: abanico de balas
     private void ShootShotgun()
     {
-        // Calcula el angulo de cada perdigon distribuido en el abanico
         float halfSpread = _shotgunSpread / 2f;
         float angleStep = _shotgunBullets > 1 ? _shotgunSpread / (_shotgunBullets - 1) : 0f;
 
@@ -67,18 +68,14 @@ public class PlayerShooter : MonoBehaviour
             Quaternion spreadRotation = Quaternion.Euler(0, 0, angle);
             Vector2 dir = spreadRotation * transform.up;
             Quaternion bulletRot = Quaternion.Euler(0, 0, angle) * transform.rotation;
-
             BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, bulletRot, dir * _bulletSpeed);
         }
     }
 
-    // Llamado por PowerUpShotgun al recogerlo
     public void ActivateShotgun()
     {
-        // Si ya habia uno activo, lo cancela y reinicia el timer
         if (_shotgunCoroutine != null)
             StopCoroutine(_shotgunCoroutine);
-
         _shotgunCoroutine = StartCoroutine(ShotgunRoutine());
     }
 
@@ -90,6 +87,20 @@ public class PlayerShooter : MonoBehaviour
         _shotgunCoroutine = null;
     }
 
-    // Util para saber desde UI si el shotgun esta activo
+    // Llamado por PowerUpFamiliar al recogerlo
+    public void ActivateFamiliar()
+    {
+        // Si ya hay un familiar activo lo destruye y crea uno nuevo
+        if (_currentFamiliar != null)
+            Destroy(_currentFamiliar.gameObject);
+
+        if (_familiarPrefab != null)
+        {
+            _currentFamiliar = Instantiate(_familiarPrefab, transform.position, Quaternion.identity);
+            _currentFamiliar.Init(transform, _bulletPrefab);
+        }
+    }
+
     public bool IsShotgunActive => _isShotgunActive;
+    public bool IsFamiliarActive => _currentFamiliar != null;
 }

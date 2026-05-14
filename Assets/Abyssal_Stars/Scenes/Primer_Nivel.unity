@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5752991582235901028, guid: 278a213e4eec56b43824c14cca4331d4, type: 3}
+      propertyPath: _familiarPrefab
+      value: 
+      objectReference: {fileID: 6443738761670676188, guid: fe817ff455e31fa4b8f2f726c391321e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -220,12 +224,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
   _lifePowerUpPrefab: {fileID: 961767552212471712, guid: b7445cd48cbbe0442839a487d4a222f0, type: 3}
   _shotgunPowerUpPrefab: {fileID: 630935413856831786, guid: ee4dba2344cb65b47b88083c63546e77, type: 3}
+  _familiarPowerUpPrefab: {fileID: 6474117407589578453, guid: 8ec98502861257d45b5a0ce9fef4db68, type: 3}
   _minInterval: 8
   _maxInterval: 18
   _spawnOffsetAboveCamera: 1.5
   _minX: -3.5
   _maxX: 3.5
-  _lifeProbability: 0.4
+  _lifeProbability: 0.3
+  _shotgunProbability: 0.4
 --- !u!4 &561836667
 Transform:
   m_ObjectHideFlags: 0

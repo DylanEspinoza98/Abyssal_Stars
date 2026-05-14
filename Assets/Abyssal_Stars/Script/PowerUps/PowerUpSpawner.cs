@@ -8,6 +8,7 @@ public class PowerUpSpawner : MonoBehaviour
     [Header("Power Ups")]
     [SerializeField] private PowerUpLife _lifePowerUpPrefab;
     [SerializeField] private PowerUpShotgun _shotgunPowerUpPrefab;
+    [SerializeField] private PowerUpFamiliar _familiarPowerUpPrefab;
 
     [Header("Spawn Settings")]
     [SerializeField] private float _minInterval = 8f;
@@ -19,8 +20,12 @@ public class PowerUpSpawner : MonoBehaviour
     [SerializeField] private float _minX = -3.5f;
     [SerializeField] private float _maxX = 3.5f;
 
-    // Probabilidad 0-1: 0.4 = 40% vida, 60% shotgun
-    [SerializeField] private float _lifeProbability = 0.4f;
+    [Header("Probabilidades (deben sumar 1)")]
+    // Ej: vida=0.3, shotgun=0.4, familiar=0.3
+    [SerializeField] private float _lifeProbability = 0.3f;
+    [SerializeField] private float _shotgunProbability = 0.4f;
+    // El familiar toma el resto: 1 - vida - shotgun
+    // No hace falta serializar el familiar, se calcula solo
 
     private Camera _cam;
 
@@ -48,7 +53,6 @@ public class PowerUpSpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        // Calcula el borde superior de la camara en coordenadas de mundo
         float camHalfHeight = _cam.orthographicSize;
         float spawnY = _cam.transform.position.y + camHalfHeight + _spawnOffsetAboveCamera;
         float randomX = Random.Range(_minX, _maxX);
@@ -58,16 +62,22 @@ public class PowerUpSpawner : MonoBehaviour
     private void SpawnRandom()
     {
         Vector3 spawnPos = GetSpawnPosition();
+        float roll = Random.value;
 
-        if (Random.value < _lifeProbability)
+        if (roll < _lifeProbability)
         {
             if (_lifePowerUpPrefab != null)
                 Instantiate(_lifePowerUpPrefab, spawnPos, Quaternion.identity);
         }
-        else
+        else if (roll < _lifeProbability + _shotgunProbability)
         {
             if (_shotgunPowerUpPrefab != null)
                 Instantiate(_shotgunPowerUpPrefab, spawnPos, Quaternion.identity);
+        }
+        else
+        {
+            if (_familiarPowerUpPrefab != null)
+                Instantiate(_familiarPowerUpPrefab, spawnPos, Quaternion.identity);
         }
     }
 
@@ -81,5 +91,11 @@ public class PowerUpSpawner : MonoBehaviour
     {
         if (_shotgunPowerUpPrefab != null)
             Instantiate(_shotgunPowerUpPrefab, GetSpawnPosition(), Quaternion.identity);
+    }
+
+    public void SpawnFamiliar()
+    {
+        if (_familiarPowerUpPrefab != null)
+            Instantiate(_familiarPowerUpPrefab, GetSpawnPosition(), Quaternion.identity);
     }
 }
