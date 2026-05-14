@@ -18,8 +18,8 @@ TagManager:
   - Disparo Jugador
   - Amenazas
   - Disparos Amenazas
+  - Background_Object
   - Background
-  - 
   - 
   - 
   - 
@@ -50,6 +50,18 @@ TagManager:
   - name: Explosion
     uniqueID: 2385242731
     locked: 0
+  - name: Background_Object
+    uniqueID: 2452531023
+    locked: 0
+  - name: Background
+    uniqueID: 2384151401
+    locked: 0
   m_RenderingLayers:
   - Default
+  - Jugador
+  - Disparo Jugador
+  - Amenazas
+  - Disparos Amenazas
+  - Background_Object
+  - Background
   m_MigratedRenderPipelines: []
