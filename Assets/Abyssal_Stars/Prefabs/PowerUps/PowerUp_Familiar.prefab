@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 629560553515552259}
   - component: {fileID: 8207949865253502806}
   - component: {fileID: 6474117407589578453}
-  - component: {fileID: 8483434641412603703}
-  m_Layer: 0
+  - component: {fileID: 7661357682776368700}
+  m_Layer: 12
   m_Name: PowerUp_Familiar
-  m_TagString: Untagged
+  m_TagString: PowerUps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ SpriteRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 128
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -80,9 +80,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -897920417
+  m_SortingLayer: 1
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1473390766520696716, guid: 878a84cbdcd95a04884c325aab3a39e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -136,7 +136,7 @@ MonoBehaviour:
   _fallSpeed: 2.5
   _offScreenMargin: 0.3
   _pickupRadius: 0.5
---- !u!95 &8483434641412603703
+--- !u!95 &7661357682776368700
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ Animator:
   m_GameObject: {fileID: 7011719437850455670}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 2141853431291225045, guid: faeaf3dae1860284e8e2adbf3b979251, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

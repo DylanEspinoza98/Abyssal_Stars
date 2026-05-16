@@ -1,139 +1,117 @@
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BackgroundSpawner : MonoBehaviour
 {
-    [Header("Prefabs Comunes (Nebulosas, Estrellas)")]
-    [SerializeField] private GameObject[] _commonPrefabs;
 
-    [Header("Prefabs Raros (Planetas, Estaciones)")]
-    [SerializeField] private GameObject[] _rarePrefabs;
-    [SerializeField][Range(0f, 1f)] private float _rareSpawnChance = 0.25f;
+    public static BackgroundSpawner Instance { get; private set; }
 
-    [Header("Tiempos de Generación")]
-    [SerializeField] private float _minSpawnTime = 6f;
-    [SerializeField] private float _maxSpawnTime = 14f;
-    [SerializeField] private float _killY = -10f;
+    [Header("Capas de Parallax")]
+    [Tooltip("Asigna aquÃ­ los GameObjects hijos que tienen BackgroundLayer.")]
+    [SerializeField] private BackgroundLayer[] _layers;
 
-    [Header("Límites de Dispersión (Relativos)")]
-    [SerializeField] private float _spawnRangeX = 6f;
-    [SerializeField] private float _spawnRangeY = 2.0f;
+    [Header("Pre-Warm")]
+    [SerializeField] private bool _preWarmOnStart = true;
+    [SerializeField] private int _preWarmPerLayer = 4;
+    [SerializeField] private float _spawnTopY = 6f;
+    [SerializeField] private float _killY = -50f;
+    public float KillY => _killY;
 
-    [Header("Ajustes de Profundidad (Parallax)")]
-    [SerializeField] private float _minScale = 0.2f;
-    [SerializeField] private float _maxScale = 1.1f;
-    [SerializeField] private float _baseSpeed = 1.2f;
-    [SerializeField] private int _sortingOrder = -10;
+    public event Action OnPreWarmComplete;
 
-    [Header("Pre-Generación al Iniciar (Pre-Warm)")]
-    [SerializeField] private bool _preSpawnAtStart = true;
-    [SerializeField] private int _preSpawnAmount = 3;
 
-    private GameObject _lastRareSpawned;
+    public event Action<string, Vector3> OnLayerSpawned;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        if (_layers == null || _layers.Length == 0)
+            _layers = GetComponentsInChildren<BackgroundLayer>();
+    }
 
     private void Start()
     {
-        if (_preSpawnAtStart)
+        if (_layers != null)
+            foreach (var layer in _layers)
+                layer?.SetKillY(_killY);
+
+        if (_preWarmOnStart)
+            StartCoroutine(PreWarmRoutine());
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
+    private IEnumerator PreWarmRoutine()
+    {
+        if (_layers == null || _layers.Length == 0)
         {
-            PreSpawnObjects();
+            OnPreWarmComplete?.Invoke();
+            yield break;
         }
 
-        StartCoroutine(SpawnRoutine());
-    }
+        float screenTop = _spawnTopY;
+        float screenBottom = _killY + 2f;
 
-    private IEnumerator SpawnRoutine()
-    {
-        yield return new WaitForSeconds(Random.Range(3f, 7f));
-
-        while (true)
+        for (int li = 0; li < _layers.Length; li++)
         {
-            SpawnDecorObject(false);
+            BackgroundLayer layer = _layers[li];
+            if (layer == null) continue;
 
-            float waitTime = Random.Range(_minSpawnTime, _maxSpawnTime);
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
-
-    private void PreSpawnObjects()
-    {
-        for (int i = 0; i < _preSpawnAmount; i++)
-        {
-            float lerpRatio = (float)i / _preSpawnAmount;
-            float spawnY = Mathf.Lerp(transform.position.y, _killY + 2f, lerpRatio);
-
-            Vector3 spawnPos = new Vector3(
-                transform.position.x + Random.Range(-_spawnRangeX, _spawnRangeX),
-                spawnY,
-                0f
-            );
-
-            CreateObjectAt(spawnPos);
-        }
-    }
-
-    private void SpawnDecorObject(bool preWarm)
-    {
-        float randomX = Random.Range(-_spawnRangeX, _spawnRangeX);
-        float randomY = Random.Range(-_spawnRangeY, _spawnRangeY);
-        Vector3 spawnPos = transform.position + new Vector3(randomX, randomY, 0f);
-
-        CreateObjectAt(spawnPos);
-    }
-
-    private void CreateObjectAt(Vector3 position)
-    {
-        GameObject prefabToSpawn = DeterminarPrefab();
-
-        if (prefabToSpawn == null) return;
-
-        GameObject newObj = Instantiate(prefabToSpawn, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-
-        float randomScale = Random.Range(_minScale, _maxScale);
-        newObj.transform.localScale = new Vector3(randomScale, randomScale, 1f);
-
-        float speedRatio = (randomScale - _minScale) / (_maxScale - _minScale);
-        speedRatio = Mathf.Clamp(speedRatio, 0.15f, 1f);
-        float finalSpeed = _baseSpeed * speedRatio;
-
-        SpriteRenderer sr = newObj.GetComponent<SpriteRenderer>();
-        if (sr != null)
-        {
-            sr.sortingOrder = _sortingOrder;
-
-            Color color = sr.color;
-            color.a = Mathf.Lerp(0.35f, 0.9f, speedRatio);
-            sr.color = color;
-        }
-
-        BackgroundObject bgComp = newObj.AddComponent<BackgroundObject>();
-        bgComp.Setup(finalSpeed, _killY);
-    }
-
-    private GameObject DeterminarPrefab()
-    {
-        bool spawnRare = Random.value <= _rareSpawnChance && _rarePrefabs.Length > 0;
-
-        if (spawnRare)
-        {
-            if (_rarePrefabs.Length == 1) return _rarePrefabs[0];
-
-            GameObject selectedRare = _rarePrefabs[Random.Range(0, _rarePrefabs.Length)];
-
-            int attempts = 5;
-            while (selectedRare == _lastRareSpawned && attempts > 0)
+            for (int i = 0; i < _preWarmPerLayer; i++)
             {
-                selectedRare = _rarePrefabs[Random.Range(0, _rarePrefabs.Length)];
-                attempts--;
+                float t = (float)i / Mathf.Max(_preWarmPerLayer - 1, 1);
+                float baseY = Mathf.Lerp(screenTop, screenBottom, t);
+                float noisyY = baseY + UnityEngine.Random.Range(-1.2f, 1.2f);
+
+                bool forceCommon = (i < 2);
+                layer.SpawnAt(noisyY, forceCommon);
             }
 
-            _lastRareSpawned = selectedRare;
-            return selectedRare;
-        }
-        else if (_commonPrefabs.Length > 0)
-        {
-            return _commonPrefabs[Random.Range(0, _commonPrefabs.Length)];
+            yield return null;
         }
 
-        return null;
+        OnPreWarmComplete?.Invoke();
+        Debug.Log("[BackgroundSpawner] Pre-warm completado.");
     }
+    public void ResetAllLayers()
+    {
+        if (_layers == null) return;
+        foreach (var layer in _layers)
+            layer?.ReturnAll();
+    }
+    public void SetLayerActive(string layerName, bool active)
+    {
+        if (_layers == null) return;
+        foreach (var layer in _layers)
+        {
+            if (layer != null && layer.layerName == layerName)
+                layer.gameObject.SetActive(active);
+        }
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        // LÃ­nea de spawn top
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(new Vector3(-10f, _spawnTopY, 0f), new Vector3(10f, _spawnTopY, 0f));
+        UnityEditor.Handles.Label(new Vector3(-9f, _spawnTopY + 0.2f, 0f), "Spawn Top");
+
+        // LÃ­nea de kill
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector3(-10f, _killY, 0f), new Vector3(10f, _killY, 0f));
+        UnityEditor.Handles.Label(new Vector3(-9f, _killY + 0.2f, 0f), "Kill Y");
+    }
+#endif
 }

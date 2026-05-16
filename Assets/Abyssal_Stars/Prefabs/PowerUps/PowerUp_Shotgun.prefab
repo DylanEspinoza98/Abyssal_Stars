@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4644244716692895442}
   - component: {fileID: 630935413856831786}
   - component: {fileID: 126521845983734815}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PowerUp_Shotgun
-  m_TagString: Untagged
+  m_TagString: PowerUps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ SpriteRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 128
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -81,9 +81,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -897920417
+  m_SortingLayer: 1
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6903199865276543757, guid: eb937c043ac116949be1b71fda3db699, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 839780572168601058}
   - component: {fileID: 5657165204261323700}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: brillito
   m_TagString: Untagged
   m_Icon: {fileID: 0}

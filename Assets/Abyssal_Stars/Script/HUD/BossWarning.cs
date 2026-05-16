@@ -8,44 +8,70 @@ public class BossWarningUI : MonoBehaviour
     [Header("Referencias de UI")]
     [SerializeField] private GameObject _visualGroup;
 
-    [Header("Configuración de Audio")]
+    [Header("Música de Fondo")]
+    [SerializeField] private AudioSource _backgroundMusic;
+    [SerializeField][Range(0f, 1f)] private float _duckedVolume = 0.15f;
+
+    [Header("Sirena")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _warningSiren;
 
-    void Awake()
+    private float _originalMusicVolume;
+    private Coroutine _activeRoutine;
+
+    private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        if (_visualGroup != null) _visualGroup.SetActive(false);
-
         if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
+
+        if (_backgroundMusic != null)
+            _originalMusicVolume = _backgroundMusic.volume;
+
+        HideImmediate();
+    }
+
+    private void OnEnable()
+    {
+        BossPhaseController.OnBossWarning += HandleWarning;
+        BossPhaseController.OnBossFightStarted += HandleBossStarted;
+    }
+
+    private void OnDisable()
+    {
+        BossPhaseController.OnBossWarning -= HandleWarning;
+        BossPhaseController.OnBossFightStarted -= HandleBossStarted;
+    }
+
+    private void HandleWarning()
+    {
+        // Leer duración directo del BossPhaseController
+        float duration = BossPhaseController.Instance != null
+            ? BossPhaseController.Instance.WarningDuration
+            : 3f;
+
+        ShowWarning(duration);
+    }
+
+    private void HandleBossStarted()
+    {
+        if (_activeRoutine != null) StopCoroutine(_activeRoutine);
+        HideImmediate();
     }
 
     public void ShowWarning(float duration)
     {
-        StartCoroutine(WarningRoutine(duration));
+        if (_activeRoutine != null) StopCoroutine(_activeRoutine);
+        _activeRoutine = StartCoroutine(WarningRoutine(duration));
     }
 
     private IEnumerator WarningRoutine(float duration)
     {
-        GameObject musicObj = GameObject.Find("Soundtrack");
-        AudioSource backgroundMusic = null;
-        float originalVolume = 1f;
-
-        if (musicObj != null)
-        {
-            backgroundMusic = musicObj.GetComponent<AudioSource>();
-            originalVolume = backgroundMusic.volume;
-        }
-
-        // 2. ACTIVAR VISUALES Y BAJAR MÚSICA
         if (_visualGroup != null) _visualGroup.SetActive(true);
 
-        if (backgroundMusic != null)
-        {
-            backgroundMusic.volume = 0.15f;
-        }
+        if (_backgroundMusic != null)
+            _backgroundMusic.volume = _duckedVolume;
 
         if (_audioSource != null && _warningSiren != null)
         {
@@ -56,12 +82,15 @@ public class BossWarningUI : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
+        HideImmediate();
+        _activeRoutine = null;
+    }
+    private void HideImmediate()
+    {
         if (_visualGroup != null) _visualGroup.SetActive(false);
         if (_audioSource != null) _audioSource.Stop();
 
-        if (backgroundMusic != null)
-        {
-            backgroundMusic.volume = originalVolume;
-        }
+        if (_backgroundMusic != null)
+            _backgroundMusic.volume = _originalMusicVolume;
     }
 }

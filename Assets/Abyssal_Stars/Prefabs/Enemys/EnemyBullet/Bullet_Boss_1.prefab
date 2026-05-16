@@ -164,6 +164,18 @@ PrefabInstance:
       value: 0.8962264
       objectReference: {fileID: 0}
     - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -897920417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: aea544bbb7150114bae7c7de1bd24a86, type: 2}

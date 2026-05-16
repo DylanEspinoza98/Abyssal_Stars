@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7408508789304719675}
   - component: {fileID: 2936725186722226752}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: brillito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 961767552212471712}
   - component: {fileID: 5245360650010631408}
   - component: {fileID: 1814095951423892038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PowerUp_Life
-  m_TagString: Untagged
+  m_TagString: PowerUps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 128
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -173,9 +173,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -897920417
+  m_SortingLayer: 1
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6137776748186174483, guid: d4c06ae823591db4e8e0fdbc80199be4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

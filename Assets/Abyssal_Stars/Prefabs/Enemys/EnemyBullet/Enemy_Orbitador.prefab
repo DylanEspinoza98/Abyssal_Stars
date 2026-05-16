@@ -89,12 +89,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -897920417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481239697923407998, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

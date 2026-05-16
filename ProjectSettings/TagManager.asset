@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Enemy
   - Boss
+  - PowerUps
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Disparos Amenazas
   - Background_Object
   - Background
-  - 
+  - PowerUps
   - 
   - 
   - 
@@ -44,17 +45,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 3397046879
-    locked: 0
-  - name: Explosion
-    uniqueID: 2385242731
-    locked: 0
-  - name: Background_Object
+  - name: Capa_Background
     uniqueID: 2452531023
     locked: 0
-  - name: Background
+  - name: Capa_Objetos_Background
+    uniqueID: 2385242731
+    locked: 0
+  - name: Capa_Player
+    uniqueID: 3397046879
+    locked: 0
+  - name: 
     uniqueID: 2384151401
+    locked: 0
+  - name: 
+    uniqueID: 1704340909
+    locked: 0
+  - name: 
+    uniqueID: 3414770729
+    locked: 0
+  - name: 
+    uniqueID: 2815205307
     locked: 0
   m_RenderingLayers:
   - Default
@@ -64,4 +74,5 @@ TagManager:
   - Disparos Amenazas
   - Background_Object
   - Background
+  - PowerUps
   m_MigratedRenderPipelines: []

@@ -1,41 +1,40 @@
 using UnityEngine;
+using System;
 
 public class SpaceDecor : MonoBehaviour
 {
-    [Header("Límites de Pantalla")]
-    [SerializeField] private float _offScreenMargin = 0.2f;
+    public event Action<SpaceDecor> OnOutOfBounds;
 
-    [Header("Seguridad Inicial (Temporizador)")]
-    [SerializeField] private float _checkDelay = 2.5f;
+    private float _speed;
+    private float _killY;
+    private bool _triggered;
 
-    private float _timer = 0f;
-    private Camera _mainCam;
+    private float _aliveTime;
+    private const float MIN_LIFETIME = 1.0f;
 
-    private void Start()
+    public void Setup(float speed, float killY)
     {
-        _mainCam = Camera.main;
+        _speed = speed;
+        _killY = killY;
+        _aliveTime = 0f;
+        _triggered = false;
     }
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        if (_triggered) return;
 
-        if (_timer >= _checkDelay)
+        // 1. Movimiento puro hacia abajo
+        transform.Translate(Vector3.down * _speed * Time.deltaTime, Space.World);
+
+        // 2. Temporizador rápido
+        _aliveTime += Time.deltaTime;
+
+        // 3. Única regla de muerte: Cruzar la coordenada _killY
+        if (_aliveTime >= MIN_LIFETIME && transform.position.y <= _killY)
         {
-            if (IsOutOfScreen())
-            {
-                Destroy(gameObject);
-            }
+            _triggered = true;
+            OnOutOfBounds?.Invoke(this);
         }
-    }
-
-    private bool IsOutOfScreen()
-    {
-        if (_mainCam == null) return false;
-
-        Vector2 vp = _mainCam.WorldToViewportPoint(transform.position);
-
-        return vp.x < -_offScreenMargin || vp.x > 1 + _offScreenMargin ||
-               vp.y < -_offScreenMargin || vp.y > 1 + _offScreenMargin;
     }
 }

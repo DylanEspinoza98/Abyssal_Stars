@@ -1,0 +1,2730 @@
+fileFormatVersion: 2
+guid: 0ebc415f49ffe9744ba7218098e9306b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8609019041436454405
+    second: Agujero_Negro_0
+  - first:
+      213: -7489760651875401460
+    second: Agujero_Negro_1
+  - first:
+      213: -3409736798522037313
+    second: Agujero_Negro_2
+  - first:
+      213: 1403887589810021223
+    second: Agujero_Negro_3
+  - first:
+      213: -8439480519312877996
+    second: Agujero_Negro_4
+  - first:
+      213: -3479967524261352335
+    second: Agujero_Negro_5
+  - first:
+      213: -361377394902398061
+    second: Agujero_Negro_6
+  - first:
+      213: -7505695334164191593
+    second: Agujero_Negro_7
+  - first:
+      213: 638269889915865033
+    second: Agujero_Negro_8
+  - first:
+      213: -7640219272050602903
+    second: Agujero_Negro_9
+  - first:
+      213: -5348023959991327889
+    second: Agujero_Negro_10
+  - first:
+      213: 1078324732862259170
+    second: Agujero_Negro_11
+  - first:
+      213: -7955776351168574022
+    second: Agujero_Negro_12
+  - first:
+      213: -87923366417822188
+    second: Agujero_Negro_13
+  - first:
+      213: -7380218671520535034
+    second: Agujero_Negro_14
+  - first:
+      213: -1023865827521290497
+    second: Agujero_Negro_15
+  - first:
+      213: 3252492519439122591
+    second: Agujero_Negro_16
+  - first:
+      213: 8447517309616199305
+    second: Agujero_Negro_17
+  - first:
+      213: 8911109199417447588
+    second: Agujero_Negro_18
+  - first:
+      213: 886441127210278385
+    second: Agujero_Negro_19
+  - first:
+      213: -5064604439331288544
+    second: Agujero_Negro_20
+  - first:
+      213: -5544180517174776221
+    second: Agujero_Negro_21
+  - first:
+      213: 6149158398646476117
+    second: Agujero_Negro_22
+  - first:
+      213: 6910152775621479953
+    second: Agujero_Negro_23
+  - first:
+      213: -2657878022456909110
+    second: Agujero_Negro_24
+  - first:
+      213: -4146061044050348231
+    second: Agujero_Negro_25
+  - first:
+      213: 1618419366457031173
+    second: Agujero_Negro_26
+  - first:
+      213: 5743809163457490699
+    second: Agujero_Negro_27
+  - first:
+      213: -6752704312686761653
+    second: Agujero_Negro_28
+  - first:
+      213: 5134799683520745876
+    second: Agujero_Negro_29
+  - first:
+      213: 1123295880377421316
+    second: Agujero_Negro_30
+  - first:
+      213: 14768905843027292
+    second: Agujero_Negro_31
+  - first:
+      213: 3446438814574503666
+    second: Agujero_Negro_32
+  - first:
+      213: -4589891105463773512
+    second: Agujero_Negro_33
+  - first:
+      213: -542417054035395810
+    second: Agujero_Negro_34
+  - first:
+      213: 4742515274237174685
+    second: Agujero_Negro_35
+  - first:
+      213: -6316800882666834435
+    second: Agujero_Negro_36
+  - first:
+      213: -4473207432728403164
+    second: Agujero_Negro_37
+  - first:
+      213: -2166810925557120269
+    second: Agujero_Negro_38
+  - first:
+      213: -132935573920323880
+    second: Agujero_Negro_39
+  - first:
+      213: 8149953639386766791
+    second: Agujero_Negro_40
+  - first:
+      213: 8493015878388505609
+    second: Agujero_Negro_41
+  - first:
+      213: 6246167042026183707
+    second: Agujero_Negro_42
+  - first:
+      213: -1478162219349385102
+    second: Agujero_Negro_43
+  - first:
+      213: -534774968624264381
+    second: Agujero_Negro_44
+  - first:
+      213: -2573850646846317726
+    second: Agujero_Negro_45
+  - first:
+      213: -327828637299514730
+    second: Agujero_Negro_46
+  - first:
+      213: 2629058535188281198
+    second: Agujero_Negro_47
+  - first:
+      213: -2816603149135188639
+    second: Agujero_Negro_48
+  - first:
+      213: 5266785784156086784
+    second: Agujero_Negro_49
+  - first:
+      213: 6384963602838951772
+    second: Agujero_Negro_50
+  - first:
+      213: 4108202860271842417
+    second: Agujero_Negro_51
+  - first:
+      213: -8847396135362446379
+    second: Agujero_Negro_52
+  - first:
+      213: 7068577178781737362
+    second: Agujero_Negro_53
+  - first:
+      213: -1094483349513979144
+    second: Agujero_Negro_54
+  - first:
+      213: -1261800545690291283
+    second: Agujero_Negro_55
+  - first:
+      213: -645774109677865753
+    second: Agujero_Negro_56
+  - first:
+      213: 5498935928233717858
+    second: Agujero_Negro_57
+  - first:
+      213: 233179288682078225
+    second: Agujero_Negro_58
+  - first:
+      213: -459850903042057631
+    second: Agujero_Negro_59
+  - first:
+      213: 6582765660985578890
+    second: Agujero_Negro_60
+  - first:
+      213: 4596006829533056214
+    second: Agujero_Negro_61
+  - first:
+      213: 2730704171662115371
+    second: Agujero_Negro_62
+  - first:
+      213: 7186632196501331835
+    second: Agujero_Negro_63
+  - first:
+      213: 1574973509280926983
+    second: Agujero_Negro_64
+  - first:
+      213: -1135478059685173929
+    second: Agujero_Negro_65
+  - first:
+      213: -3977351200328241978
+    second: Agujero_Negro_66
+  - first:
+      213: -5225086769868515210
+    second: Agujero_Negro_67
+  - first:
+      213: 1971169386469037678
+    second: Agujero_Negro_68
+  - first:
+      213: 8797217832306278861
+    second: Agujero_Negro_69
+  - first:
+      213: 6376016506321889189
+    second: Agujero_Negro_70
+  - first:
+      213: 1345024337135660686
+    second: Agujero_Negro_71
+  - first:
+      213: 1837144613871646330
+    second: Agujero_Negro_72
+  - first:
+      213: -580932742276140281
+    second: Agujero_Negro_73
+  - first:
+      213: 3325675584303647615
+    second: Agujero_Negro_74
+  - first:
+      213: 3943871479521691155
+    second: Agujero_Negro_75
+  - first:
+      213: 8084591069305802816
+    second: Agujero_Negro_76
+  - first:
+      213: 6797988068865980089
+    second: Agujero_Negro_77
+  - first:
+      213: -3454028828642525017
+    second: Agujero_Negro_78
+  - first:
+      213: 5770634941292404595
+    second: Agujero_Negro_79
+  - first:
+      213: 8934767194151222836
+    second: Agujero_Negro_80
+  - first:
+      213: 8260002715918419783
+    second: Agujero_Negro_81
+  - first:
+      213: 6735441782885821825
+    second: Agujero_Negro_82
+  - first:
+      213: 7575532200200151484
+    second: Agujero_Negro_83
+  - first:
+      213: -8298329974322719217
+    second: Agujero_Negro_84
+  - first:
+      213: -2027118613972764999
+    second: Agujero_Negro_85
+  - first:
+      213: 3541447501870941833
+    second: Agujero_Negro_86
+  - first:
+      213: 1960750699137758702
+    second: Agujero_Negro_87
+  - first:
+      213: 6786090226451597487
+    second: Agujero_Negro_88
+  - first:
+      213: -5751770910640385819
+    second: Agujero_Negro_89
+  - first:
+      213: 8589125189621695885
+    second: Agujero_Negro_90
+  - first:
+      213: 4412150754483264066
+    second: Agujero_Negro_91
+  - first:
+      213: -3576742224452592668
+    second: Agujero_Negro_92
+  - first:
+      213: 6028339664942112617
+    second: Agujero_Negro_93
+  - first:
+      213: 5612945487431056666
+    second: Agujero_Negro_94
+  - first:
+      213: 178362908808637667
+    second: Agujero_Negro_95
+  - first:
+      213: 7244364256874741523
+    second: Agujero_Negro_96
+  - first:
+      213: 9092641200101828770
+    second: Agujero_Negro_97
+  - first:
+      213: -3503069633500056509
+    second: Agujero_Negro_98
+  - first:
+      213: -6358657805690396740
+    second: Agujero_Negro_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Agujero_Negro_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 2327
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf13b9a5bce968880800000000000000
+      internalID: -8609019041436454405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 2326
+        width: 151
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01c44c9e560f0890800000000000000
+      internalID: -7489760651875401460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_2
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 2327
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb2482827e2ea0d0800000000000000
+      internalID: -3409736798522037313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_3
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 2326
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 763a437235c9b7310800000000000000
+      internalID: 1403887589810021223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_4
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 2326
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456d6859e21f0ea80800000000000000
+      internalID: -8439480519312877996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_5
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 2326
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ca18e69fba4bfc0800000000000000
+      internalID: -3479967524261352335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_6
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 2326
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b8cfa8c212cfaf0800000000000000
+      internalID: -361377394902398061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_7
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 2326
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79626d64cd966d790800000000000000
+      internalID: -7505695334164191593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_8
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 2326
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7434b45179bd800800000000000000
+      internalID: 638269889915865033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_9
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 2326
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c845b3d0d78f590800000000000000
+      internalID: -7640219272050602903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_10
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63607e1b8008c5b0800000000000000
+      internalID: -5348023959991327889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_11
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efd5ce91aaf6fe00800000000000000
+      internalID: 1078324732862259170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdc4246f87679190800000000000000
+      internalID: -7955776351168574022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_13
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e85310a22a7cef0800000000000000
+      internalID: -87923366417822188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_14
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e20576832349990800000000000000
+      internalID: -7380218671520535034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_15
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe9eec547f7ac1f0800000000000000
+      internalID: -1023865827521290497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_16
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 2076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90c8c7c6bc232d20800000000000000
+      internalID: 3252492519439122591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_17
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 2076
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98613a97c3c9b3570800000000000000
+      internalID: 8447517309616199305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_18
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 2076
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a41ef19a9e9aab70800000000000000
+      internalID: 8911109199417447588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_19
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 2076
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd5aa532854d4c00800000000000000
+      internalID: 886441127210278385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_20
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1827
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02acac98819e6b9b0800000000000000
+      internalID: -5064604439331288544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_21
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1827
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ee727a13d1f03b0800000000000000
+      internalID: -5544180517174776221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_22
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1827
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ddee2ebf2365550800000000000000
+      internalID: 6149158398646476117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_23
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1826
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e099e765bc5ef50800000000000000
+      internalID: 6910152775621479953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_24
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1826
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2632745025d1bd0800000000000000
+      internalID: -2657878022456909110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_25
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1827
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9373b4c727b3676c0800000000000000
+      internalID: -4146061044050348231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_26
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 1827
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ab84bc6d7c57610800000000000000
+      internalID: 1618419366457031173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_27
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 1827
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f648d800c16bf40800000000000000
+      internalID: 5743809163457490699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_28
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 1827
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49ae0974339942a0800000000000000
+      internalID: -6752704312686761653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_29
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 1827
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491da095b19724740800000000000000
+      internalID: 5134799683520745876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_30
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1577
+        width: 153
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e4e87d6afb69f00800000000000000
+      internalID: 1123295880377421316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_31
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1578
+        width: 152
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5dae7add38743000800000000000000
+      internalID: 14768905843027292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_32
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1578
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6e4d287d534df20800000000000000
+      internalID: 3446438814574503666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_33
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1578
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b65b1d9b5e6d40c0800000000000000
+      internalID: -4589891105463773512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_34
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1577
+        width: 153
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b3b1e2092f878f0800000000000000
+      internalID: -542417054035395810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_35
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 1578
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9365c6d38cc0d140800000000000000
+      internalID: 4742515274237174685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_36
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 1578
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5f4c7a0173658a0800000000000000
+      internalID: -6316800882666834435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_37
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1578
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423269d3a89fbe1c0800000000000000
+      internalID: -4473207432728403164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_38
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 1578
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f28bb681f0fde1e0800000000000000
+      internalID: -2166810925557120269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_39
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 1578
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d66772ccc7b72ef0800000000000000
+      internalID: -132935573920323880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_40
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1328
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cddc8b97a37a1170800000000000000
+      internalID: 8149953639386766791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_41
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c591781f04dd570800000000000000
+      internalID: 8493015878388505609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_42
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1327
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c19b3c4d7dea650800000000000000
+      internalID: 6246167042026183707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_43
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1327
+        width: 152
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270e64b0b438c7be0800000000000000
+      internalID: -1478162219349385102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_44
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1327
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b4168dff81498f0800000000000000
+      internalID: -534774968624264381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_45
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1327
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26bd0d93978d74cd0800000000000000
+      internalID: -2573850646846317726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_46
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 1327
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692ef8e5791537bf0800000000000000
+      internalID: -327828637299514730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_47
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1327
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e673b93feca4c7420800000000000000
+      internalID: 2629058535188281198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_48
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 1327
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16dec8edb5a69e8d0800000000000000
+      internalID: -2816603149135188639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_49
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 1327
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00263bc14c1671940800000000000000
+      internalID: 5266785784156086784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_50
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1077
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57930b5192fb9850800000000000000
+      internalID: 6384963602838951772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_51
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1076
+        width: 151
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1743fb73cb4430930800000000000000
+      internalID: 4108202860271842417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_52
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1076
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbbe84271cb73580800000000000000
+      internalID: -8847396135362446379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_53
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1076
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291e7b04e71a81260800000000000000
+      internalID: 7068577178781737362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_54
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 1077
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fab3a3413d9fc0f0800000000000000
+      internalID: -1094483349513979144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_55
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da37cb8c61f2d7ee0800000000000000
+      internalID: -1261800545690291283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_56
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 1076
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4b1836edfb907f0800000000000000
+      internalID: -645774109677865753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_57
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 1076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 260f0059715205c40800000000000000
+      internalID: 5498935928233717858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_58
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 1076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110afded35b6c3300800000000000000
+      internalID: 233179288682078225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_59
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 1076
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a19824a084e99f0800000000000000
+      internalID: -459850903042057631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_60
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a855faedd7eaa5b50800000000000000
+      internalID: 6582765660985578890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_61
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc469b5cdb48cf30800000000000000
+      internalID: 4596006829533056214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_62
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22099ae9f865e520800000000000000
+      internalID: 2730704171662115371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_63
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fd8d308eb0cb360800000000000000
+      internalID: 7186632196501331835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_64
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70d0757ef0e6bd510800000000000000
+      internalID: 1574973509280926983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_65
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755273288b8fd30f0800000000000000
+      internalID: -1135478059685173929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_66
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 826
+        width: 149
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cc267df72c9dc8c0800000000000000
+      internalID: -3977351200328241978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_67
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 826
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 678d4693443cc77b0800000000000000
+      internalID: -5225086769868515210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_68
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 826
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e669c900d100b5b10800000000000000
+      internalID: 1971169386469037678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_69
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 826
+        width: 150
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc10952420ff51a70800000000000000
+      internalID: 8797217832306278861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_70
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 576
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a7e75d1b392c7850800000000000000
+      internalID: 6376016506321889189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_71
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 576
+        width: 150
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ee935228c7aa210800000000000000
+      internalID: 1345024337135660686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_72
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 577
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7677deea49de7910800000000000000
+      internalID: 1837144613871646330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_73
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 577
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703bc32bfbc10f7f0800000000000000
+      internalID: -580932742276140281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_74
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 577
+        width: 151
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bcb90e25c272e20800000000000000
+      internalID: 3325675584303647615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_75
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 577
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3164fa017327bb630800000000000000
+      internalID: 3943871479521691155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_76
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 577
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04094485ebc323070800000000000000
+      internalID: 8084591069305802816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_77
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 577
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6b910a12e475e50800000000000000
+      internalID: 6797988068865980089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_78
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 577
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0cdc0a413d010d0800000000000000
+      internalID: -3454028828642525017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_79
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 577
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fd03ca7e9651050800000000000000
+      internalID: 5770634941292404595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_80
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 327
+        width: 153
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e7236bc6baefb70800000000000000
+      internalID: 8934767194151222836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_81
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 327
+        width: 152
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747441ee4bc61a270800000000000000
+      internalID: 8260002715918419783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_82
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18dab3a9d98197d50800000000000000
+      internalID: 6735441782885821825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_83
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1a6713662b12960800000000000000
+      internalID: 7575532200200151484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_84
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 327
+        width: 153
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f069483dad866dc80800000000000000
+      internalID: -8298329974322719217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_85
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 327
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b632985c5a3ed3e0800000000000000
+      internalID: -2027118613972764999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_86
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 327
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98646b35dbfb52130800000000000000
+      internalID: 3541447501870941833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_87
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee574335f5cf53b10800000000000000
+      internalID: 1960750699137758702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_88
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa8c5615b190d2e50800000000000000
+      internalID: 6786090226451597487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_89
+      rect:
+        serializedVersion: 2
+        x: 2324
+        y: 328
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0dad9b4da9d20b0800000000000000
+      internalID: -5751770910640385819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_90
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 77
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85c2c25ad3b23770800000000000000
+      internalID: 8589125189621695885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_91
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 78
+        width: 153
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a52701cbb1b3d30800000000000000
+      internalID: 4412150754483264066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_92
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 77
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebdc52b5ebdc5ec0800000000000000
+      internalID: -3576742224452592668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_93
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 78
+        width: 152
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f954a5cf6f8a350800000000000000
+      internalID: 6028339664942112617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_94
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 78
+        width: 153
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1db5f1ae2035ed40800000000000000
+      internalID: 5612945487431056666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_95
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 77
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ece4acde1ca97200800000000000000
+      internalID: 178362908808637667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_96
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 77
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f3e8ac8e6298460800000000000000
+      internalID: 7244364256874741523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_97
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 77
+        width: 152
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8a6222ffc8f2e70800000000000000
+      internalID: 9092641200101828770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_98
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 77
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34475c77ab8926fc0800000000000000
+      internalID: -3503069633500056509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Agujero_Negro_99
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 77
+        width: 151
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf1f835a6281c7a0800000000000000
+      internalID: -6358657805690396740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Agujero_Negro_0: -8609019041436454405
+      Agujero_Negro_1: -7489760651875401460
+      Agujero_Negro_10: -5348023959991327889
+      Agujero_Negro_11: 1078324732862259170
+      Agujero_Negro_12: -7955776351168574022
+      Agujero_Negro_13: -87923366417822188
+      Agujero_Negro_14: -7380218671520535034
+      Agujero_Negro_15: -1023865827521290497
+      Agujero_Negro_16: 3252492519439122591
+      Agujero_Negro_17: 8447517309616199305
+      Agujero_Negro_18: 8911109199417447588
+      Agujero_Negro_19: 886441127210278385
+      Agujero_Negro_2: -3409736798522037313
+      Agujero_Negro_20: -5064604439331288544
+      Agujero_Negro_21: -5544180517174776221
+      Agujero_Negro_22: 6149158398646476117
+      Agujero_Negro_23: 6910152775621479953
+      Agujero_Negro_24: -2657878022456909110
+      Agujero_Negro_25: -4146061044050348231
+      Agujero_Negro_26: 1618419366457031173
+      Agujero_Negro_27: 5743809163457490699
+      Agujero_Negro_28: -6752704312686761653
+      Agujero_Negro_29: 5134799683520745876
+      Agujero_Negro_3: 1403887589810021223
+      Agujero_Negro_30: 1123295880377421316
+      Agujero_Negro_31: 14768905843027292
+      Agujero_Negro_32: 3446438814574503666
+      Agujero_Negro_33: -4589891105463773512
+      Agujero_Negro_34: -542417054035395810
+      Agujero_Negro_35: 4742515274237174685
+      Agujero_Negro_36: -6316800882666834435
+      Agujero_Negro_37: -4473207432728403164
+      Agujero_Negro_38: -2166810925557120269
+      Agujero_Negro_39: -132935573920323880
+      Agujero_Negro_4: -8439480519312877996
+      Agujero_Negro_40: 8149953639386766791
+      Agujero_Negro_41: 8493015878388505609
+      Agujero_Negro_42: 6246167042026183707
+      Agujero_Negro_43: -1478162219349385102
+      Agujero_Negro_44: -534774968624264381
+      Agujero_Negro_45: -2573850646846317726
+      Agujero_Negro_46: -327828637299514730
+      Agujero_Negro_47: 2629058535188281198
+      Agujero_Negro_48: -2816603149135188639
+      Agujero_Negro_49: 5266785784156086784
+      Agujero_Negro_5: -3479967524261352335
+      Agujero_Negro_50: 6384963602838951772
+      Agujero_Negro_51: 4108202860271842417
+      Agujero_Negro_52: -8847396135362446379
+      Agujero_Negro_53: 7068577178781737362
+      Agujero_Negro_54: -1094483349513979144
+      Agujero_Negro_55: -1261800545690291283
+      Agujero_Negro_56: -645774109677865753
+      Agujero_Negro_57: 5498935928233717858
+      Agujero_Negro_58: 233179288682078225
+      Agujero_Negro_59: -459850903042057631
+      Agujero_Negro_6: -361377394902398061
+      Agujero_Negro_60: 6582765660985578890
+      Agujero_Negro_61: 4596006829533056214
+      Agujero_Negro_62: 2730704171662115371
+      Agujero_Negro_63: 7186632196501331835
+      Agujero_Negro_64: 1574973509280926983
+      Agujero_Negro_65: -1135478059685173929
+      Agujero_Negro_66: -3977351200328241978
+      Agujero_Negro_67: -5225086769868515210
+      Agujero_Negro_68: 1971169386469037678
+      Agujero_Negro_69: 8797217832306278861
+      Agujero_Negro_7: -7505695334164191593
+      Agujero_Negro_70: 6376016506321889189
+      Agujero_Negro_71: 1345024337135660686
+      Agujero_Negro_72: 1837144613871646330
+      Agujero_Negro_73: -580932742276140281
+      Agujero_Negro_74: 3325675584303647615
+      Agujero_Negro_75: 3943871479521691155
+      Agujero_Negro_76: 8084591069305802816
+      Agujero_Negro_77: 6797988068865980089
+      Agujero_Negro_78: -3454028828642525017
+      Agujero_Negro_79: 5770634941292404595
+      Agujero_Negro_8: 638269889915865033
+      Agujero_Negro_80: 8934767194151222836
+      Agujero_Negro_81: 8260002715918419783
+      Agujero_Negro_82: 6735441782885821825
+      Agujero_Negro_83: 7575532200200151484
+      Agujero_Negro_84: -8298329974322719217
+      Agujero_Negro_85: -2027118613972764999
+      Agujero_Negro_86: 3541447501870941833
+      Agujero_Negro_87: 1960750699137758702
+      Agujero_Negro_88: 6786090226451597487
+      Agujero_Negro_89: -5751770910640385819
+      Agujero_Negro_9: -7640219272050602903
+      Agujero_Negro_90: 8589125189621695885
+      Agujero_Negro_91: 4412150754483264066
+      Agujero_Negro_92: -3576742224452592668
+      Agujero_Negro_93: 6028339664942112617
+      Agujero_Negro_94: 5612945487431056666
+      Agujero_Negro_95: 178362908808637667
+      Agujero_Negro_96: 7244364256874741523
+      Agujero_Negro_97: 9092641200101828770
+      Agujero_Negro_98: -3503069633500056509
+      Agujero_Negro_99: -6358657805690396740
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

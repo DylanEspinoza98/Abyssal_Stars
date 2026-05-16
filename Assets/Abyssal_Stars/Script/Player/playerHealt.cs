@@ -50,7 +50,6 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(DeathSequence());
     }
 
-    // NUEVO: suma una vida hasta el maximo
     public void AddLife()
     {
         if (_totalLives >= _maxLives) return;

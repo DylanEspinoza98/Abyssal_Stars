@@ -72,8 +72,6 @@ public class Familiar : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Al terminar el familiar resetea el color de todas las
-        // PlayerBullet activas en escena a blanco
         PlayerBullet[] activeBullets = FindObjectsByType<PlayerBullet>(FindObjectsSortMode.None);
         foreach (PlayerBullet b in activeBullets)
         {

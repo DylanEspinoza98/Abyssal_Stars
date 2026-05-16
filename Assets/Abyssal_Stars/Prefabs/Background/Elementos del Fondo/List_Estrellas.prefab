@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7868876159771382818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4203893750615612545}
+  - component: {fileID: 4450940461791280858}
+  m_Layer: 10
+  m_Name: List_Estrellas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4203893750615612545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868876159771382818}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.17540167, y: -0.61950195, z: 0}
+  m_LocalScale: {x: 0.16666667, y: 0.1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4450940461791280858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868876159771382818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e800525ba13274b92a5a73b5022107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundLayer
+  layerName: Estrellas
+  _prefabs:
+  - {fileID: 7885270031889867667, guid: eecd51c1d6b24f244a4cb6fc2d507868, type: 3}
+  _isUniqueLayer: 0
+  _minSpawnTime: 5
+  _maxSpawnTime: 12
+  _spawnRangeX: 6
+  _initialDelay: 0
+  _minScale: 0.05
+  _maxScale: 0.2
+  _baseSpeed: 15
+  _sortingOrder: -10
+  _enableGlow: 0
+  _glowIntensity: 0.15
+  _glowSpeed: 1.2
+  _scaleBreath: 0.02
+  _poolInitialSize: 4
+  _killY: -12
