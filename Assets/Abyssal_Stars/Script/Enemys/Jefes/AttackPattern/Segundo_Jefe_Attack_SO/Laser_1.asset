@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0163fe1eb6162e419826903629d311b, type: 3}
+  m_Name: Laser_1
+  m_EditorClassIdentifier: Assembly-CSharp::PatternLaserSO
+  mirrorX: 0
+  startAngle: 200
+  endAngle: 300
+  sweepSpeed: 40
+  alternateSweep: 1
+  fireRate: 0.02
+  bulletSpeed: 10
+  edgePause: 0.8
+  gapsPerSweep: 5
+  gapDuration: 0.5
+  telegraphGap: 1
+  telegraphSpeedFactor: 0.331
+  telegraphDuration: 0.25

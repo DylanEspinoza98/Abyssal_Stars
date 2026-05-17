@@ -661,8 +661,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848556178}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0014380735, z: -0, w: 0.99999905}
-  m_LocalPosition: {x: 0, y: 0, z: -10.53259}
+  m_LocalRotation: {x: -0, y: 0.010232338, z: -0, w: 0.99994767}
+  m_LocalPosition: {x: -0.044045903, y: 0, z: -10.532206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -672,7 +672,7 @@ Transform:
   - {fileID: 1340560202}
   - {fileID: 1966892471}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.165, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.173, z: 0}
 --- !u!114 &848556182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

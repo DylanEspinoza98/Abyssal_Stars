@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dedcb2760339743b55ed10d7e84398, type: 3}
+  m_Name: SobreCarga
+  m_EditorClassIdentifier: Assembly-CSharp::BossPhaseSO
+  movementPattern: {fileID: 11400000, guid: 4623f8f3000504c4090690b25ee34db3, type: 2}
+  turretPatterns:
+  - {fileID: 11400000, guid: 53ac1a5cd3fb77b4e878e312674eda7c, type: 2}
+  - {fileID: 11400000, guid: a1fc03f8f2665524cb7ae901a1d33868, type: 2}
+  - {fileID: 11400000, guid: a1fc03f8f2665524cb7ae901a1d33868, type: 2}
+  duration: 5
+  transitionDelay: 1

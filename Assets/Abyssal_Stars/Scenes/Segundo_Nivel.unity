@@ -964,7 +964,7 @@ MonoBehaviour:
     name: Low
     prefab: {fileID: 0}
     zone: {fileID: 1882418860}
-    interval: 1000
+    interval: 1
     maxActive: 0
     lastSpawnTime: -99
     activeCount: 0
@@ -972,7 +972,7 @@ MonoBehaviour:
     name: Danmaku
     prefab: {fileID: 4117109765767344919, guid: e9f75bb77acc9ca4d9ee79d2a5387638, type: 3}
     zone: {fileID: 1392304713}
-    interval: 1000
+    interval: 5
     maxActive: 2
     lastSpawnTime: -99
     activeCount: 0
@@ -980,7 +980,7 @@ MonoBehaviour:
     name: Francotirador
     prefab: {fileID: 6358844350706956161, guid: 453d1f658f41ab745878496056952e8b, type: 3}
     zone: {fileID: 1083577768}
-    interval: 1000
+    interval: 5
     maxActive: 2
     lastSpawnTime: -99
     activeCount: 0
@@ -988,7 +988,7 @@ MonoBehaviour:
     name: SubLow
     prefab: {fileID: 0}
     zone: {fileID: 734037327}
-    interval: 1000
+    interval: 1
     maxActive: 0
     lastSpawnTime: -99
     activeCount: 0
@@ -1443,8 +1443,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
+      propertyPath: _bossPrefab
+      value: 
+      objectReference: {fileID: 8873400423258381309, guid: a3898370c9439e243952d18b8a2186d6, type: 3}
+    - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 60
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossSpawnZone

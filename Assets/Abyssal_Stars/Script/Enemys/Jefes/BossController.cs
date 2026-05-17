@@ -1,203 +1,183 @@
-using UnityEngine;
-using System.Collections; 
+﻿using UnityEngine;
+using System.Collections;
 
 public class BossController : EnemyBase
 {
-    [Header("Movement")]
-    [SerializeField] private float _moveSpeed = 2f;
+
+    [Header("Torretas (orden importante — coincide con turretPatterns en cada fase)")]
+    [SerializeField] private TurretAssignment[] _turrets;
+
+    [Header("Fases")]
+    [SerializeField] private BossPhaseSO[] _phases;
+
+    [Header("Entrada")]
     [SerializeField] private Vector2 _zoneCenter = new Vector2(0f, 2.5f);
-    [SerializeField] private Vector2 _zoneSize = new Vector2(4f, 1.5f);
-    [SerializeField] private float _zigzagAmplitude = 1.5f;
-    [SerializeField] private float _zigzagFrequency = 1.5f;
-    [SerializeField] private float _circleRadius = 1.2f;
-    [SerializeField] private float _circleSpeed = 1.2f;
-
-    [Header("Shooting")]
-    [SerializeField] private Bullet _bulletPrefab;
-    [SerializeField] private float _bulletSpeed = 6f;
-    [SerializeField] private int _spreadCount = 5;
-    [SerializeField] private float _spreadAngle = 60f;
-    [SerializeField] private int _burstCount = 3;
-    [SerializeField] private float _burstInterval = 0.12f;
-
-    [Header("Phase Settings")]
-    [SerializeField] private float _phaseDuration = 4f;
-
-    private float _timeAccum = 0f;
-    private bool _useCircle = false;
-    private float _phaseTimer = 0f;
-    private int _currentPhase = 0;
-    private bool _burstRunning = false;
-    private bool _isEntering = true;
+    [SerializeField] private float _entrySpeed = 2f;
 
     private bool _isDying = false;
+    private Coroutine _phaseLoop;
+    private Coroutine _activeMovement;
+    private Camera _cam;
 
     protected override void OnEnable()
     {
         base.OnEnable();
 
-        if (transform.parent == null && Camera.main != null)
-            transform.SetParent(Camera.main.transform);
+        _cam = Camera.main;
+        _isDying = false;
 
-        transform.localRotation = Quaternion.Euler(0, 0, 180f);
-        _isEntering = true;
-        _phaseTimer = 0;
-        _currentPhase = 0;
-        _isDying = false; 
+        if (transform.parent == null && _cam != null)
+            transform.SetParent(_cam.transform);
+
+        transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
+
+        SetAllTurrets(active: false);
+        StartCoroutine(EnterAndStartPhases());
     }
 
     protected override void Update()
     {
         if (_isDying) return;
-
-        _timeAccum += Time.deltaTime;
-        _phaseTimer += Time.deltaTime;
-
-        HandleMovement();
-        HandleShooting();
-        UpdatePhases();
+        base.Update();
     }
-
-    private void HandleMovement()
+    private IEnumerator EnterAndStartPhases()
     {
-        if (_isEntering)
+        Vector3 target = new Vector3(_zoneCenter.x, _zoneCenter.y, 10f);
+
+        while (Vector3.Distance(transform.localPosition, target) > 0.1f)
         {
-            Vector3 entryPos = new Vector3(_zoneCenter.x, _zoneCenter.y, 10f);
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, entryPos, _moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.localPosition, entryPos) < 0.1f)
-                _isEntering = false;
-
-            return;
-        }
-
-        Vector3 targetLocalPos;
-        if (_useCircle)
-        {
-            float angle = _timeAccum * _circleSpeed;
-            targetLocalPos = new Vector3(
-                _zoneCenter.x + Mathf.Cos(angle) * _circleRadius,
-                _zoneCenter.y + Mathf.Sin(angle) * _circleRadius * 0.5f,
-                10f
+            transform.localPosition = Vector3.MoveTowards(
+                transform.localPosition, target, _entrySpeed * Time.deltaTime
             );
-        }
-        else
-        {
-            float x = Mathf.Sin(_timeAccum * _zigzagFrequency) * _zigzagAmplitude;
-            float y = Mathf.Sin(_timeAccum * _zigzagFrequency * 2f) * (_zoneSize.y * 0.3f);
-            targetLocalPos = new Vector3(_zoneCenter.x + x, _zoneCenter.y + y, 10f);
+            yield return null;
         }
 
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetLocalPos, _moveSpeed * Time.deltaTime);
+        _phaseLoop = StartCoroutine(CyclePhasesRoutine());
     }
 
-    private void UpdatePhases()
+    private IEnumerator CyclePhasesRoutine()
     {
-        if (_phaseTimer >= _phaseDuration)
+        if (_phases == null || _phases.Length == 0) yield break;
+
+        int index = 0;
+
+        while (!_isDying)
         {
-            _phaseTimer = 0;
-            _currentPhase = (_currentPhase + 1) % 3;
-            _useCircle = !_useCircle;
-        }
-    }
+            BossPhaseSO phase = _phases[index];
 
-    private void HandleShooting()
-    {
-        if (_isEntering || _burstRunning) return;
+            if (phase == null)
+            {
+                index = (index + 1) % _phases.Length;
+                continue;
+            }
 
-        switch (_currentPhase)
-        {
-            case 0:
-                if (_phaseTimer % 1f < Time.deltaTime) FireSpread();
-                break;
-            case 1:
-                if (_phaseTimer % 1.5f < Time.deltaTime) StartCoroutine(FireBurst());
-                break;
-            case 2:
-                if (_phaseTimer % 0.8f < Time.deltaTime) FireSpread();
-                break;
-        }
-    }
+            // Aplicar torretas de esta fase
+            ApplyTurrets(phase);
 
-    private void FireSpread()
-    {
-        float startAngle = -_spreadAngle / 2f;
-        float step = _spreadAngle / (_spreadCount - 1);
+            // Movimiento
+            if (phase.movementPattern != null)
+                _activeMovement = StartCoroutine(
+                    phase.movementPattern.ExecuteMovement(transform, _zoneCenter)
+                );
 
-        for (int i = 0; i < _spreadCount; i++)
-        {
-            float angle = startAngle + step * i;
-            Vector2 dir = Rotate(Vector2.down, angle);
-            SpawnBullet(dir);
+            yield return new WaitForSeconds(phase.duration);
+
+            StopActiveMovement();
+            StopAllTurrets();
+
+            if (phase.transitionDelay > 0f)
+                yield return new WaitForSeconds(phase.transitionDelay);
+
+            index = (index + 1) % _phases.Length;
         }
     }
 
-    private IEnumerator FireBurst()
+    private void ApplyTurrets(BossPhaseSO phase)
     {
-        _burstRunning = true;
-        for (int i = 0; i < _burstCount; i++)
-        {
-            // Seguro por si muere a mitad de r�faga
-            if (_isDying || !gameObject.activeInHierarchy) yield break;
+        if (_turrets == null) return;
 
-            SpawnBullet(Vector2.down);
-            yield return new WaitForSeconds(_burstInterval);
+
+        for (int i = 0; i < _turrets.Length; i++)
+        {
+            BossTurret turret = _turrets[i]?.turret;
+            if (turret == null)
+            {
+                continue;
+            }
+
+            bool hasPattern = phase.turretPatterns != null
+                              && i < phase.turretPatterns.Length
+                              && phase.turretPatterns[i] != null;
+
+            if (hasPattern)
+            {
+                turret.gameObject.SetActive(true);
+                turret.RunPattern(phase.turretPatterns[i], phase.duration);
+            }
+            else
+            {
+                turret.StopCurrentPattern();
+                turret.gameObject.SetActive(false);
+            }
         }
-        _burstRunning = false;
     }
 
-    private void SpawnBullet(Vector2 direction)
+    private void StopAllTurrets()
     {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion bulletRotation = Quaternion.Euler(0, 0, angle - 90f);
-
-        if (BulletPool.Instance != null)
-        {
-            BulletPool.Instance.GetBullet(_bulletPrefab, transform.position, bulletRotation, direction * _bulletSpeed);
-        }
+        if (_turrets == null) return;
+        foreach (TurretAssignment t in _turrets)
+            t?.turret?.StopCurrentPattern();
     }
 
-    private Vector2 Rotate(Vector2 v, float degrees)
+    private void SetAllTurrets(bool active)
     {
-        float rad = degrees * Mathf.Deg2Rad;
-        return new Vector2(
-            v.x * Mathf.Cos(rad) - v.y * Mathf.Sin(rad),
-            v.x * Mathf.Sin(rad) + v.y * Mathf.Cos(rad)
-        );
+        if (_turrets == null) return;
+        foreach (TurretAssignment t in _turrets)
+        {
+            if (t?.turret == null) continue;
+            t.turret.StopCurrentPattern();
+            t.turret.gameObject.SetActive(active);
+        }
     }
     protected override void Die()
     {
         if (_isDying) return;
-
         StartCoroutine(TheatricalDeathRoutine());
     }
 
     private IEnumerator TheatricalDeathRoutine()
     {
-        _isDying = true; 
+        _isDying = true;
 
-        if (AudioBeatDetector.Instance != null)
-        {
-            AudioBeatDetector.Instance.StopMusic();
-        }
+        StopActiveMovement();
+        SetAllTurrets(active: false);
 
-        int explosionCount = 6;
-        for (int i = 0; i < explosionCount; i++)
+        if (_phaseLoop != null) { StopCoroutine(_phaseLoop); _phaseLoop = null; }
+
+        AudioBeatDetector.Instance?.StopMusic();
+
+        for (int i = 0; i < 6; i++)
         {
             if (_explosionEffectPrefab != null)
             {
-                Vector3 randomOffset = new Vector3(Random.Range(-2f, 2f), Random.Range(-1.5f, 1.5f), 0);
-                Instantiate(_explosionEffectPrefab, transform.position + randomOffset, Quaternion.identity);
+                Vector3 offset = new Vector3(
+                    Random.Range(-2f, 2f), Random.Range(-1.5f, 1.5f), 0f
+                );
+                Instantiate(_explosionEffectPrefab, transform.position + offset, Quaternion.identity);
             }
-
-            yield return new WaitForSeconds(0.4f - (i * 0.05f));
+            yield return new WaitForSeconds(Mathf.Max(0.05f, 0.4f - i * 0.05f));
         }
 
-        if (VictoryManager.Instance != null)
-        {
-            VictoryManager.Instance.ShowVictory();
-        }
-
+        VictoryManager.Instance?.ShowVictory();
         base.Die();
+    }
+
+    private void StopActiveMovement()
+    {
+        if (_activeMovement != null)
+        {
+            StopCoroutine(_activeMovement);
+            _activeMovement = null;
+        }
     }
 }

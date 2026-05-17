@@ -82,7 +82,6 @@ public class BackgroundSpawner : MonoBehaviour
         }
 
         OnPreWarmComplete?.Invoke();
-        Debug.Log("[BackgroundSpawner] Pre-warm completado.");
     }
     public void ResetAllLayers()
     {
