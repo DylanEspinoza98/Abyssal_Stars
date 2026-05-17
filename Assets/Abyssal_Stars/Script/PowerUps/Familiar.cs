@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Familiar : MonoBehaviour
 {
-    [Header("Órbita")]
+    [Header("Orbita")]
     [SerializeField] private float _orbitRadius = 1.2f;
     [SerializeField] private float _orbitSpeed = 90f;
 
@@ -13,25 +13,22 @@ public class Familiar : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 12f;
     [SerializeField] private Color _bulletColor = Color.cyan;
 
-    [Header("Duración")]
-    [SerializeField] private float _duration = 8f;
-
     private float _currentAngle = 0f;
     private float _fireTimer = 0f;
     private Transform _player;
 
-    public void Init(Transform player, PlayerBullet bulletPrefab)
+    // angleOffset separa cada familiar: 0°, 120°, 240°
+    public void Init(Transform player, PlayerBullet bulletPrefab, float angleOffset)
     {
         _player = player;
         _bulletPrefab = bulletPrefab;
-        StartCoroutine(LifeRoutine());
+        _currentAngle = angleOffset;
     }
 
     void Update()
     {
         if (_player == null) return;
 
-        // Orbita alrededor del jugador
         _currentAngle += _orbitSpeed * Time.deltaTime;
         if (_currentAngle >= 360f) _currentAngle -= 360f;
 
@@ -39,7 +36,6 @@ public class Familiar : MonoBehaviour
         Vector3 offset = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0f) * _orbitRadius;
         transform.position = _player.position + offset;
 
-        // Disparo automatico hacia arriba
         _fireTimer -= Time.deltaTime;
         if (_fireTimer <= 0f)
         {
@@ -59,21 +55,18 @@ public class Familiar : MonoBehaviour
             Vector2.up * _bulletSpeed
         );
 
-        // Pinta la bala de azul
         SpriteRenderer sr = bullet.GetComponent<SpriteRenderer>();
         if (sr != null) sr.color = _bulletColor;
     }
 
-    private IEnumerator LifeRoutine()
-    {
-        yield return new WaitForSeconds(_duration);
-        Destroy(gameObject);
-    }
-
     private void OnDestroy()
     {
-        PlayerBullet[] activeBullets = FindObjectsByType<PlayerBullet>(FindObjectsSortMode.None);
-        foreach (PlayerBullet b in activeBullets)
+        // Resetea color de todas las balas activas e inactivas
+        PlayerBullet[] todas = FindObjectsByType<PlayerBullet>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
+        foreach (PlayerBullet b in todas)
         {
             SpriteRenderer sr = b.GetComponent<SpriteRenderer>();
             if (sr != null) sr.color = Color.white;

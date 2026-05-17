@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerHealth))]
 public class PlayerShooter : MonoBehaviour
@@ -18,21 +19,36 @@ public class PlayerShooter : MonoBehaviour
 
     [Header("Familiar")]
     [SerializeField] private Familiar _familiarPrefab;
+    [SerializeField] private int _maxFamiliars = 3;
 
     private float _fireTimer;
     private bool _isShotgunActive = false;
     private Coroutine _shotgunCoroutine;
-    private Familiar _currentFamiliar;
-    private PlayerHealth health;
+    private List<Familiar> _familiars = new List<Familiar>();
+    private PlayerHealth _health;
 
     void Start()
     {
-        health = GetComponent<PlayerHealth>();
+        _health = GetComponent<PlayerHealth>();
+        // Suscribirse a cuando el jugador muere para destruir familiares
+        _health.OnLivesChanged += OnLivesChanged;
+    }
+
+    void OnDestroy()
+    {
+        if (_health != null)
+            _health.OnLivesChanged -= OnLivesChanged;
+    }
+
+    private void OnLivesChanged(int lives)
+    {
+        // Cada vez que el jugador pierde una vida destruye todos los familiares
+        DestroyAllFamiliars();
     }
 
     void Update()
     {
-        if (health != null && health.IsDead) return;
+        if (_health != null && _health.IsDead) return;
         HandleShooting();
     }
 
@@ -87,20 +103,34 @@ public class PlayerShooter : MonoBehaviour
         _shotgunCoroutine = null;
     }
 
-    // Llamado por PowerUpFamiliar al recogerlo
     public void ActivateFamiliar()
     {
-        // Si ya hay un familiar activo lo destruye y crea uno nuevo
-        if (_currentFamiliar != null)
-            Destroy(_currentFamiliar.gameObject);
+        // Limpia familiares destruidos de la lista
+        _familiars.RemoveAll(f => f == null);
 
-        if (_familiarPrefab != null)
+        // Si ya tiene el maximo no hace nada
+        if (_familiars.Count >= _maxFamiliars) return;
+
+        if (_familiarPrefab == null) return;
+
+        // Calcula el angulo inicial segun cuantos familiares ya hay
+        // 1 familiar: 0°   2: 0° y 120°   3: 0°, 120° y 240°
+        float angleOffset = _familiars.Count * (360f / _maxFamiliars);
+
+        Familiar newFamiliar = Instantiate(_familiarPrefab, transform.position, Quaternion.identity);
+        newFamiliar.Init(transform, _bulletPrefab, angleOffset);
+        _familiars.Add(newFamiliar);
+    }
+
+    private void DestroyAllFamiliars()
+    {
+        foreach (Familiar f in _familiars)
         {
-            _currentFamiliar = Instantiate(_familiarPrefab, transform.position, Quaternion.identity);
-            _currentFamiliar.Init(transform, _bulletPrefab);
+            if (f != null) Destroy(f.gameObject);
         }
+        _familiars.Clear();
     }
 
     public bool IsShotgunActive => _isShotgunActive;
-    public bool IsFamiliarActive => _currentFamiliar != null;
+    public int FamiliarCount => _familiars.Count;
 }
