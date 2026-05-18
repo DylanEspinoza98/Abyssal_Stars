@@ -22,19 +22,14 @@ public class BulletPool : MonoBehaviour
         GameObject prefabKey = prefab.gameObject;
 
         if (!_pools.ContainsKey(prefabKey))
-        {
             _pools.Add(prefabKey, new Queue<Bullet>());
-        }
 
         Bullet bullet;
 
         if (_pools[prefabKey].Count > 0)
-        {
             bullet = _pools[prefabKey].Dequeue();
-        }
         else
         {
-           
             bullet = Instantiate(prefab, transform);
             bullet.Setup(this, prefabKey);
         }
@@ -50,9 +45,25 @@ public class BulletPool : MonoBehaviour
     public void ReturnBullet(GameObject prefabKey, Bullet bullet)
     {
         if (_pools.ContainsKey(prefabKey))
-        {
             _pools[prefabKey].Enqueue(bullet);
-        }
+
         bullet.gameObject.SetActive(false);
+    }
+    public void ReturnAllEnemyBullets()
+    {
+        int childCount = transform.childCount;
+        var toReturn = new List<Bullet>(childCount);
+
+        for (int i = 0; i < childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (!child.gameObject.activeSelf) continue;
+
+            EnemyBullet eb = child.GetComponent<EnemyBullet>();
+            if (eb != null) toReturn.Add(eb);
+        }
+
+        foreach (Bullet b in toReturn)
+            b.gameObject.SetActive(false);
     }
 }

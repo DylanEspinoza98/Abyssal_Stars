@@ -104,14 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6804897020010786423, guid: 7ea7b7461e556e241956b8e13bb12072, type: 3}
+  bulletPrefab: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
   bulletSprite: {fileID: 0}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   rotateToFireDirection: 1
   rotationOffset: 90
   rotationSpeed: 0
   _patternPlaylist:
-  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
+  - {fileID: 11400000, guid: abab707657150d24fa10a94da79a8a3e, type: 2}
   _timePerPattern: 10
   _transitionDelay: 2
 --- !u!1 &1252624352410410086
@@ -218,14 +218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6804897020010786423, guid: 7ea7b7461e556e241956b8e13bb12072, type: 3}
+  bulletPrefab: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
   bulletSprite: {fileID: 0}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   rotateToFireDirection: 1
   rotationOffset: 90
   rotationSpeed: 0
   _patternPlaylist:
-  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
+  - {fileID: 11400000, guid: 85f3483d7d6b2914b8de0d0f7e9a87c5, type: 2}
   _timePerPattern: 10
   _transitionDelay: 2
 --- !u!1 &4928761391858795651
@@ -332,14 +332,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6804897020010786423, guid: 7ea7b7461e556e241956b8e13bb12072, type: 3}
+  bulletPrefab: {fileID: 6020517980567016966, guid: a1af9f45a10900a4ba613a8fe0691262, type: 3}
   bulletSprite: {fileID: 0}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   rotateToFireDirection: 1
   rotationOffset: 90
   rotationSpeed: 0
   _patternPlaylist:
-  - {fileID: 11400000, guid: abab707657150d24fa10a94da79a8a3e, type: 2}
+  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
   _timePerPattern: 10
   _transitionDelay: 2
 --- !u!1 &5931078833827405855
@@ -424,7 +424,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -897920417
   m_SortingLayer: 3
-  m_SortingOrder: 20
+  m_SortingOrder: 19
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e8c31d2fa3f34be4c81690a90d57718e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

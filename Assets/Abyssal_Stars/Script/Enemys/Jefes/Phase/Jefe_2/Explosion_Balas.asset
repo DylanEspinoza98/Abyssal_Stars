@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossPhaseSO
   movementPattern: {fileID: 11400000, guid: 63f71b74a649cc8418268977940f7b5c, type: 2}
   turretPatterns:
+  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
   - {fileID: 11400000, guid: abab707657150d24fa10a94da79a8a3e, type: 2}
-  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
-  - {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
+  - {fileID: 11400000, guid: 85f3483d7d6b2914b8de0d0f7e9a87c5, type: 2}
   duration: 6
-  transitionDelay: 1
+  transitionDelay: 2

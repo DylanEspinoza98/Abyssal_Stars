@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -897920417
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1162233375206758482, guid: b5ba4dae944365e43bf1ed8000128eac, type: 3}
@@ -148,7 +148,7 @@ MonoBehaviour:
   _scoreValue: 50
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 15
-  _bulletPrefab: {fileID: 1757293754118077002, guid: 3bc4297771b81024bbe7705ab56b6520, type: 3}
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 947f12dc7834839439406fa625bb173c, type: 3}
   _bulletSpeed: 4
   _bulletsPerRing: 12
   _timeBetweenRings: 0.3

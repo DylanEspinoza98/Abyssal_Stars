@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-// Se mantiene entre escenas y le da sonido a los botones del menu, asegurando que cada boton tenga el sonido asignado al cargar una nueva escena
+// Se mantiene entre escenas y le da sonido a los botones del menu,
+// asegurando que cada boton tenga el sonido asignado al cargar una nueva escena
 public class ButtonSoundManager : MonoBehaviour
 {
     public static ButtonSoundManager Instance { get; private set; }
@@ -40,22 +40,19 @@ public class ButtonSoundManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
         ConnectAllButtons();
     }
 
     void Start()
     {
-        
         ConnectAllButtons();
     }
 
     private void ConnectAllButtons()
     {
-        Button[] allButtons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Button[] allButtons = FindObjectsByType<Button>(FindObjectsInactive.Include);
         foreach (Button btn in allButtons)
         {
-            // Evita agregar el listener mas de una vez
             btn.onClick.RemoveListener(PlayButtonSound);
             btn.onClick.AddListener(PlayButtonSound);
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   movementPattern: {fileID: 11400000, guid: 4623f8f3000504c4090690b25ee34db3, type: 2}
   turretPatterns:
   - {fileID: 11400000, guid: 53ac1a5cd3fb77b4e878e312674eda7c, type: 2}
-  - {fileID: 11400000, guid: a1fc03f8f2665524cb7ae901a1d33868, type: 2}
-  - {fileID: 11400000, guid: a1fc03f8f2665524cb7ae901a1d33868, type: 2}
-  duration: 5
-  transitionDelay: 1
+  - {fileID: 0}
+  - {fileID: 0}
+  duration: 12
+  transitionDelay: 4.5

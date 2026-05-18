@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0163fe1eb6162e419826903629d311b, type: 3}
   m_Name: Laser_1
   m_EditorClassIdentifier: Assembly-CSharp::PatternLaserSO
-  mirrorX: 0
-  startAngle: 200
-  endAngle: 300
+  mirrorX: 1
+  startAngle: 230
+  endAngle: 330
   sweepSpeed: 40
   alternateSweep: 1
   fireRate: 0.02
   bulletSpeed: 10
-  edgePause: 0.8
-  gapsPerSweep: 5
-  gapDuration: 0.5
+  gapsPerSweep: 2
+  gapDuration: 0.55
   telegraphGap: 1
-  telegraphSpeedFactor: 0.331
-  telegraphDuration: 0.25
+  telegraphDuration: 0.35
+  telegraphSpeedFactor: 0.35

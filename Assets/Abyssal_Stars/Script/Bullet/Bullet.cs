@@ -6,9 +6,20 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected float _maxLifeTime = 10f;
     [SerializeField] private float _offScreenMargin = 0.1f;
 
+    [Header("Bullet Hell Settings")]
+    [Tooltip("Segundos antes de que la bala empiece a auto-destruirse por salir de la cámara. " +
+             "Solo aplica si la bala YA entró a pantalla al menos una vez.")]
+    [SerializeField] private float _graceTime = 1.5f;
+
     private float _currentLifeTime;
     private BulletPool _myPool;
     private GameObject _myPrefabKey;
+
+    private bool _isEntering = true;
+
+    private bool _hasKillPoint = false;
+    private Vector2 _killPoint;
+    private float _killRadiusSqr;
 
     public Vector2 Velocity { get; set; }
 
@@ -17,22 +28,31 @@ public abstract class Bullet : MonoBehaviour
         _myPool = pool;
         _myPrefabKey = prefabKey;
     }
+    public void SetKillPoint(Vector2 point, float radius)
+    {
+        _hasKillPoint = true;
+        _killPoint = point;
+        _killRadiusSqr = radius * radius;
+    }
 
     protected virtual void OnEnable()
     {
         _currentLifeTime = 0f;
+        _isEntering = true;
+        _hasKillPoint = false; 
+
         transform.localPosition = new Vector3(
             transform.localPosition.x,
             transform.localPosition.y,
             0f
         );
     }
+
     public void SetRotationByVelocity()
     {
         if (Velocity != Vector2.zero)
         {
             float angle = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg;
-
             transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         }
     }
@@ -42,20 +62,39 @@ public abstract class Bullet : MonoBehaviour
         transform.position += (Vector3)Velocity * Time.deltaTime;
         _currentLifeTime += Time.deltaTime;
 
-        if (IsOutOfScreen() || _currentLifeTime >= _maxLifeTime)
+        if (_hasKillPoint)
         {
-            ReturnToPool();
+            Vector2 diff = (Vector2)transform.position - _killPoint;
+            if (diff.sqrMagnitude <= _killRadiusSqr)
+            {
+                ReturnToPool();
+                return;
+            }
         }
+
+        bool onScreen = IsOnScreen();
+
+        if (_isEntering)
+        {
+            if (onScreen) _isEntering = false;
+
+            if (_currentLifeTime >= _maxLifeTime)
+                ReturnToPool();
+
+            return;
+        }
+
+        if ((!onScreen && _currentLifeTime > _graceTime) || _currentLifeTime >= _maxLifeTime)
+            ReturnToPool();
     }
 
-    
-    private bool IsOutOfScreen()
+    private bool IsOnScreen()
     {
         if (Camera.main == null) return false;
 
         Vector3 vp = Camera.main.WorldToViewportPoint(transform.position);
-        return vp.x < -_offScreenMargin || vp.x > 1f + _offScreenMargin ||
-               vp.y < -_offScreenMargin || vp.y > 1f + _offScreenMargin;
+        return vp.x >= -_offScreenMargin && vp.x <= 1f + _offScreenMargin &&
+               vp.y >= -_offScreenMargin && vp.y <= 1f + _offScreenMargin;
     }
 
     protected void ReturnToPool()

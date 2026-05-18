@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class BackgroundSpawner : MonoBehaviour
 {
-
     public static BackgroundSpawner Instance { get; private set; }
 
     [Header("Capas de Parallax")]
@@ -20,9 +19,6 @@ public class BackgroundSpawner : MonoBehaviour
     public float KillY => _killY;
 
     public event Action OnPreWarmComplete;
-
-
-    public event Action<string, Vector3> OnLayerSpawned;
 
     private void Awake()
     {
@@ -83,12 +79,14 @@ public class BackgroundSpawner : MonoBehaviour
 
         OnPreWarmComplete?.Invoke();
     }
+
     public void ResetAllLayers()
     {
         if (_layers == null) return;
         foreach (var layer in _layers)
             layer?.ReturnAll();
     }
+
     public void SetLayerActive(string layerName, bool active)
     {
         if (_layers == null) return;
@@ -102,12 +100,10 @@ public class BackgroundSpawner : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        // Línea de spawn top
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(new Vector3(-10f, _spawnTopY, 0f), new Vector3(10f, _spawnTopY, 0f));
         UnityEditor.Handles.Label(new Vector3(-9f, _spawnTopY + 0.2f, 0f), "Spawn Top");
 
-        // Línea de kill
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(-10f, _killY, 0f), new Vector3(10f, _killY, 0f));
         UnityEditor.Handles.Label(new Vector3(-9f, _killY + 0.2f, 0f), "Kill Y");

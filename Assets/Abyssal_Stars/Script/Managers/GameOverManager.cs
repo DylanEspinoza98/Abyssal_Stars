@@ -27,6 +27,7 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        AudioBeatDetector.Instance?.StopMusic();
         _gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
 

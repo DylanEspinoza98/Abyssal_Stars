@@ -5,132 +5,133 @@ using System.Collections;
 public class PatternLaserSO : AttackPatternSO
 {
     [Header("Barrido")]
-    public float startAngle = 210f;
-    public float endAngle = 330f;
+    public float startAngle = 200f;
+    public float endAngle = 300f;
     public float sweepSpeed = 40f;
     public bool alternateSweep = true;
 
     [Header("Disparo")]
     public float fireRate = 0.02f;
     public float bulletSpeed = 10f;
-    public float edgePause = 0.4f;
 
-    [Header("Huecos de Escape")]
-    [Tooltip("Cuántos huecos se abren por pasada.")]
-    [Min(1)]
+    [Header("Huecos de Escape (Gaps)")]
+    [Tooltip("Cuántos huecos por barrido. 1 = justo al centro, 2 = divididos simétricamente, etc.")]
     public int gapsPerSweep = 1;
-
-    [Tooltip("Duración del hueco en segundos. 0.4-0.6s da tiempo justo para pasar.")]
     public float gapDuration = 0.5f;
 
-    [Tooltip("Si está activo, el laser se ralentiza antes del hueco para avisarte.")]
+    [Header("Aviso Visual (Telegraph)")]
     public bool telegraphGap = true;
-
-    [Tooltip("Factor de velocidad durante el telegraph (0.35 = 35% de velocidad normal).")]
-    [Range(0.1f, 0.9f)]
-    public float telegraphSpeedFactor = 0.35f;
-
-    [Tooltip("Duración del telegraph antes del hueco.")]
     public float telegraphDuration = 0.25f;
+    [Range(0.1f, 0.9f)] public float telegraphSpeedFactor = 0.35f;
 
     private float _currentAngle;
     private float _direction;
-    private float _fireTimer;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {
         _currentAngle = startAngle;
         _direction = 1f;
-        _fireTimer = 0f;
 
         while (true)
         {
             yield return DoSweep(turret);
-            yield return new WaitForSeconds(edgePause);
 
-            if (alternateSweep) _direction = -_direction;
-            else _currentAngle = startAngle;
+            if (alternateSweep)
+                _direction = -_direction;
+            else
+                _currentAngle = startAngle;
         }
     }
 
     private IEnumerator DoSweep(BossTurret turret)
     {
-        float sweepRange = Mathf.Abs(endAngle - startAngle);
-        float gapSpacing = sweepRange / (gapsPerSweep + 1);
-        float startPos = _currentAngle;
-        float distanceSince = 0f;
-        int gapsFired = 0;
-        float nextGapAt = gapSpacing;
+        float totalSweepAngle = Mathf.Abs(endAngle - startAngle);
+        float anglePerSegment = totalSweepAngle / (gapsPerSweep + 1);
+
+        float gapDegrees = sweepSpeed * gapDuration;
+        float telegraphDegrees = telegraphGap ? (sweepSpeed * telegraphSpeedFactor) * telegraphDuration : 0f;
+
+        float sweptAngle = 0f;
+        int gapsDone = 0;
+        float fireTimer = 0f;
 
         bool inGap = false;
-        float gapTimer = 0f;
         bool inTelegraph = false;
-        float telegraphTimer = 0f;
+        float stateTimer = 0f;
 
         while (true)
         {
             float currentSpeed = sweepSpeed;
 
-            if (telegraphGap && !inGap && !inTelegraph && gapsFired < gapsPerSweep)
+            if (!inGap && !inTelegraph && gapsDone < gapsPerSweep)
             {
-                float distToGap = nextGapAt - distanceSince;
-                if (distToGap <= sweepSpeed * telegraphDuration)
+                float targetAngle = anglePerSegment * (gapsDone + 1);
+
+                float triggerAngle = targetAngle - (gapDegrees / 2f) - telegraphDegrees;
+                triggerAngle = Mathf.Max(0f, triggerAngle);
+
+                if (sweptAngle >= triggerAngle)
                 {
-                    inTelegraph = true;
-                    telegraphTimer = 0f;
+                    if (telegraphGap) inTelegraph = true;
+                    else inGap = true;
+                    stateTimer = 0f;
                 }
             }
 
             if (inTelegraph)
             {
-                telegraphTimer += Time.deltaTime;
                 currentSpeed = sweepSpeed * telegraphSpeedFactor;
+                stateTimer += Time.deltaTime;
 
-                if (telegraphTimer >= telegraphDuration)
+                if (stateTimer >= telegraphDuration)
                 {
                     inTelegraph = false;
                     inGap = true;
-                    gapTimer = 0f;
+                    stateTimer = 0f;
                 }
             }
-
-            if (inGap)
+            else if (inGap)
             {
-                gapTimer += Time.deltaTime;
-                _currentAngle += _direction * currentSpeed * Time.deltaTime;
-
-                if (gapTimer >= gapDuration)
+                stateTimer += Time.deltaTime;
+                if (stateTimer >= gapDuration)
                 {
                     inGap = false;
-                    gapsFired++;
-                    nextGapAt = distanceSince + gapSpacing;
+                    gapsDone++;
                 }
-
-                yield return null;
-                continue;
             }
 
-            _currentAngle += _direction * currentSpeed * Time.deltaTime;
-            distanceSince = Mathf.Abs(_currentAngle - startPos);
-            _fireTimer += Time.deltaTime;
+            float moveStep = currentSpeed * Time.deltaTime;
+            _currentAngle += _direction * moveStep;
+            sweptAngle += moveStep;
 
-            if (_fireTimer >= fireRate)
+            if (!inGap)
             {
-                turret.FireSingleBullet(ApplyMirror(_currentAngle), bulletSpeed);
-                _fireTimer = 0f;
+                fireTimer += Time.deltaTime;
+                if (fireTimer >= fireRate)
+                {
+                    turret.FireSingleBullet(ApplyMirror(_currentAngle), bulletSpeed);
+                    fireTimer = 0f;
+                }
             }
 
-            bool reachedEnd = _direction > 0
-                ? _currentAngle >= endAngle
-                : _currentAngle <= startAngle;
-
-            if (reachedEnd)
+            if (ReachedEnd())
             {
-                _currentAngle = _direction > 0 ? endAngle : startAngle;
+                ClampToEnd();
                 yield break;
             }
 
             yield return null;
         }
     }
+
+    private bool ReachedEnd()
+    {
+        return _direction > 0 ? _currentAngle >= endAngle : _currentAngle <= startAngle;
+    }
+
+    private void ClampToEnd()
+    {
+        _currentAngle = _direction > 0 ? endAngle : startAngle;
+    }
+
 }

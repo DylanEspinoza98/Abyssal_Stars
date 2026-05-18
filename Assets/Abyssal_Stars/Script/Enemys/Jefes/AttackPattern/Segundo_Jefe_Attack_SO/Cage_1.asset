@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51597bd0dadb48f42886c76efb07efca, type: 3}
   m_Name: Cage_1
   m_EditorClassIdentifier: Assembly-CSharp::PatternCageSO
-  mirrorX: 1
-  bulletsPerWall: 5
-  bulletSpacing: 0.5
+  mirrorX: 0
+  bulletsPerRing: 60
+  spawnRadius: 12
+  gapSizeDegrees: 60
   bulletSpeed: 2.5
-  cageCooldown: 1.5
+  killRadius: 0.4
+  ringsPerAttack: 3
+  timeBetweenRings: 0.5
+  cageCooldown: 3
+  warmupDuration: 0.25
+  gapAngleVariance: 30
+  ringRotationStep: 15
   playerTag: Player

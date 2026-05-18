@@ -115,7 +115,7 @@ MonoBehaviour:
   _horizontalSpeed: 1.5
   _fallSpeed: 4
   _horizontalLimit: 0.5
-  _bulletPrefab: {fileID: 2894421185610419570, guid: 8a5d01ee7e8e5224fab54b72b57ccd6e, type: 3}
+  _bulletPrefab: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
   _fireRate: 0.05
   _bulletSpeed: 0.2
 --- !u!58 &8842047007803508287

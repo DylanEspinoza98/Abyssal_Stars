@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -897920417
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 8d5f697c999643441bb417d834c597de, type: 3}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f708d76cfea324a8bec43095f4c364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShooter
-  _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
+  _bulletPrefab: {fileID: 6544520562468066579, guid: 7e143ce999297464db1fc6f89c8a19d1, type: 3}
   _fireRate: 0.15
   _bulletSpeed: 12
   _shotgunBullets: 5
@@ -214,6 +214,7 @@ MonoBehaviour:
   _shotgunDuration: 10
   _shotgunFireRate: 0.25
   _familiarPrefab: {fileID: 0}
+  _maxFamiliars: 3
 --- !u!1 &5315316675712360337
 GameObject:
   m_ObjectHideFlags: 0

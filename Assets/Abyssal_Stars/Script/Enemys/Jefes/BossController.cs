@@ -40,6 +40,7 @@ public class BossController : EnemyBase
         if (_isDying) return;
         base.Update();
     }
+
     private IEnumerator EnterAndStartPhases()
     {
         Vector3 target = new Vector3(_zoneCenter.x, _zoneCenter.y, 10f);
@@ -71,10 +72,8 @@ public class BossController : EnemyBase
                 continue;
             }
 
-            // Aplicar torretas de esta fase
             ApplyTurrets(phase);
 
-            // Movimiento
             if (phase.movementPattern != null)
                 _activeMovement = StartCoroutine(
                     phase.movementPattern.ExecuteMovement(transform, _zoneCenter)
@@ -96,14 +95,10 @@ public class BossController : EnemyBase
     {
         if (_turrets == null) return;
 
-
         for (int i = 0; i < _turrets.Length; i++)
         {
             BossTurret turret = _turrets[i]?.turret;
-            if (turret == null)
-            {
-                continue;
-            }
+            if (turret == null) continue;
 
             bool hasPattern = phase.turretPatterns != null
                               && i < phase.turretPatterns.Length
@@ -139,6 +134,7 @@ public class BossController : EnemyBase
             t.turret.gameObject.SetActive(active);
         }
     }
+
     protected override void Die()
     {
         if (_isDying) return;

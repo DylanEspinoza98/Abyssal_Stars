@@ -17,7 +17,6 @@ public class Familiar : MonoBehaviour
     private float _fireTimer = 0f;
     private Transform _player;
 
-    // angleOffset separa cada familiar: 0°, 120°, 240°
     public void Init(Transform player, PlayerBullet bulletPrefab, float angleOffset)
     {
         _player = player;
@@ -61,11 +60,8 @@ public class Familiar : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Resetea color de todas las balas activas e inactivas
-        PlayerBullet[] todas = FindObjectsByType<PlayerBullet>(
-            FindObjectsInactive.Include,
-            FindObjectsSortMode.None
-        );
+        // API actualizada: sin FindObjectsSortMode
+        PlayerBullet[] todas = FindObjectsByType<PlayerBullet>(FindObjectsInactive.Include);
         foreach (PlayerBullet b in todas)
         {
             SpriteRenderer sr = b.GetComponent<SpriteRenderer>();

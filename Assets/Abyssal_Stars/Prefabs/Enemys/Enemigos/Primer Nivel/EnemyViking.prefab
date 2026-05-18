@@ -149,7 +149,7 @@ MonoBehaviour:
   _scoreValue: 15
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 15
-  _bulletPrefab: {fileID: 8414278400591427660, guid: 721b138699da760418181ed5c890cb23, type: 3}
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 669a7336ba56eee48acb3281c19f4f58, type: 3}
   _bulletSpeed: 8
   _shotsPerBurst: 5
   _timeBetweenShots: 0.012

@@ -152,7 +152,7 @@ MonoBehaviour:
   _descendDuration: 0.5
   _orbitSpeed: 90
   _orbitRadius: 0.8
-  _bulletPrefab: {fileID: 6804897020010786423, guid: 7ea7b7461e556e241956b8e13bb12072, type: 3}
+  _bulletPrefab: {fileID: 6020517980567016966, guid: a1af9f45a10900a4ba613a8fe0691262, type: 3}
   _bulletCount: 8
   _fanAngle: 95
   _timeBetweenBullets: 0.1
