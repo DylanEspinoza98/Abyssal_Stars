@@ -30,7 +30,7 @@ public class SpaceDecor : MonoBehaviour
         // 2. Temporizador rápido
         _aliveTime += Time.deltaTime;
 
-        // 3. Única regla de muerte: Cruzar la coordenada _killY
+        // 3. Única regla de muerte: Cruzar la coordenada 
         if (_aliveTime >= MIN_LIFETIME && transform.position.y <= _killY)
         {
             _triggered = true;

@@ -21,11 +21,10 @@ public class PowerUpSpawner : MonoBehaviour
     [SerializeField] private float _maxX = 3.5f;
 
     [Header("Probabilidades (deben sumar 1)")]
-    // Ej: vida=0.3, shotgun=0.4, familiar=0.3
     [SerializeField] private float _lifeProbability = 0.3f;
     [SerializeField] private float _shotgunProbability = 0.4f;
-    // El familiar toma el resto: 1 - vida - shotgun
-    // No hace falta serializar el familiar, se calcula solo
+    // El familiar toma el resto
+    
 
     private Camera _cam;
 

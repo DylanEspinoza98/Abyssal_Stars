@@ -11,17 +11,17 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class DecorGlow : MonoBehaviour
 {
-    // ── Configuración (seteada por BackgroundLayer) ──────────────────────
-    private float _baseAlpha;        // Alfa original del objeto
-    private float _glowIntensity;    // Cuánto varía el alfa en el pulso  (ej: 0.15)
-    private float _glowSpeed;        // Velocidad del pulso (ej: 1.0 - 2.5)
-    private float _scaleBreath;      // Cuánto "respira" la escala       (ej: 0.0 - 0.05)
+    //  Configuración
+    private float _baseAlpha;    
+    private float _glowIntensity;    
+    private float _glowSpeed;        
+    private float _scaleBreath;      
 
     private SpriteRenderer _sr;
     private Vector3        _baseScale;
-    private float          _timeOffset;   // Fase aleatoria → pulsos no sincronizados
+    private float          _timeOffset;   
 
-    // ── API pública ──────────────────────────────────────────────────────
+    // API pública 
 
     /// <summary>
     /// Inicializa el glow. Llamar después de setear la escala del objeto.
@@ -42,7 +42,7 @@ public class DecorGlow : MonoBehaviour
         _timeOffset    = Random.Range(0f, Mathf.PI * 2f);   // fase aleatoria
     }
 
-    // ── Unity ────────────────────────────────────────────────────────────
+    // Unity 
 
     private void Update()
     {
@@ -77,6 +77,6 @@ public class DecorGlow : MonoBehaviour
         }
 
         transform.localScale = _baseScale;
-        _timeOffset = Random.Range(0f, Mathf.PI * 2f);   // nueva fase al reciclar
+        _timeOffset = Random.Range(0f, Mathf.PI * 2f);   
     }
 }

@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Se mantiene entre escenas y le da sonido a los botones del menu,
-// asegurando que cada boton tenga el sonido asignado al cargar una nueva escena
+// Se mantiene entre escenas y le da sonido a los botones del menu
+
 public class ButtonSoundManager : MonoBehaviour
 {
     public static ButtonSoundManager Instance { get; private set; }

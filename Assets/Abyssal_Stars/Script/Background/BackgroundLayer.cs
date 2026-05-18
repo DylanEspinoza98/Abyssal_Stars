@@ -52,7 +52,7 @@ public class BackgroundLayer : MonoBehaviour
     [Header("6. Memoria (Pool)")]
     [SerializeField] private int _poolInitialSize = 4;
 
-    // --- Variables Privadas ---
+    // Variables Privadas 
     private GameObject _lastSpawnedUnique;
     private float _killY = -12f;
     private Dictionary<GameObject, DecorPool> _pools = new Dictionary<GameObject, DecorPool>();
@@ -101,7 +101,7 @@ public class BackgroundLayer : MonoBehaviour
         _activeDecors.Clear();
     }
 
-    // --- Rutina Principal Unificada ---
+    //  Rutina Principal Unificada 
     private IEnumerator MainSpawnRoutine()
     {
         yield return new WaitForSeconds(_initialDelay);
@@ -132,8 +132,8 @@ public class BackgroundLayer : MonoBehaviour
                 float phaseDuration = Random.Range(_minPhaseDuration, _maxPhaseDuration);
                 float elapsed = 0f;
 
-                // Opcional: Aviso global al GameManager si es la capa de Meteoritos
-                // if (layerName == "Meteoros") GameManager.Instance.AvisarTormenta();
+                
+                
 
                 while (elapsed < phaseDuration && _canSpawn)
                 {
@@ -148,7 +148,7 @@ public class BackgroundLayer : MonoBehaviour
         }
     }
 
-    // --- Lógica de Instanciación ---
+    //  Lógica de Instanciación
     private void SpawnObject(Vector3 position, bool forceCommon = false)
     {
         GameObject prefab = PickPrefab(forceCommon);
@@ -176,14 +176,14 @@ public class BackgroundLayer : MonoBehaviour
             sr.color = c;
         }
 
-        // Glow
+        
         if (_enableGlow)
         {
             DecorGlow glow = obj.GetComponent<DecorGlow>() ?? obj.AddComponent<DecorGlow>();
             glow.Setup(alpha, _glowIntensity, _glowSpeed, _scaleBreath);
         }
 
-        // SpaceDecor (movimiento)
+        // movimiento
         SpaceDecor decor = obj.GetComponent<SpaceDecor>() ?? obj.AddComponent<SpaceDecor>();
         decor.Setup(speed, _killY);
 
@@ -203,7 +203,7 @@ public class BackgroundLayer : MonoBehaviour
         ReturnToPool(decor.gameObject);
     }
 
-    // --- Pool y Memoria ---
+    // Pool y Memoria
     private void InitPools()
     {
         if (_prefabs == null) return;
@@ -231,7 +231,7 @@ public class BackgroundLayer : MonoBehaviour
         obj.SetActive(false);
     }
 
-    // --- Filtro Anti-Repetición ---
+    //  Filtro Anti-Repetición 
     private GameObject PickPrefab(bool forceCommon)
     {
         if (_prefabs == null || _prefabs.Length == 0) return null;

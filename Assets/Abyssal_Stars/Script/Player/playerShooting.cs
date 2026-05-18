@@ -30,7 +30,7 @@ public class PlayerShooter : MonoBehaviour
     void Start()
     {
         _health = GetComponent<PlayerHealth>();
-        // Suscribirse a cuando el jugador muere para destruir familiares
+ 
         _health.OnLivesChanged += OnLivesChanged;
     }
 
@@ -113,8 +113,7 @@ public class PlayerShooter : MonoBehaviour
 
         if (_familiarPrefab == null) return;
 
-        // Calcula el angulo inicial segun cuantos familiares ya hay
-        // 1 familiar: 0°   2: 0° y 120°   3: 0°, 120° y 240°
+        
         float angleOffset = _familiars.Count * (360f / _maxFamiliars);
 
         Familiar newFamiliar = Instantiate(_familiarPrefab, transform.position, Quaternion.identity);

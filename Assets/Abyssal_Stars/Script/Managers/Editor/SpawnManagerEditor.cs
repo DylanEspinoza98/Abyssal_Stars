@@ -35,7 +35,7 @@ public class SpawnManagerEditor : Editor
     {
         SerializedObject so = new SerializedObject(spawner);
 
-        // Buscamos los 4 canales fijos por su nombre de variable
+        // Buscamos los 4 canales 
         string[] channelProperties = { "_channelLow", "_channelMid", "_channelHigh", "_channelSubLow" };
 
         Color[] defaultColors = {

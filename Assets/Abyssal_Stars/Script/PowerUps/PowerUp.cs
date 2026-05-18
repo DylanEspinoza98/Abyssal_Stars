@@ -16,7 +16,7 @@ public abstract class PowerUp : MonoBehaviour
         // Cae hacia abajo
         transform.Translate(Vector2.down * _fallSpeed * Time.deltaTime);
 
-        // Se destruye si sale de pantalla
+        
         if (Camera.main != null)
         {
             Vector2 vp = Camera.main.WorldToViewportPoint(transform.position);
@@ -27,7 +27,7 @@ public abstract class PowerUp : MonoBehaviour
             }
         }
 
-        // Detección por distancia al Player — funciona independientemente de triggers
+        
         if (!_collected && PlayerHealth.Instance != null && !PlayerHealth.Instance.IsDead)
         {
             float dist = Vector2.Distance(transform.position, PlayerHealth.Instance.transform.position);
@@ -41,6 +41,6 @@ public abstract class PowerUp : MonoBehaviour
         }
     }
 
-    // Cada power up implementa su efecto aqui
+    // Cada power up implementa su efecto específico al ser recogido
     protected abstract void OnCollected(PlayerHealth player, PlayerShooter shooter);
 }

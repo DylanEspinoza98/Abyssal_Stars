@@ -9,14 +9,14 @@ public class VictoryManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject _victoryPanel;
-    [SerializeField] private TextMeshProUGUI _victoryText;    // El Text (TMP) del panel
-    [SerializeField] private Button _nextLevelButton;         // Btn_NextLevel (nuevo)
-    [SerializeField] private TextMeshProUGUI _nextLevelText;  // Text (TMP) hijo de Btn_NextLevel
-    [SerializeField] private Button _menuButton;              // Btn_Menu (existente)
+    [SerializeField] private TextMeshProUGUI _victoryText;    
+    [SerializeField] private Button _nextLevelButton;         
+    [SerializeField] private TextMeshProUGUI _nextLevelText;  
+    [SerializeField] private Button _menuButton;              
 
     [Header("Configuración")]
-    [SerializeField] private bool _isLastLevel = false;       // true solo en Tercer_Nivel
-    [SerializeField] private string _nextLevelSceneName = ""; // nombre de la siguiente escena
+    [SerializeField] private bool _isLastLevel = false;       
+    [SerializeField] private string _nextLevelSceneName = ""; 
     [SerializeField] private string _menuSceneName = "MainMenu";
 
     void Awake()
@@ -35,13 +35,13 @@ public class VictoryManager : MonoBehaviour
 
         if (_isLastLevel)
         {
-            // Nivel 3: solo muestra "Gracias por Jugar" y botón de menú
+            // Nivel 3 (proximamente)
             if (_victoryText != null) _victoryText.text = "¡Gracias por Jugar!";
             if (_nextLevelButton != null) _nextLevelButton.gameObject.SetActive(false);
         }
         else
         {
-            // Nivel 1 y 2: muestra "¡Nivel Completado!" y ambos botones
+            // Nivel 1 y 2
             if (_victoryText != null) _victoryText.text = "¡Nivel Completado!";
             if (_nextLevelButton != null)
             {
@@ -53,7 +53,7 @@ public class VictoryManager : MonoBehaviour
 
         if (_menuButton != null)
         {
-            // Cambiar texto del botón menú
+            
             TextMeshProUGUI menuText = _menuButton.GetComponentInChildren<TextMeshProUGUI>();
             if (menuText != null) menuText.text = "Menú Principal";
             _menuButton.onClick.AddListener(GoToMenu);
