@@ -15,7 +15,7 @@ MonoBehaviour:
   mirrorX: 0
   fireRate: 1
   bulletSpeed: 2
-  bulletCount: 6
+  bulletCount: 25
   spreadAngle: 60
   centerAngle: 270
   alternateDirection: 0
