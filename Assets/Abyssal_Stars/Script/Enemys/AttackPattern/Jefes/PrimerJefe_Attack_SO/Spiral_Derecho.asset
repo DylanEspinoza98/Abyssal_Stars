@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatternSpiralSO
   mirrorX: 0
   fireRate: 0.2
-  bulletSpeed: 2.5
+  bulletSpeed: 2.2
   arms: 3
   spinSpeed: 10
   alternateDirection: 0
