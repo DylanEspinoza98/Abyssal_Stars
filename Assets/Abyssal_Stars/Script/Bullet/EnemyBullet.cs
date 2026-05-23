@@ -1,28 +1,50 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBullet : Bullet
 {
+    [Header("Configuraci�n de Da�o")]
     [SerializeField] private int _damage = 1;
+
+    [Header("Capacidades Defensivas")]
+    [Tooltip("Si est� activo, esta bala actuar� como escudo y destruir� los disparos del jugador al chocar.")]
+    [SerializeField] private bool _canDestroyPlayerBullets = false;
+
+    public bool CanDestroyPlayerBullets => _canDestroyPlayerBullets;
+    public void SetShieldMode(bool active)
+    {
+        _canDestroyPlayerBullets = active;
+        gameObject.tag = active ? "BulletShield" : "Bullet";
+    }
+
     private SpriteRenderer _sr;
-    private bool _isHarmless = false;
+    private Rigidbody2D _rb;
+
+    private void Awake()
+    {
+        _sr = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        _isHarmless = false;
-
-        SpawnManager.OnBossFightStarted += VolverInofensiva;
+        gameObject.tag = "Bullet";
+        gameObject.layer = LayerMask.NameToLayer("Disparos Amenazas");
+        BossPhaseController.OnBossWarning += OnBossWarning;
     }
 
     private void OnDisable()
     {
-        SpawnManager.OnBossFightStarted -= VolverInofensiva;
+        BossPhaseController.OnBossWarning -= OnBossWarning;
+    }
+
+    private void OnBossWarning()
+    {
+        ReturnToPool();
     }
 
     public void SetAppearance(Sprite newSprite, Color newColor)
     {
-        if (_sr == null) _sr = GetComponent<SpriteRenderer>();
-
         if (_sr != null)
         {
             _sr.sprite = newSprite;
@@ -30,31 +52,34 @@ public class EnemyBullet : Bullet
         }
     }
 
-    private void VolverInofensiva()
+    public void Fire(Vector2 direction, float speed)
     {
-        _isHarmless = true;
+        Vector2 vel = direction.normalized * speed;
 
-        if (_sr == null) _sr = GetComponent<SpriteRenderer>();
-        if (_sr != null)
+        Velocity = vel;
+
+        if (_rb != null)
         {
-            Color c = _sr.color;
-            c.a = 0.4f;
-            _sr.color = c;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+            _rb.linearVelocity = Vector2.zero;
         }
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_isHarmless && collision.CompareTag("Player"))
-        {
-            return;
-        }
-
         if (collision.CompareTag("Player"))
         {
             PlayerHealth player = collision.GetComponent<PlayerHealth>();
             if (player != null) player.TakeDamage(_damage);
+            base.OnTriggerEnter2D(collision);
+            return;
         }
+
+        if (collision.CompareTag("PlayerBullet"))
+            return;
 
         base.OnTriggerEnter2D(collision);
     }

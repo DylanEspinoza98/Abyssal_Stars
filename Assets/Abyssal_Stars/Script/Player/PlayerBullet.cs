@@ -13,11 +13,19 @@ public class PlayerBullet : Bullet
             if (enemy != null)
             {
                 enemy.TakeDamage(_damage);
-
                 base.OnTriggerEnter2D(collision);
                 return;
             }
         }
+
+        if (collision.CompareTag("BulletShield"))
+        {
+            ReturnToPool();
+            return;
+        }
+
+        if (collision.CompareTag("Bullet"))
+            return;
 
         base.OnTriggerEnter2D(collision);
     }

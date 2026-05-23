@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1539803869681256842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 187.5, y: 336.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 189.871, y: 333.13, z: 0}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,10 +79,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -897920417
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1473390766520696716, guid: 878a84cbdcd95a04884c325aab3a39e6, type: 3}
+  m_Sprite: {fileID: 1203931930340233624, guid: ff8196f06cbf7ae4a9b7d6b8e241ddaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,4 +110,3 @@ MonoBehaviour:
   _fireRate: 0.3
   _bulletSpeed: 12
   _bulletColor: {r: 0.98589355, g: 0.98874784, b: 0.990566, a: 1}
-  _duration: 8

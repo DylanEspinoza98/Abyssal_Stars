@@ -16,6 +16,8 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private float _shotgunSpread = 30f;
     [SerializeField] private float _shotgunDuration = 10f;
     [SerializeField] private float _shotgunFireRate = 0.25f;
+    [Tooltip("Sprite que se usa mientras la escopeta está activa.")]
+    [SerializeField] private Sprite _shotgunSprite;
 
     [Header("Familiar")]
     [SerializeField] private Familiar _familiarPrefab;
@@ -27,22 +29,32 @@ public class PlayerShooter : MonoBehaviour
     private List<Familiar> _familiars = new List<Familiar>();
     private PlayerHealth _health;
 
+    private SpriteRenderer _spriteRenderer;
+    private Sprite _originalSprite;
+    private Vector3 _originalScale;
+
     void Start()
     {
         _health = GetComponent<PlayerHealth>();
- 
-        _health.OnLivesChanged += OnLivesChanged;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (_spriteRenderer != null)
+        {
+            _originalSprite = _spriteRenderer.sprite;
+            _originalScale = transform.localScale;
+        }
+
+        _health.OnPlayerDied += OnPlayerDied;
     }
 
     void OnDestroy()
     {
         if (_health != null)
-            _health.OnLivesChanged -= OnLivesChanged;
+            _health.OnPlayerDied -= OnPlayerDied;
     }
 
-    private void OnLivesChanged(int lives)
+    private void OnPlayerDied()
     {
-        // Cada vez que el jugador pierde una vida destruye todos los familiares
         DestroyAllFamiliars();
     }
 
@@ -98,22 +110,49 @@ public class PlayerShooter : MonoBehaviour
     private IEnumerator ShotgunRoutine()
     {
         _isShotgunActive = true;
+
+        if (_spriteRenderer != null && _shotgunSprite != null)
+        {
+            _spriteRenderer.sprite = _shotgunSprite;
+            NormalizeSpriteSize();
+        }
+
         yield return new WaitForSeconds(_shotgunDuration);
+
+        if (_spriteRenderer != null && _originalSprite != null)
+        {
+            _spriteRenderer.sprite = _originalSprite;
+            transform.localScale = _originalScale;
+        }
+
         _isShotgunActive = false;
         _shotgunCoroutine = null;
     }
 
+    private void NormalizeSpriteSize()
+    {
+        Vector2 originalSize = _originalSprite.bounds.size;
+        Vector2 newSize = _shotgunSprite.bounds.size;
+
+        if (newSize.x == 0f || newSize.y == 0f) return;
+
+        float scaleX = originalSize.x / newSize.x;
+        float scaleY = originalSize.y / newSize.y;
+
+        transform.localScale = new Vector3(
+            _originalScale.x * scaleX,
+            _originalScale.y * scaleY,
+            _originalScale.z
+        );
+    }
+
     public void ActivateFamiliar()
     {
-        // Limpia familiares destruidos de la lista
         _familiars.RemoveAll(f => f == null);
 
-        // Si ya tiene el maximo no hace nada
         if (_familiars.Count >= _maxFamiliars) return;
-
         if (_familiarPrefab == null) return;
 
-        
         float angleOffset = _familiars.Count * (360f / _maxFamiliars);
 
         Familiar newFamiliar = Instantiate(_familiarPrefab, transform.position, Quaternion.identity);
@@ -124,9 +163,8 @@ public class PlayerShooter : MonoBehaviour
     private void DestroyAllFamiliars()
     {
         foreach (Familiar f in _familiars)
-        {
             if (f != null) Destroy(f.gameObject);
-        }
+
         _familiars.Clear();
     }
 
