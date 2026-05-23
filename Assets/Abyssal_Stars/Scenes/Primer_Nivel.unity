@@ -2673,6 +2673,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 5188260409729907526, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
+      propertyPath: rangeX
+      value: 2.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossMusic
       value: 
@@ -2760,7 +2764,7 @@ MonoBehaviour:
     activeCount: 0
   _channelMid:
     name: Orbitador
-    prefab: {fileID: 5114828380480933519, guid: 06c095c47cd7e814ab86924f737ed756, type: 3}
+    prefab: {fileID: 7238211415581326346, guid: 6eefbeaa9b22f4d4493fa07ce9fe44df, type: 3}
     zone: {fileID: 744971534751403403}
     interval: 2.5
     maxActive: 3
@@ -2768,7 +2772,7 @@ MonoBehaviour:
     activeCount: 0
   _channelHigh:
     name: GateKeeper
-    prefab: {fileID: 3425963004383516877, guid: 1b97d7ac9c0df2b43a0c1a78cff2cfd3, type: 3}
+    prefab: {fileID: 7238211415581326346, guid: 01bd576039445484688716628480906d, type: 3}
     zone: {fileID: 744971534751403401}
     interval: 10
     maxActive: 1
@@ -2776,7 +2780,7 @@ MonoBehaviour:
     activeCount: 0
   _channelSubLow:
     name: Viking
-    prefab: {fileID: 6640304110670847844, guid: 9c578aa865cef4f4b96075c2328cd010, type: 3}
+    prefab: {fileID: 7238211415581326346, guid: e32af69d4a672cc4b8ff68b7f6863b98, type: 3}
     zone: {fileID: 744971534751403402}
     interval: 1
     maxActive: 4
@@ -2812,6 +2816,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 434747495573793470, guid: 3a730ea3c9cb0e44180b7c669446bc33, type: 3}
+      propertyPath: _maxX
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 434747495573793470, guid: 3a730ea3c9cb0e44180b7c669446bc33, type: 3}
+      propertyPath: _minX
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1836687377476546122, guid: 3a730ea3c9cb0e44180b7c669446bc33, type: 3}
       propertyPath: m_Name
       value: PowerUpSpawner
@@ -3331,7 +3343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d13bdf975c4971439ad44f7e207e48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingBackground
-  _scrollSpeed: 1
+  _scrollSpeed: 0.6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

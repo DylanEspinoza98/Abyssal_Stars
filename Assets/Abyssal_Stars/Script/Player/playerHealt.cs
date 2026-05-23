@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Arcade Life Settings")]
     [SerializeField] private int _totalLives = 3;
-    [SerializeField] private int _maxLives = 5;  // tope maximo de vidas
+    [SerializeField] private int _maxLives = 5;
     public int TotalLives => _totalLives;
 
     [SerializeField] private GameObject _explosionEffectPrefab;
@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
 
     public event Action<int> OnLivesChanged;
+
+    public event Action OnPlayerDied;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         if (_isDead || _isInvincible) return;
         _totalLives--;
         OnLivesChanged?.Invoke(_totalLives);
+        OnPlayerDied?.Invoke(); 
         StartCoroutine(DeathSequence());
     }
 

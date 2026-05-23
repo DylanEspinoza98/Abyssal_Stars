@@ -199,7 +199,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6804897020010786423, guid: 7ea7b7461e556e241956b8e13bb12072, type: 3}
   bulletSprite: {fileID: 0}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  rotateToFireDirection: 1
+  rotationOffset: -90
+  rotationSpeed: 0
   _patternPlaylist:
   - {fileID: 11400000, guid: f410b39819933134b8f60ea78dd2b6fc, type: 2}
   _timePerPattern: 5
   _transitionDelay: 2
+  laserLineRenderer: {fileID: 0}
+  laserFirePoint: {fileID: 0}
+  turretSpriteRenderer: {fileID: 0}

@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - PowerUps
   - PlayerBullet
+  - BulletShield
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Background_Object
   - Background
   - PowerUps
-  - 
+  - BulletShield
   - 
   - 
   - 
@@ -76,4 +77,5 @@ TagManager:
   - Background_Object
   - Background
   - PowerUps
+  - BulletShield
   m_MigratedRenderPipelines: []
