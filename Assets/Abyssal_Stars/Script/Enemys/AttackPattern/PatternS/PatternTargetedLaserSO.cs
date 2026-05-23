@@ -5,9 +5,12 @@ using System.Collections;
 public class PatternTargetedLaserSO : AttackPatternSO
 {
     [Header("Daño y Raycast")]
+    [Tooltip("Vidas que quita por cada impacto.")]
     public int damageAmount = 1;
+    [Tooltip("Cuántas veces por segundo quita vidas si el jugador se queda en el láser.")]
     public float damageRate = 4f;
     public float laserRange = 50f;
+    [Tooltip("Asegúrate de que aquí esté seleccionada al menos la capa (Layer) del Player.")]
     public LayerMask whatToHit;
 
     [Header("Tiempos (Fases)")]
@@ -35,11 +38,9 @@ public class PatternTargetedLaserSO : AttackPatternSO
     {
         if (turret.laserLineRenderer == null) yield break;
 
-        Transform originPoint = turret.laserFirePoint != null
-            ? turret.laserFirePoint
-            : turret.transform;
-
+        Transform originPoint = turret.laserFirePoint != null ? turret.laserFirePoint : turret.transform;
         Transform targetToRotate = turret.transform;
+
         if (rotateWholeBody)
         {
             EnemyBase body = turret.GetComponentInParent<EnemyBase>();
@@ -56,7 +57,6 @@ public class PatternTargetedLaserSO : AttackPatternSO
                 {
                     Vector2 dir = (PlayerHealth.Instance.transform.position - targetToRotate.position).normalized;
                     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
                     Quaternion targetRot = Quaternion.Euler(0f, 0f, ApplyMirror(angle) + rotationOffset);
                     targetToRotate.rotation = Quaternion.Lerp(targetToRotate.rotation, targetRot, rotationSpeed * Time.deltaTime);
                 }
@@ -67,7 +67,6 @@ public class PatternTargetedLaserSO : AttackPatternSO
             }
 
             Vector3 frozenDirection = originPoint.up;
-
             SetLaser(turret.laserLineRenderer, lockColor, normalWidth);
             float lockTimer = 0f;
             while (lockTimer < lockTime)
@@ -79,23 +78,36 @@ public class PatternTargetedLaserSO : AttackPatternSO
 
             SetLaser(turret.laserLineRenderer, fireColor, flashWidth);
             float fireTimer = 0f;
-            float damageTimer = 0f;
+
             float damageInterval = damageRate > 0f ? 1f / damageRate : 1f;
+            float nextAllowedDamageTime = 0f;
+
+            float laserRadius = flashWidth / 2f;
 
             while (fireTimer < fireDuration)
             {
                 DrawLaser(turret.laserLineRenderer, originPoint.position, frozenDirection);
 
-                damageTimer += Time.deltaTime;
-                if (damageTimer >= damageInterval)
+                RaycastHit2D[] hits = Physics2D.CircleCastAll(originPoint.position, laserRadius, frozenDirection, laserRange, whatToHit);
+
+                foreach (RaycastHit2D hit in hits)
                 {
-                    damageTimer = 0f;
-                    RaycastHit2D hit = Physics2D.Raycast(originPoint.position, frozenDirection, laserRange, whatToHit);
                     if (hit.collider != null && hit.collider.CompareTag("Player"))
                     {
-                        PlayerHealth player = hit.collider.GetComponent<PlayerHealth>();
-                        if (player != null && !player.IsInvincible)
-                            player.TakeDamage(damageAmount);
+                        if (Time.time >= nextAllowedDamageTime)
+                        {
+                            PlayerHealth player = hit.collider.GetComponent<PlayerHealth>();
+
+                            if (player == null) player = hit.collider.GetComponentInParent<PlayerHealth>();
+                            if (player == null) player = hit.collider.GetComponentInChildren<PlayerHealth>();
+
+                            if (player != null)
+                            {
+                                player.TakeDamage(damageAmount, true);
+
+                                nextAllowedDamageTime = Time.time + damageInterval;
+                            }
+                        }
                     }
                 }
 
@@ -109,11 +121,8 @@ public class PatternTargetedLaserSO : AttackPatternSO
             {
                 Color originalColor = turret.turretSpriteRenderer.color;
                 turret.turretSpriteRenderer.color = overheatColor;
-
                 yield return new WaitForSeconds(overheatTime);
-
-                if (turret.turretSpriteRenderer != null)
-                    turret.turretSpriteRenderer.color = originalColor;
+                if (turret.turretSpriteRenderer != null) turret.turretSpriteRenderer.color = originalColor;
             }
             else
             {

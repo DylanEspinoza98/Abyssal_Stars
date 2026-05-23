@@ -27,7 +27,6 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D rb;
 
     public event Action<int> OnLivesChanged;
-
     public event Action OnPlayerDied;
 
     private void Awake()
@@ -43,13 +42,15 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _startPosition = new Vector3(0, 0, transform.localPosition.z);
     }
-
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, bool ignoreInvincibility = false)
     {
-        if (_isDead || _isInvincible) return;
+        if (_isDead) return;
+
+        if (_isInvincible && !ignoreInvincibility) return;
+
         _totalLives--;
         OnLivesChanged?.Invoke(_totalLives);
-        OnPlayerDied?.Invoke(); 
+        OnPlayerDied?.Invoke();
         StartCoroutine(DeathSequence());
     }
 

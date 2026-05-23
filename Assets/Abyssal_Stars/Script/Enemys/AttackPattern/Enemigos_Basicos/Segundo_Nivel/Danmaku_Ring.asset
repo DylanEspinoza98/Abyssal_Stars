@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Danmaku_Ring
   m_EditorClassIdentifier: Assembly-CSharp::PatternRingSO
   mirrorX: 0
-  bulletCount: 18
+  bulletCount: 20
   fireRate: 1
   bulletSpeed: 1.3
   rotateRings: 1

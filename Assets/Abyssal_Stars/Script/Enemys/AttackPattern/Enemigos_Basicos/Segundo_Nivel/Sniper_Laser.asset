@@ -26,7 +26,7 @@ MonoBehaviour:
   rotateWholeBody: 1
   rotationOffset: -90
   rotationSpeed: 5
-  normalWidth: 0.01
+  normalWidth: 0.02
   flashWidth: 0.05
   aimColor: {r: 0, g: 1, b: 0.20850748, a: 0.4}
   lockColor: {r: 0, g: 0.16816223, b: 1, a: 1}

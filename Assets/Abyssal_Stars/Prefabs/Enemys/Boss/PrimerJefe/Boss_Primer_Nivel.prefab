@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a85651e932a0444b67061e4f581de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
-  _maxHealth: 30
+  _maxHealth: 150
   _offScreenMargin: 0.2
   _hitColor: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
   _hitFlashDuration: 0.1
@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
       propertyPath: '_patternPlaylist.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3951e42f1cb879943b60b6924125258c, type: 2}
+      objectReference: {fileID: 11400000, guid: 1871667f057e5c749a37c99dff24c049, type: 2}
     - target: {fileID: 953337085535880292, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5750399

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4375982773486535238}
   - component: {fileID: 7238211415581326346}
   m_Layer: 8
-  m_Name: Viking
+  m_Name: Sniper_Laser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ LineRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -309,7 +309,7 @@ LineRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 725939e25081b5f4b82a648a61b98194, type: 2}
@@ -331,9 +331,9 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -897920417
+  m_SortingLayer: 3
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}

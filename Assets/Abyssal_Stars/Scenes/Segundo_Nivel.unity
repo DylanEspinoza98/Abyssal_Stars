@@ -1853,9 +1853,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   _channelLow:
     name: Low
-    prefab: {fileID: 0}
+    prefab: {fileID: 7238211415581326346, guid: 3fa3f67212dd59542a9bf65b77019ba6, type: 3}
     zone: {fileID: 1882418860}
-    interval: 1
+    interval: 0.7
     maxActive: 0
     lastSpawnTime: -99
     activeCount: 0
@@ -1877,7 +1877,7 @@ MonoBehaviour:
     activeCount: 0
   _channelSubLow:
     name: SubLow
-    prefab: {fileID: 7238211415581326346, guid: 3fa3f67212dd59542a9bf65b77019ba6, type: 3}
+    prefab: {fileID: 0}
     zone: {fileID: 734037327}
     interval: 1
     maxActive: 0
@@ -2976,7 +2976,7 @@ PrefabInstance:
       objectReference: {fileID: 8873400423258381309, guid: a3898370c9439e243952d18b8a2186d6, type: 3}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 2
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossSpawnZone
@@ -3215,6 +3215,14 @@ PrefabInstance:
     - target: {fileID: 2231925384157280014, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907306462984400814, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 192.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907306462984400814, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 335.97
       objectReference: {fileID: 0}
     - target: {fileID: 2986640238681860104, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_SizeDelta.x
