@@ -6,9 +6,14 @@ public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance { get; private set; }
 
+    [Header("UI")]
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private Button _restartButton;
-    [SerializeField] private Button _menuButton; 
+    [SerializeField] private Button _menuButton;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip _gameOverMusic;
+    [SerializeField] private AudioSource _gameOverAudioSource;
 
     [SerializeField] private string _menuSceneName = "MainMenu";
 
@@ -32,21 +37,38 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowGameOver()
     {
+        
         AudioBeatDetector.Instance?.StopMusic();
+
         _gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
-        AudioSource audio = FindAnyObjectByType<AudioSource>();
-        if (audio != null) audio.Stop();
+
+        
+        if (_gameOverAudioSource != null && _gameOverMusic != null)
+        {
+            _gameOverAudioSource.clip = _gameOverMusic;
+            _gameOverAudioSource.loop = true;
+            _gameOverAudioSource.ignoreListenerPause = true;
+            _gameOverAudioSource.Play();
+        }
+    }
+
+    private void StopGameOverMusic()
+    {
+        if (_gameOverAudioSource != null && _gameOverAudioSource.isPlaying)
+            _gameOverAudioSource.Stop();
     }
 
     private void Restart()
     {
+        StopGameOverMusic();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void GoToMenu()
     {
+        StopGameOverMusic();
         Time.timeScale = 1f;
         SceneManager.LoadScene(_menuSceneName);
     }
