@@ -49,8 +49,8 @@ MonoBehaviour:
   _familiarPowerUpPrefab: {fileID: 6474117407589578453, guid: 8ec98502861257d45b5a0ce9fef4db68, type: 3}
   _minInterval: 8
   _maxInterval: 18
-  _spawnOffsetAboveCamera: 1.5
-  _minX: -3.5
-  _maxX: 3.5
+  _spawnTopY: 6
+  _minX: -2.7
+  _maxX: 2.7
   _lifeProbability: 0.3
   _shotgunProbability: 0.4
