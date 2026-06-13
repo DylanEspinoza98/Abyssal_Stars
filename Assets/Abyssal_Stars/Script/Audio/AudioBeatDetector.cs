@@ -58,6 +58,11 @@ public class AudioBeatDetector : MonoBehaviour
     {
         _samples = new float[_sampleSize];
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopMusic();
+        }
+
         _currentAudioSource = _levelAudioSource;
         if (_levelAudioSource != null) _levelAudioSource.Play();
 

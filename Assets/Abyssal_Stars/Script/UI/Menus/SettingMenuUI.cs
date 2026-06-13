@@ -1,6 +1,5 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -12,7 +11,6 @@ public class SettingsMenuUI : MonoBehaviour
     [SerializeField] private GameObject _controlsPanel;
 
     [Header("Referencias de Audio")]
-    [SerializeField] private AudioMixer _mainMixer;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
 
@@ -191,25 +189,23 @@ public class SettingsMenuUI : MonoBehaviour
 
     public void SetMusicVolume(float sliderValue)
     {
-        float db = Mathf.Log10(Mathf.Max(sliderValue, 0.0001f)) * 20f;
-        if (_mainMixer != null) _mainMixer.SetFloat("MusicVolume", db);
+        DataManager.Instance.SaveData.settings.musicVolume = sliderValue;
+        DataManager.Instance.SaveGame();
 
-        if (DataManager.Instance != null)
+        if (AudioManager.Instance != null)
         {
-            DataManager.Instance.SaveData.settings.musicVolume = sliderValue;
-            DataManager.Instance.SaveGame();
+            AudioManager.Instance.SetMusicVolume(sliderValue);
         }
     }
 
     public void SetSFXVolume(float sliderValue)
     {
-        float db = Mathf.Log10(Mathf.Max(sliderValue, 0.0001f)) * 20f;
-        if (_mainMixer != null) _mainMixer.SetFloat("SFXVolume", db);
+        DataManager.Instance.SaveData.settings.sfxVolume = sliderValue;
+        DataManager.Instance.SaveGame();
 
-        if (DataManager.Instance != null)
+        if (AudioManager.Instance != null)
         {
-            DataManager.Instance.SaveData.settings.sfxVolume = sliderValue;
-            DataManager.Instance.SaveGame();
+            AudioManager.Instance.SetSFXVolume(sliderValue);
         }
     }
 
@@ -263,7 +259,7 @@ public class SettingsMenuUI : MonoBehaviour
 
             if (_feedbackText != null)
             {
-                _feedbackText.text = "¡Puntajes borrados con éxito!";
+                _feedbackText.text = "ï¿½Puntajes borrados con ï¿½xito!";
                 _feedbackText.color = Color.green;
             }
 

@@ -183,7 +183,7 @@ AudioSource:
   m_GameObject: {fileID: 490952997432040462}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4781952286652205521, guid: 9a6f436fe8806b2408a167f8cdf51cba, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 67118bbadffe0e541bb3dedb9bec2eb2, type: 3}
   m_PlayOnAwake: 0
@@ -4109,12 +4109,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenuUI
   _audioPanel: {fileID: 1252694830200960365}
   _pcPanel: {fileID: 0}
+  _controlsPanel: {fileID: 0}
   _mainMixer: {fileID: 24100000, guid: 9a6f436fe8806b2408a167f8cdf51cba, type: 2}
   _musicSlider: {fileID: 2748351361085658891}
   _sfxSlider: {fileID: 1111100930255755244}
   _vSyncToggle: {fileID: 0}
   _muteUnfocusToggle: {fileID: 0}
   _fpsToggle: {fileID: 0}
+  _txtUp: {fileID: 0}
+  _txtDown: {fileID: 0}
+  _txtLeft: {fileID: 0}
+  _txtRight: {fileID: 0}
+  _txtShoot: {fileID: 0}
+  _txtBomb: {fileID: 0}
+  _txtFocus: {fileID: 0}
+  _confirmDeletePanel: {fileID: 0}
+  _feedbackText: {fileID: 0}
 --- !u!1 &6372613710401006450
 GameObject:
   m_ObjectHideFlags: 0

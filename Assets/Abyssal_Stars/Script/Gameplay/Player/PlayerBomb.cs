@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 
@@ -17,7 +17,7 @@ public class PlayerBomb : MonoBehaviour
 
     [Header("Feedback Visual y Sonoro")]
     [SerializeField] private AudioClip _bombSound;
-    [Tooltip("Arrastra aquí tu Prefab del humo expansivo")]
+    [Tooltip("Arrastra aquï¿½ tu Prefab del humo expansivo")]
     [SerializeField] private GameObject _smokeEffectPrefab;
 
     private void Awake()
@@ -94,9 +94,9 @@ public class PlayerBomb : MonoBehaviour
 
     private void PlayFeedback()
     {
-        if (_bombSound != null)
+        if (_bombSound != null && AudioManager.Instance != null)
         {
-            AudioSource.PlayClipAtPoint(_bombSound, Camera.main.transform.position);
+            AudioManager.Instance.PlaySFX(_bombSound);
         }
 
         if (_smokeEffectPrefab != null)

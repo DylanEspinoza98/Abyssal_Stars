@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7317835299469113610}
   - component: {fileID: 3426439100590698302}
   - component: {fileID: 3444718710711752304}
-  - component: {fileID: 6455849757504947061}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -59,17 +58,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreboardManager
   _maxScoresToKeep: 5
---- !u!114 &6455849757504947061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6423110406965337302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad0a9243aabd75478a88dc101f53d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonSoundManager
-  _buttonSound: {fileID: 8300000, guid: e1f0f965ce6b51648ac302c5c11a8b9d, type: 3}
-  _volume: 1

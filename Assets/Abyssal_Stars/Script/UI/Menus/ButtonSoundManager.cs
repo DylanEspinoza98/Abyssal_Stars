@@ -2,51 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// Se mantiene entre escenas y le da sonido a los botones del menu
-
 public class ButtonSoundManager : MonoBehaviour
 {
-    public static ButtonSoundManager Instance { get; private set; }
-
-    [Header("Sonido")]
+    [Header("Configuración")]
     [SerializeField] private AudioClip _buttonSound;
-    [SerializeField] private float _volume = 1f;
 
-    private AudioSource _audioSource;
+    void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => ConnectAllButtons();
 
-        _audioSource = gameObject.AddComponent<AudioSource>();
-        _audioSource.playOnAwake = false;
-    }
-
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        ConnectAllButtons();
-    }
-
-    void Start()
-    {
-        ConnectAllButtons();
-    }
+    void Start() => ConnectAllButtons();
 
     private void ConnectAllButtons()
     {
@@ -60,7 +26,13 @@ public class ButtonSoundManager : MonoBehaviour
 
     private void PlayButtonSound()
     {
-        if (_buttonSound != null)
-            _audioSource.PlayOneShot(_buttonSound, _volume);
+        if (_buttonSound != null && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(_buttonSound);
+        }
+        else if (AudioManager.Instance == null)
+        {
+            Debug.LogWarning("ButtonSoundManager: No se encontró AudioManager en la escena.");
+        }
     }
 }
