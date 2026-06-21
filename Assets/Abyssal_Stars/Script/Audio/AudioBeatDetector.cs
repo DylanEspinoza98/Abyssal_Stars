@@ -174,4 +174,17 @@ public class AudioBeatDetector : MonoBehaviour
         if (_levelAudioSource != null) _levelAudioSource.Stop();
         if (_bossAudioSource != null) _bossAudioSource.Stop();
     }
+    public void PauseMusic()
+    {
+        if (_levelAudioSource != null && _levelAudioSource.isPlaying)
+            _levelAudioSource.Pause();
+        if (_bossAudioSource != null && _bossAudioSource.isPlaying)
+            _bossAudioSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        if (_levelAudioSource != null) _levelAudioSource.UnPause();
+        if (_bossAudioSource != null) _bossAudioSource.UnPause();
+    }
 }

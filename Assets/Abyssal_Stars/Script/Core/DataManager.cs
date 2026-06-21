@@ -59,6 +59,8 @@ public class DataManager : MonoBehaviour
         {
             string json = PlayerPrefs.GetString(SAVE_KEY);
             SaveData = JsonUtility.FromJson<GameSaveData>(json);
+
+            ValidateSaveData();
         }
         else
         {
@@ -66,6 +68,22 @@ public class DataManager : MonoBehaviour
         }
 
         QualitySettings.vSyncCount = SaveData.settings.vSync ? 1 : 0;
+    }
+
+    private void ValidateSaveData()
+    {
+        SaveData ??= new GameSaveData();
+        SaveData.scoreboard ??= new ScoreboardSaveData();
+        SaveData.scoreboard.levelScores ??= new List<LevelScoreData>();
+        SaveData.settings ??= new SettingsData();
+        SaveData.progression ??= new ProgressionData();
+        SaveData.progression.unlockedLevels ??= new List<string> { "Level_1" };
+
+        foreach (LevelScoreData levelData in SaveData.scoreboard.levelScores)
+        {
+            if (levelData != null)
+                levelData.highScores ??= new List<ScoreEntry>();
+        }
     }
 
     public void SaveGame()

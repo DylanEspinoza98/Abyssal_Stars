@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Orbital_Shield
   m_EditorClassIdentifier: Assembly-CSharp::PatternOrbitalReleaseSO
   mirrorX: 0
-  bulletCount: 25
+  bulletCount: 35
   orbitRadius: 1.5
   orbitSpeed: 200
   orbitTime: 18

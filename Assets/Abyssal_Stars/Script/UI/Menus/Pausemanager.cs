@@ -8,7 +8,7 @@ public class PauseManager : MonoBehaviour
     [Header("UI Principal")]
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private Button _resumeButton;
-    [SerializeField] private Button _settingsButton; 
+    [SerializeField] private Button _settingsButton;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _menuButton;
 
@@ -18,15 +18,12 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private string _menuSceneName = "MainMenu";
 
     private bool _isPaused = false;
-    private AudioSource _musicSource;
 
     void Start()
     {
         _pausePanel.SetActive(false);
 
         if (_settingsMenu != null) _settingsMenu.gameObject.SetActive(false);
-        if (AudioBeatDetector.Instance != null)
-            _musicSource = AudioBeatDetector.Instance.GetComponent<AudioSource>();
 
         if (_resumeButton != null) _resumeButton.onClick.AddListener(Resume);
         if (_restartButton != null) _restartButton.onClick.AddListener(Restart);
@@ -62,8 +59,8 @@ public class PauseManager : MonoBehaviour
         _pausePanel.SetActive(true);
         Time.timeScale = 0f;
 
-        if (_musicSource != null && _musicSource.isPlaying)
-            _musicSource.Pause();
+        if (AudioBeatDetector.Instance != null)
+            AudioBeatDetector.Instance.PauseMusic();
     }
 
     public void Resume()
@@ -75,8 +72,8 @@ public class PauseManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        if (_musicSource != null)
-            _musicSource.UnPause();
+        if (AudioBeatDetector.Instance != null)
+            AudioBeatDetector.Instance.ResumeMusic();
     }
 
 
@@ -95,14 +92,14 @@ public class PauseManager : MonoBehaviour
         {
             _settingsMenu.gameObject.SetActive(false);
         }
-        _pausePanel.SetActive(true); 
+        _pausePanel.SetActive(true);
     }
 
     private void Restart()
     {
         _isPaused = false;
         Time.timeScale = 1f;
-        if (_musicSource != null) _musicSource.Stop();
+        if (AudioBeatDetector.Instance != null) AudioBeatDetector.Instance.StopMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -110,7 +107,7 @@ public class PauseManager : MonoBehaviour
     {
         _isPaused = false;
         Time.timeScale = 1f;
-        if (_musicSource != null) _musicSource.Stop();
+        if (AudioBeatDetector.Instance != null) AudioBeatDetector.Instance.StopMusic();
         SceneManager.LoadScene(_menuSceneName);
     }
 }

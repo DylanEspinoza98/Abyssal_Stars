@@ -103,7 +103,7 @@ public class PatternTargetedLaserSO : AttackPatternSO
 
                             if (player != null)
                             {
-                                player.TakeDamage(damageAmount, true);
+                                player.TakeDamage(damageAmount, false);
 
                                 nextAllowedDamageTime = Time.time + damageInterval;
                             }

@@ -25,6 +25,12 @@ public abstract class EnemyBase : MonoBehaviour
 
     [Header("Huida del Jefe")]
     [SerializeField] private float _retreatSpeed = 15f;
+
+    [Header("Configuración de Escudo (protección de enemigos)")]
+    [Tooltip("Tamaño exacto del escudo para este enemigo. Ajustar a ojo en el Inspector.")]
+    public float personalShieldSize = 1.5f;
+
+
     protected bool _isRetreating = false;
     private Vector3 _retreatDirection;
 

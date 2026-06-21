@@ -3,6 +3,18 @@ using UnityEngine;
 public class PlayerBullet : Bullet
 {
     [SerializeField] private int _damage = 1;
+    private int _baseDamage;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _baseDamage = _damage;
+    }
+    public override void ResetBullet()
+    {
+        base.ResetBullet();
+        _damage = _baseDamage;
+    }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {

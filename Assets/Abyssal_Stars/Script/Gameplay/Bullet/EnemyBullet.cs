@@ -20,8 +20,9 @@ public class EnemyBullet : Bullet
     private Rigidbody2D _rb;
     public bool HasBeenGrazed { get; set; } = false;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _sr = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -89,5 +90,11 @@ public class EnemyBullet : Bullet
             return;
 
         base.OnTriggerEnter2D(collision);
+    }
+
+    public override void ResetBullet()
+    {
+        base.ResetBullet();
+        SetShieldMode(false);
     }
 }

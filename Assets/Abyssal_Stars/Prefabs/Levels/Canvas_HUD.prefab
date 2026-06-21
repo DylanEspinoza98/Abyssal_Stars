@@ -3876,6 +3876,7 @@ MonoBehaviour:
   _rankText: {fileID: 199249114143838137}
   _bonusText: {fileID: 5800266220716046004}
   _isLastLevel: 0
+  _levelID: 
   _nextLevelSceneName: Tercer_Nivel
   _menuSceneName: MainMenu
   _noBombBonus: 15000
@@ -4110,7 +4111,6 @@ MonoBehaviour:
   _audioPanel: {fileID: 1252694830200960365}
   _pcPanel: {fileID: 0}
   _controlsPanel: {fileID: 0}
-  _mainMixer: {fileID: 24100000, guid: 9a6f436fe8806b2408a167f8cdf51cba, type: 2}
   _musicSlider: {fileID: 2748351361085658891}
   _sfxSlider: {fileID: 1111100930255755244}
   _vSyncToggle: {fileID: 0}
@@ -5015,7 +5015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6660438648727799819
 Transform:
   m_ObjectHideFlags: 0
@@ -5040,9 +5040,9 @@ AudioSource:
   m_GameObject: {fileID: 8089742982675669033}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4781952286652205521, guid: 9a6f436fe8806b2408a167f8cdf51cba, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e12ba06dc4260dd4ca1fa03bff054514, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
