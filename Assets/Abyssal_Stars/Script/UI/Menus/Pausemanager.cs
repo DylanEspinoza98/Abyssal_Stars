@@ -5,26 +5,31 @@ using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
-    [Header("UI Principal")]
+    [Header("UI")]
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private Button _resumeButton;
-    [SerializeField] private Button _settingsButton; 
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _menuButton;
 
-    [Header("UI Configuración")]
-    [SerializeField] private SettingsMenuUI _settingsMenu;
+    [Header("Botón Pausa Mobile")]
+    [SerializeField] private Button _pauseButton;
+
+    [Header("Configuración (Settings)")]
+    [SerializeField] private GameObject _settingPanel; // El panel de Configuración
+
+    [Header("Controles Mobile")]
+    [SerializeField] private GameObject _mobileControls; // Joystick + botones touch
 
     [SerializeField] private string _menuSceneName = "MainMenu";
 
     private bool _isPaused = false;
+    private bool _isInSettings = false;
     private AudioSource _musicSource;
 
     void Start()
     {
         _pausePanel.SetActive(false);
 
-        if (_settingsMenu != null) _settingsMenu.gameObject.SetActive(false);
         if (AudioBeatDetector.Instance != null)
             _musicSource = AudioBeatDetector.Instance.GetComponent<AudioSource>();
 
@@ -32,7 +37,7 @@ public class PauseManager : MonoBehaviour
         if (_restartButton != null) _restartButton.onClick.AddListener(Restart);
         if (_menuButton != null) _menuButton.onClick.AddListener(GoToMenu);
 
-        if (_settingsButton != null) _settingsButton.onClick.AddListener(OpenSettings);
+        if (_pauseButton != null) _pauseButton.onClick.AddListener(OnPauseButtonPressed);
     }
 
     void Update()
@@ -40,20 +45,21 @@ public class PauseManager : MonoBehaviour
         if (!_isPaused && Time.timeScale == 0f) return;
 
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            if (_settingsMenu != null && _settingsMenu.gameObject.activeSelf)
-            {
-                CloseSettings();
-            }
-            else if (_isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+            OnPauseButtonPressed();
+    }
+
+    // Llamado por el botón táctil O por ESC.
+    // Si estamos en el panel de settings, no hace nada (ese botón no debe reanudar)
+    private void OnPauseButtonPressed()
+    {
+        if (_isInSettings) return;
+        TogglePause();
+    }
+
+    public void TogglePause()
+    {
+        if (_isPaused) Resume();
+        else Pause();
     }
 
     private void Pause()
@@ -70,32 +76,27 @@ public class PauseManager : MonoBehaviour
     {
         _isPaused = false;
         _pausePanel.SetActive(false);
-
-        if (_settingsMenu != null) _settingsMenu.gameObject.SetActive(false);
-
         Time.timeScale = 1f;
 
         if (_musicSource != null)
             _musicSource.UnPause();
     }
 
-
-    private void OpenSettings()
+    // Llamado por Btn_Configuracion: abre settings y oculta pausa + controles mobile
+    public void OpenSettings()
     {
-        _pausePanel.SetActive(false);
-        if (_settingsMenu != null)
-        {
-            _settingsMenu.ShowAudioOnly();
-        }
+        _isInSettings = true;
+        if (_pausePanel != null) _pausePanel.SetActive(false);
+        if (_mobileControls != null) _mobileControls.SetActive(false);
     }
 
+    // Llamado por Btn_Back dentro de settings: cierra settings y vuelve a pausa
     public void CloseSettings()
     {
-        if (_settingsMenu != null)
-        {
-            _settingsMenu.gameObject.SetActive(false);
-        }
-        _pausePanel.SetActive(true); 
+        _isInSettings = false;
+        if (_settingPanel != null) _settingPanel.SetActive(false);
+        if (_pausePanel != null) _pausePanel.SetActive(true);
+        if (_mobileControls != null) _mobileControls.SetActive(true);
     }
 
     private void Restart()
