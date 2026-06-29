@@ -6,17 +6,17 @@ public class MovementInfinityOrbitSO : MovementPatternSO
 {
     [Header("Fase 2: Órbita del Caos (Figura de 8)")]
     [Tooltip("Qué tan rápido traza el símbolo de infinito.")]
-    public float orbitSpeed = 2f;
+    [SerializeField] private float orbitSpeed = 2f;
 
     [Tooltip("Qué tan ancho es el movimiento de lado a lado.")]
-    public float width = 5f;
+    [SerializeField] private float width = 5f;
 
     [Tooltip("Qué tan alto/bajo llega en los picos del 8.")]
-    public float height = 3f;
+    [SerializeField] private float height = 3f;
 
     [Header("Efecto de Temblor Permanente")]
-    public bool applyJitter = true;
-    public float jitterIntensity = 0.05f;
+    [SerializeField] private bool applyJitter = true;
+    [SerializeField] private float jitterIntensity = 0.05f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

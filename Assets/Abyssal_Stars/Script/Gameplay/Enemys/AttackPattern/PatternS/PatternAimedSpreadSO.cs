@@ -6,26 +6,26 @@ public class PatternAimedSpreadSO : AttackPatternSO
 {
     [Header("Disparo")]
     [Tooltip("Velocidad de las balas.")]
-    public float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 5f;
 
     [Tooltip("Cantidad de balas por salva.")]
     [Min(1)]
-    public int bulletCount = 3;
+    [SerializeField] private int bulletCount = 3;
 
     [Tooltip("Ángulo total del abanico en grados.")]
     [Range(10f, 120f)]
-    public float spreadAngle = 40f;
+    [SerializeField] private float spreadAngle = 40f;
 
     [Tooltip("Pausa entre cada salva (después del disparo).")]
-    public float fireRate = 0.8f;
+    [SerializeField] private float fireRate = 0.8f;
 
     [Header("Telegráfico")]
     [Tooltip("Tiempo que la torreta apunta al jugador antes de disparar. " +
              "Da al jugador una ventana para anticipar el disparo.")]
-    public float telegraphDuration = 0.4f;
+    [SerializeField] private float telegraphDuration = 0.4f;
 
     [Tooltip("Tag del jugador.")]
-    public string playerTag = "Player";
+    [SerializeField] private string playerTag = "Player";
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

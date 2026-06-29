@@ -5,14 +5,14 @@ using System.Collections;
 public class PatternImpactSplashSO : AttackPatternSO
 {
     [Header("Disparo en el Aire (Goteo)")]
-    public float fireRate = 0.5f;
-    public float bulletSpeed = 2.0f;
+    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float bulletSpeed = 2.0f;
 
     [Header("El Estallido (Al tocar el suelo)")]
     [Tooltip("La altura a la que se considera que el jefe chocó (ej. -5.5)")]
-    public float impactYThreshold = -5.5f;
-    public int impactBulletsCount = 12;
-    public float impactBulletSpeed = 5f;
+    [SerializeField] private float impactYThreshold = -5.5f;
+    [SerializeField] private int impactBulletsCount = 12;
+    [SerializeField] private float impactBulletSpeed = 5f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

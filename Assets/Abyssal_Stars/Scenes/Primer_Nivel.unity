@@ -884,6 +884,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781406963179227688, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 276.00394
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781406963179227688, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -352.13995
+      objectReference: {fileID: 0}
     - target: {fileID: 2456003371210253899, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -947,6 +955,14 @@ PrefabInstance:
     - target: {fileID: 5545320492341477405, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_Name
       value: Canvas_HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059244911799093137, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -140.99606
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059244911799093137, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -352.14496
       objectReference: {fileID: 0}
     - target: {fileID: 6071132251084437393, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_IsActive
@@ -1031,6 +1047,14 @@ PrefabInstance:
     - target: {fileID: 6781143316564080663, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930398394230692637, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930398394230692637, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -207
       objectReference: {fileID: 0}
     - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_SizeDelta.x

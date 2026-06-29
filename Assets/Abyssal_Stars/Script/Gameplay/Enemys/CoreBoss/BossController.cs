@@ -134,13 +134,13 @@ public class BossController : EnemyBase
                 );
             }
 
-            yield return new WaitForSeconds(threshold.transitionPhase.duration);
+            yield return new WaitForSeconds(threshold.transitionPhase.Duration);
 
             StopActiveMovement();
             StopAllTurrets();
 
-            if (threshold.transitionPhase.transitionDelay > 0f)
-                yield return new WaitForSeconds(threshold.transitionPhase.transitionDelay);
+            if (threshold.transitionPhase.TransitionDelay > 0f)
+                yield return new WaitForSeconds(threshold.transitionPhase.TransitionDelay);
         }
 
         // Sumar las nuevas fases a la rotación sin perder las anteriores
@@ -224,13 +224,13 @@ public class BossController : EnemyBase
                 );
             }
 
-            yield return new WaitForSeconds(phase.duration);
+            yield return new WaitForSeconds(phase.Duration);
 
             StopActiveMovement();
             StopAllTurrets();
 
-            if (phase.transitionDelay > 0f)
-                yield return new WaitForSeconds(phase.transitionDelay);
+            if (phase.TransitionDelay > 0f)
+                yield return new WaitForSeconds(phase.TransitionDelay);
 
             index = (index + 1) % _activePhases.Length;
         }
@@ -292,7 +292,7 @@ public class BossController : EnemyBase
             if (hasPattern)
             {
                 turret.gameObject.SetActive(true);
-                turret.RunPattern(phase.turretPatterns[i], phase.duration);
+                turret.RunPattern(phase.turretPatterns[i], phase.Duration);
             }
             else
             {

@@ -6,20 +6,20 @@ public class PatternSpiralSO : AttackPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Delay entre cada salva de brazos (segundos).")]
-    public float fireRate = 0.08f;
+    [SerializeField] private float fireRate = 0.08f;
 
     [Tooltip("Velocidad de las balas.")]
-    public float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 5f;
 
     [Tooltip("Cantidad de brazos de la espiral.")]
     [Min(1)]
-    public int arms = 3;
+    [SerializeField] private int arms = 3;
 
     [Tooltip("Velocidad de rotación (grados/salva). Positivo = antihorario, negativo = horario.")]
-    public float spinSpeed = 15f;
+    [SerializeField] private float spinSpeed = 15f;
 
     [Tooltip("Si está activo, invierte la dirección de giro cada vuelta completa (360°).")]
-    public bool alternateDirection = false;
+    [SerializeField] private bool alternateDirection = false;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

@@ -7,16 +7,16 @@ public class PatternTriangleSO : AttackPatternSO
     [Header("Forma del Triángulo")]
     [Tooltip("Cuántas balas forman cada lado (sin contar el vértice).")]
     [Min(1)]
-    public int bulletsPerSide = 4;
+    [SerializeField] private int bulletsPerSide = 4;
 
     [Tooltip("Ángulo total de apertura de la base.")]
     [Range(20f, 160f)]
-    public float baseSpreadAngle = 80f;
+    [SerializeField] private float baseSpreadAngle = 80f;
 
     [Header("Velocidad")]
     [Tooltip("Velocidad de TODAS las balas. Escala el triángulo, pero no deforma su forma.")]
     [Min(0.01f)]
-    public float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 5f;
 
     [Header("Espaciado visual")]
     [Tooltip(
@@ -25,15 +25,15 @@ public class PatternTriangleSO : AttackPatternSO
         "Más alto = triángulo más alargado."
     )]
     [Min(0.005f)]
-    public float rowDelay = 0.08f;
+    [SerializeField] private float rowDelay = 0.08f;
 
     [Header("Cadencia")]
     [Tooltip("Pausa entre olas, contada desde el último disparo de la ola anterior.")]
     [Min(0f)]
-    public float wavePause = 1.0f;
+    [SerializeField] private float wavePause = 1.0f;
 
     [Tooltip("Ángulo central del triángulo. 270 = apunta hacia abajo.")]
-    public float centerAngle = 270f;
+    [SerializeField] private float centerAngle = 270f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

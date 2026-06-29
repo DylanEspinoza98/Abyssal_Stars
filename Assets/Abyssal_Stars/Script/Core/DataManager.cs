@@ -11,13 +11,13 @@ public class SettingsData
     public bool muteOnUnfocus = true;
     public bool showFPS = false;
 
-    public string moveUpKey = "W";
-    public string moveDownKey = "S";
-    public string moveLeftKey = "A";
-    public string moveRightKey = "D";
-    public string shootKey = "Space";
-    public string bombKey = "B";
-    public string focusKey = "LeftShift";
+    public string moveUpKey = "w";
+    public string moveDownKey = "s";
+    public string moveLeftKey = "a";
+    public string moveRightKey = "d";
+    public string shootKey = "space";
+    public string bombKey = "b";
+    public string focusKey = "leftShift";
 }
 
 [System.Serializable]

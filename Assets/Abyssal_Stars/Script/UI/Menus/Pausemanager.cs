@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class PauseManager : MonoBehaviour
     {
         if (!_isPaused && Time.timeScale == 0f) return;
 
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (InputManager.Instance != null && InputManager.Instance.Pause.WasPressedThisFrame())
         {
             if (_settingsMenu != null && _settingsMenu.gameObject.activeSelf)
             {

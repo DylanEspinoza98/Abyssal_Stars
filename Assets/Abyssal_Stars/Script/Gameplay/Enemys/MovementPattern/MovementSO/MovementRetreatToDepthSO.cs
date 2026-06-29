@@ -5,31 +5,31 @@ using System.Collections;
 public class MovementRetreatToDepthSO : MovementPatternSO
 {
     [Header("Fase 0: Advertencia (Telegraph)")]
-    public GameObject warningPrefab;
-    public float warningDuration = 1.2f;
-    public bool shakeBeforeEscape = true;
-    public float shakeIntensity = 0.15f;
+    [SerializeField] private GameObject warningPrefab;
+    [SerializeField] private float warningDuration = 1.2f;
+    [SerializeField] private bool shakeBeforeEscape = true;
+    [SerializeField] private float shakeIntensity = 0.15f;
 
     [Header("Limites de Pantalla (Fuera de Cámara)")]
-    public float offScreenBottomY = -12f;
-    public float offScreenTopY = 12f;
+    [SerializeField] private float offScreenBottomY = -12f;
+    [SerializeField] private float offScreenTopY = 12f;
 
     [Header("Configuración de Fondo (El Truco)")]
     [Tooltip("Multiplicador de tamaño. Si tu jefe mide 2, y esto es 0.3, al fondo medirá 0.6.")]
-    public float targetScale = 0.3f;
-    public int backgroundSortingOrder = -20;
-    public float backgroundParallaxSpeed = 0.2f;
+    [SerializeField] private float targetScale = 0.3f;
+    [SerializeField] private int backgroundSortingOrder = -20;
+    [SerializeField] private float backgroundParallaxSpeed = 0.2f;
 
     [Header("Fase 1: El Escape")]
-    public float escapeSpeed = 15f;
+    [SerializeField] private float escapeSpeed = 15f;
 
     [Header("Fase 2: El Ascenso (Fondo)")]
-    public float ascendSpeed = 3f;
-    public float zigzagAmplitude = 1.5f;
-    public float zigzagSpeed = 2f;
+    [SerializeField] private float ascendSpeed = 3f;
+    [SerializeField] private float zigzagAmplitude = 1.5f;
+    [SerializeField] private float zigzagSpeed = 2f;
 
     [Header("Fase 3: El Regreso")]
-    public float diveSpeed = 20f;
+    [SerializeField] private float diveSpeed = 20f;
 
     // Memoria temporal
     [System.NonSerialized] private SpriteRenderer[] _renderers;

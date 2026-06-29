@@ -151,7 +151,7 @@ MonoBehaviour:
   _scoreValue: 100
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 0
-  personalShieldSize: 1.5
+  _personalShieldSize: 1.5
   _turrets:
   - turret: {fileID: 4288278947481282220}
     activeByDefault: 1
@@ -179,6 +179,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
       propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
+    - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
+      propertyPath: _bulletPrefab
       value: 
       objectReference: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
     - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
@@ -271,6 +275,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6020517980567016966, guid: 669a7336ba56eee48acb3281c19f4f58, type: 3}
     - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 6020517980567016966, guid: 947f12dc7834839439406fa625bb173c, type: 3}
+    - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
       propertyPath: '_patternPlaylist.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 4cac526a30e160e4399c8107bcd1998e, type: 2}
@@ -359,6 +367,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 6020517980567016966, guid: 669a7336ba56eee48acb3281c19f4f58, type: 3}
+    - target: {fileID: -4999549957660255571, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 6020517980567016966, guid: 947f12dc7834839439406fa625bb173c, type: 3}
     - target: {fileID: 953337085535880292, guid: 98ee59e5dc88c5b40ae65830fc582829, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5750399

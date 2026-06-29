@@ -6,19 +6,19 @@ public class PatternRingSO : AttackPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Balas por anillo.")]
-    [Min(3)] public int   bulletCount = 12;
+    [Min(3)] [SerializeField] private int   bulletCount = 12;
 
     [Tooltip("Delay entre anillos.")]
-    public float fireRate = 1f;
+    [SerializeField] private float fireRate = 1f;
 
     [Tooltip("Velocidad de las balas.")]
-    public float bulletSpeed = 4f;
+    [SerializeField] private float bulletSpeed = 4f;
 
     [Tooltip("Si está activo, cada anillo rota un poco respecto al anterior.")]
-    public bool rotateRings = false;
+    [SerializeField] private bool rotateRings = false;
 
     [Tooltip("Grados de rotación por anillo (solo si rotateRings está activo).")]
-    public float rotationPerRing = 15f;
+    [SerializeField] private float rotationPerRing = 15f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

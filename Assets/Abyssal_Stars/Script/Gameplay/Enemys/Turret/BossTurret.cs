@@ -3,32 +3,44 @@ using System.Collections;
 
 public class BossTurret : MonoBehaviour
 {
-    [Header("MuniciÛn")]
-    public EnemyBullet bulletPrefab;
-    public Sprite bulletSprite;
-    public Color bulletColor = Color.white;
+    [Header("MuniciÔøΩn")]
+    [SerializeField] private EnemyBullet _bulletPrefab;
+    public EnemyBullet BulletPrefab => _bulletPrefab;
 
-    [Header("RotaciÛn de Sprite")]
-    [Tooltip("Si est· activo, el sprite de la torreta gira hacia donde dispara.")]
-    public bool rotateToFireDirection = true;
-    [Tooltip("Offset de rotaciÛn para corregir la orientaciÛn base del sprite.")]
-    public float rotationOffset = 90f;
-    [Tooltip("Velocidad de rotaciÛn (0 = instant·neo, mayor = m·s suave).")]
-    public float rotationSpeed = 0f;
+    [SerializeField] private Sprite _bulletSprite;
+    public Sprite BulletSprite => _bulletSprite;
 
-    [Header("Ciclo de Patrones AutÛnomo")]
+    [SerializeField] private Color _bulletColor = Color.white;
+    public Color BulletColor => _bulletColor;
+
+    [Header("RotaciÔøΩn de Sprite")]
+    [Tooltip("Si estÔøΩ activo, el sprite de la torreta gira hacia donde dispara.")]
+    [SerializeField] private bool _rotateToFireDirection = true;
+
+    [Tooltip("Offset de rotaciÔøΩn para corregir la orientaciÔøΩn base del sprite.")]
+    [SerializeField] private float _rotationOffset = 90f;
+
+    [Tooltip("Velocidad de rotaciÔøΩn (0 = instantÔøΩneo, mayor = mÔøΩs suave).")]
+    [SerializeField] private float _rotationSpeed = 0f;
+
+    [Header("Ciclo de Patrones AutÔøΩnomo")]
     [Tooltip("Solo si esta torreta corre sus patrones de forma independiente.")]
     [SerializeField] private AttackPatternSO[] _patternPlaylist;
     [SerializeField] private float _timePerPattern = 5f;
     [SerializeField] private float _transitionDelay = 1f;
 
     [Header("Componentes Especiales (Opcionales)")]
-    [Tooltip("Asign· esto solo si esta torreta usar· ataques de l·ser continuo.")]
-    public LineRenderer laserLineRenderer;
-    [Tooltip("Punto de origen exacto del l·ser. Si est· vacÌo, usa el transform de la torreta.")]
-    public Transform laserFirePoint;
-    [Tooltip("Asign· esto si el ataque altera el color del sprite (ej. Sobrecalentamiento).")]
-    public SpriteRenderer turretSpriteRenderer;
+    [Tooltip("AsignÔøΩ esto solo si esta torreta usarÔøΩ ataques de lÔøΩser continuo.")]
+    [SerializeField] private LineRenderer _laserLineRenderer;
+    public LineRenderer LaserLineRenderer => _laserLineRenderer;
+
+    [Tooltip("Punto de origen exacto del lÔøΩser. Si estÔøΩ vacÔøΩo, usa el transform de la torreta.")]
+    [SerializeField] private Transform _laserFirePoint;
+    public Transform LaserFirePoint => _laserFirePoint;
+
+    [Tooltip("AsignÔøΩ esto si el ataque altera el color del sprite (ej. Sobrecalentamiento).")]
+    [SerializeField] private SpriteRenderer _turretSpriteRenderer;
+    public SpriteRenderer TurretSpriteRenderer => _turretSpriteRenderer;
 
     private Coroutine _activePatternCoroutine;
     private Coroutine _activeExecuteCoroutine;
@@ -54,13 +66,13 @@ public class BossTurret : MonoBehaviour
 
     private void Update()
     {
-        if (!rotateToFireDirection) return;
+        if (!_rotateToFireDirection) return;
 
-        if (rotationSpeed <= 0f)
+        if (_rotationSpeed <= 0f)
             transform.rotation = _targetRotation;
         else
             transform.rotation = Quaternion.RotateTowards(
-                transform.rotation, _targetRotation, rotationSpeed * Time.deltaTime
+                transform.rotation, _targetRotation, _rotationSpeed * Time.deltaTime
             );
     }
     private void StartAutonomousCycle()
@@ -110,19 +122,19 @@ public class BossTurret : MonoBehaviour
             _activePatternCoroutine = null;
         }
 
-        if (laserLineRenderer != null && laserLineRenderer.enabled)
-            laserLineRenderer.enabled = false;
+        if (_laserLineRenderer != null && _laserLineRenderer.enabled)
+            _laserLineRenderer.enabled = false;
 
         ReturnOrbitalBullets();
     }
 
     public void ResetVisuals()
     {
-        if (turretSpriteRenderer != null)
-            turretSpriteRenderer.color = Color.white;
+        if (_turretSpriteRenderer != null)
+            _turretSpriteRenderer.color = Color.white;
 
-        if (laserLineRenderer != null)
-            laserLineRenderer.enabled = false;
+        if (_laserLineRenderer != null)
+            _laserLineRenderer.enabled = false;
     }
 
     public void ReturnOrbitalBullets()
@@ -170,43 +182,53 @@ public class BossTurret : MonoBehaviour
     }
     public void FireSingleBullet(float exactAngle, float speed)
     {
-        if (bulletPrefab == null || BulletPool.Instance == null) return;
+        if (_bulletPrefab == null || BulletPool.Instance == null) return;
 
         float rad = exactAngle * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
-        if (rotateToFireDirection)
+        if (_rotateToFireDirection)
             RotateToAngle(exactAngle);
 
         EnemyBullet bullet = BulletPool.Instance.GetBullet(
-            bulletPrefab, transform.position, Quaternion.identity, direction * speed
+            _bulletPrefab, transform.position, Quaternion.identity, direction * speed
         );
 
         if (bullet == null) return;
 
         bullet.SetRotationByVelocity();
-        if (bulletSprite != null) bullet.SetAppearance(bulletSprite, bulletColor);
+        if (_bulletSprite != null) bullet.SetAppearance(_bulletSprite, _bulletColor);
+    }
+
+    /// <summary>
+    /// Permite que un patr√≥n tome control total de la rotaci√≥n desactivando
+    /// el sistema autom√°tico de BossTurret. Llamar con false al iniciar el
+    /// patr√≥n y con true en OnStopped para restaurar.
+    /// </summary>
+    public void EnableAutoRotation(bool enabled)
+    {
+        _rotateToFireDirection = enabled;
     }
 
     public void RotateToAngle(float angle)
     {
-        float corrected = angle + rotationOffset;
+        float corrected = angle + _rotationOffset;
         _targetRotation = Quaternion.Euler(0f, 0f, corrected);
 
-        if (rotationSpeed <= 0f)
+        if (_rotationSpeed <= 0f)
             transform.rotation = _targetRotation;
     }
 
     public EnemyBullet SpawnBulletWithoutFiring()
     {
-        if (bulletPrefab == null || BulletPool.Instance == null) return null;
+        if (_bulletPrefab == null || BulletPool.Instance == null) return null;
 
         EnemyBullet bullet = BulletPool.Instance.GetBullet(
-            bulletPrefab, transform.position, Quaternion.identity, Vector2.zero
+            _bulletPrefab, transform.position, Quaternion.identity, Vector2.zero
         );
 
         if (bullet == null) return null;
-        if (bulletSprite != null) bullet.SetAppearance(bulletSprite, bulletColor);
+        if (_bulletSprite != null) bullet.SetAppearance(_bulletSprite, _bulletColor);
 
         return bullet;
     }

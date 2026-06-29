@@ -5,11 +5,11 @@ using System.Collections;
 public class MovementPendulumFallSO : MovementPatternSO
 {
     [Header("Ajustes de Descenso")]
-    public float fallSpeed = 1.5f;
+    [SerializeField] private float fallSpeed = 1.5f;
 
     [Header("Oscilación Horizontal")]
-    public float horizontalSpeed = 3f;
-    public float horizontalLimit = 4.2f;
+    [SerializeField] private float horizontalSpeed = 3f;
+    [SerializeField] private float horizontalLimit = 4.2f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

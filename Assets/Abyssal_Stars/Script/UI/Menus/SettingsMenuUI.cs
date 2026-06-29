@@ -81,6 +81,8 @@ public class SettingsMenuUI : MonoBehaviour
 
     private void Update()
     {
+        // Keyboard.current se usa únicamente aquí para capturar la tecla
+        // durante el flujo de reasignación (rebinding). No es input de gameplay.
         if (_isRebinding && Keyboard.current != null)
         {
             if (Keyboard.current.anyKey.wasPressedThisFrame)
@@ -90,7 +92,8 @@ public class SettingsMenuUI : MonoBehaviour
                     if (key.wasPressedThisFrame)
                     {
                         if (key.name == "escape") return;
-                        AssignKey(key.name.ToUpper());
+                        // Guardar el nombre canónico de InputSystem (ej. "w", "leftShift")
+                        AssignKey(key.name);
                         break;
                     }
                 }
@@ -171,6 +174,9 @@ public class SettingsMenuUI : MonoBehaviour
 
         UpdateControlTexts();
         DataManager.Instance.SaveGame();
+
+        // Notificar al InputManager para que aplique el nuevo binding al vuelo
+        InputManager.Instance?.RefreshBindings();
     }
 
     private void UpdateControlTexts()
@@ -178,13 +184,32 @@ public class SettingsMenuUI : MonoBehaviour
         if (DataManager.Instance == null) return;
         SettingsData settings = DataManager.Instance.SaveData.settings;
 
-        if (_txtUp != null) _txtUp.text = settings.moveUpKey;
-        if (_txtDown != null) _txtDown.text = settings.moveDownKey;
-        if (_txtLeft != null) _txtLeft.text = settings.moveLeftKey;
-        if (_txtRight != null) _txtRight.text = settings.moveRightKey;
-        if (_txtShoot != null) _txtShoot.text = settings.shootKey;
-        if (_txtBomb != null) _txtBomb.text = settings.bombKey;
-        if (_txtFocus != null) _txtFocus.text = settings.focusKey;
+        if (_txtUp != null)    _txtUp.text    = DisplayKey(settings.moveUpKey);
+        if (_txtDown != null)  _txtDown.text  = DisplayKey(settings.moveDownKey);
+        if (_txtLeft != null)  _txtLeft.text  = DisplayKey(settings.moveLeftKey);
+        if (_txtRight != null) _txtRight.text = DisplayKey(settings.moveRightKey);
+        if (_txtShoot != null) _txtShoot.text = DisplayKey(settings.shootKey);
+        if (_txtBomb != null)  _txtBomb.text  = DisplayKey(settings.bombKey);
+        if (_txtFocus != null) _txtFocus.text = DisplayKey(settings.focusKey);
+    }
+
+    /// <summary>
+    /// Convierte el nombre canónico de InputSystem a texto legible para el UI.
+    /// "w" → "W",  "leftShift" → "Left Shift",  "space" → "Space".
+    /// </summary>
+    private string DisplayKey(string keyName)
+    {
+        if (string.IsNullOrEmpty(keyName)) return "—";
+
+        // Insertar espacio antes de mayúsculas internas: "leftShift" → "left Shift"
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        sb.Append(char.ToUpper(keyName[0]));
+        for (int i = 1; i < keyName.Length; i++)
+        {
+            if (char.IsUpper(keyName[i])) sb.Append(' ');
+            sb.Append(keyName[i]);
+        }
+        return sb.ToString(); // "Left Shift", "W", "Space", "B"
     }
 
     public void SetMusicVolume(float sliderValue)

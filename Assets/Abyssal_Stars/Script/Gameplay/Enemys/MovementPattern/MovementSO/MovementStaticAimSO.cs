@@ -6,11 +6,11 @@ public class MovementStaticAimSO : MovementPatternSO
 {
     [Header("Ilusión de Apuntado (Anclado)")]
     [Tooltip("Si es True, rota suavemente hacia el jugador sin moverse del sitio.")]
-    public bool lookAtPlayer = true;
-    public float rotationSpeed = 5f;
+    [SerializeField] private bool lookAtPlayer = true;
+    [SerializeField] private float rotationSpeed = 5f;
 
     [Tooltip("Ajuste para alinear el frente de tu sprite (ej. 90).")]
-    public float rotationOffset = 90f;
+    [SerializeField] private float rotationOffset = 90f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

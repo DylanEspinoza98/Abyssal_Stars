@@ -6,13 +6,13 @@ public class MovementMirrorSO : MovementPatternSO
 {
     [Header("Seguimiento Horizontal")]
     [Tooltip("Velocidad con la que sigue la X del jugador. Más bajo = más perezoso.")]
-    public float trackingSpeed = 3f;
+    [SerializeField] private float trackingSpeed = 3f;
 
     [Tooltip("Límite horizontal máximo desde el centro de su zona.")]
-    public float maxOffsetX = 4f;
+    [SerializeField] private float maxOffsetX = 4f;
 
     [Tooltip("Tag del jugador.")]
-    public string playerTag = "Player";
+    [SerializeField] private string playerTag = "Player";
 
     public override IEnumerator ExecuteMovement(Transform enemyTransform, Vector2 zoneCenter)
     {

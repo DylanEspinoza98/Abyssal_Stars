@@ -18,7 +18,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private Color _hitColor = Color.red;
     [SerializeField] private float _hitFlashDuration = 0.1f;
 
-    [Header("Puntuación")]
+    [Header("Puntuaciï¿½n")]
     [SerializeField] protected int _scoreValue = 100;
 
     [Header("Feedback Visual")]
@@ -27,9 +27,10 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Huida del Jefe")]
     [SerializeField] private float _retreatSpeed = 15f;
 
-    [Header("Configuración de Escudo (protección de enemigos)")]
-    [Tooltip("Tamaño exacto del escudo para este enemigo. Ajustar a ojo en el Inspector.")]
-    public float personalShieldSize = 1.5f;
+    [Header("Configuraciï¿½n de Escudo (protecciï¿½n de enemigos)")]
+    [Tooltip("Tamaï¿½o exacto del escudo para este enemigo. Ajustar a ojo en el Inspector.")]
+    [SerializeField] private float _personalShieldSize = 1.5f;
+    public float PersonalShieldSize => _personalShieldSize;
 
 
     protected bool _isRetreating = false;

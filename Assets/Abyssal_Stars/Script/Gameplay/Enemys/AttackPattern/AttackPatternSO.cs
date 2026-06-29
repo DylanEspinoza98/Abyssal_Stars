@@ -7,7 +7,7 @@ public abstract class AttackPatternSO : ScriptableObject
     [Tooltip("Invierte la dirección horizontal del patrón. " +
              "Útil para que la torreta izquierda y derecha sean simétricas " +
              "usando el mismo SO con distinta configuración.")]
-    public bool mirrorX = false;
+    [SerializeField] private bool mirrorX = false;
 
     protected float ApplyMirror(float angle)
     {

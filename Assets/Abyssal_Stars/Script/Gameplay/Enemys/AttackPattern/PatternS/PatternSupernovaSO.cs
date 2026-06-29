@@ -8,32 +8,32 @@ using Random = UnityEngine.Random;
 public class PatternSupernovaSO : AttackPatternSO
 {
     [Header("Olas de Viaje")]
-    public GameObject waveCollapsePrefab;
+    [SerializeField] private GameObject waveCollapsePrefab;
 
     [Tooltip("Total de espacios (balas + huecos). Lo ideal es que sea múltiplo de (fakeCount + lethalCount).")]
     [Min(2)]
-    public int bulletsPerWave = 24;
-    public float waveAmplitude = 1.5f;
-    public float waveFrequency = 4f;
-    public float bulletSpeed = 6f;
-    public float spawnInterval = 0.12f;
+    [SerializeField] private int bulletsPerWave = 24;
+    [SerializeField] private float waveAmplitude = 1.5f;
+    [SerializeField] private float waveFrequency = 4f;
+    [SerializeField] private float bulletSpeed = 6f;
+    [SerializeField] private float spawnInterval = 0.12f;
 
     [Header("Latigazo")]
-    public float rodLength = 1.5f;
-    public float rotationSpeed = 90f;
-    public float totalRotationDegrees = 360f;
-    public float rodInitialAngle = 90f;
-    public bool randomizeInitialAngle = false;
+    [SerializeField] private float rodLength = 1.5f;
+    [SerializeField] private float rotationSpeed = 90f;
+    [SerializeField] private float totalRotationDegrees = 360f;
+    [SerializeField] private float rodInitialAngle = 90f;
+    [SerializeField] private bool randomizeInitialAngle = false;
 
     [Header("Colapso")]
     [Min(1f)]
-    public float collapseSpeedMult = 2.5f;
+    [SerializeField] private float collapseSpeedMult = 2.5f;
 
     [Header("Patrón Huecos / Letal")]
     [Tooltip("Cantidad de espacios vacíos (huecos) que dejará la ola.")]
-    [Min(0)] public int fakeCount = 3;
+    [Min(0)] [SerializeField] private int fakeCount = 3;
     [Tooltip("Cantidad de balas reales seguidas.")]
-    [Min(1)] public int lethalCount = 3;
+    [Min(1)] [SerializeField] private int lethalCount = 3;
 
     [Header("Anclas (un latigazo por cada punto)")]
     public Vector2[] safeAnchors = new Vector2[]
@@ -48,15 +48,15 @@ public class PatternSupernovaSO : AttackPatternSO
 
     [Header("Origen de las Olas")]
     public SpawnEdge spawnEdge = SpawnEdge.Horizontal;
-    public float offscreenDistance = 10f;
+    [SerializeField] private float offscreenDistance = 10f;
 
     [Header("Supernova")]
-    public GameObject depthProjectilePrefab;
-    public int shockwaveBulletCount = 30;
-    public float shockwaveSpeed = 8f;
+    [SerializeField] private GameObject depthProjectilePrefab;
+    [SerializeField] private int shockwaveBulletCount = 30;
+    [SerializeField] private float shockwaveSpeed = 8f;
 
     [Header("Seguridad")]
-    public float maxWaitTime = 15f;
+    [SerializeField] private float maxWaitTime = 15f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

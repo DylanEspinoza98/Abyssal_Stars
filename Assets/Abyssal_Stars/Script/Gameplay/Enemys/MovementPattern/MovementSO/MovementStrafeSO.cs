@@ -6,28 +6,28 @@ using System.Collections;
 public class MovementStrafeSO : MovementPatternSO
 {
     [Header("Movimiento Base")]
-    public float floatAmplitude = 0.2f;
-    public float floatSpeed     = 1f;
-    public float moveSpeed      = 1.5f;
+    [SerializeField] private float floatAmplitude = 0.2f;
+    [SerializeField] private float floatSpeed     = 1f;
+    [SerializeField] private float moveSpeed      = 1.5f;
 
     [Header("Strafe")]
     [Tooltip("Radio de detección de balas.")]
-    public float detectionRadius = 2.5f;
+    [SerializeField] private float detectionRadius = 2.5f;
 
     [Tooltip("Tag de las balas del jugador.")]
-    public string playerBulletTag = "PlayerBullet";
+    [SerializeField] private string playerBulletTag = "PlayerBullet";
 
     [Tooltip("Velocidad del strafe lateral.")]
-    public float strafeSpeed = 6f;
+    [SerializeField] private float strafeSpeed = 6f;
 
     [Tooltip("Distancia del desplazamiento lateral.")]
-    public float strafeDistance = 2f;
+    [SerializeField] private float strafeDistance = 2f;
 
     [Tooltip("Límite máximo de desplazamiento en X desde el centro.")]
-    public float maxOffsetX = 3.5f;
+    [SerializeField] private float maxOffsetX = 3.5f;
 
     [Tooltip("Tiempo mínimo entre strafes (cooldown).")]
-    public float strafeCooldown = 0.6f;
+    [SerializeField] private float strafeCooldown = 0.6f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

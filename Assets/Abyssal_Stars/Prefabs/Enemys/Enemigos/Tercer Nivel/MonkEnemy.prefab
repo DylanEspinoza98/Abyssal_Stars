@@ -149,7 +149,7 @@ MonoBehaviour:
   _scoreValue: 70
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 15
-  personalShieldSize: 0.5
+  _personalShieldSize: 0.5
   _turrets:
   - turret: {fileID: 8957444627762889044}
     activeByDefault: 0

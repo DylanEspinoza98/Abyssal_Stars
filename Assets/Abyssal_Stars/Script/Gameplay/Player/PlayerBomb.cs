@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using System;
 
 public class PlayerBomb : MonoBehaviour
@@ -37,14 +36,9 @@ public class PlayerBomb : MonoBehaviour
 
         if (PlayerHealth.Instance != null && PlayerHealth.Instance.IsDead) return;
 
-        if (Keyboard.current != null && DataManager.Instance != null)
+        if (InputManager.Instance != null && InputManager.Instance.Bomb.WasPressedThisFrame())
         {
-            SettingsData settings = DataManager.Instance.SaveData.settings;
-
-            if (WasKeyPressedThisFrame(settings.bombKey))
-            {
-                TryUseBomb();
-            }
+            TryUseBomb();
         }
     }
 
@@ -109,18 +103,5 @@ public class PlayerBomb : MonoBehaviour
         {
             Instantiate(_smokeEffectPrefab, transform.position, Quaternion.identity);
         }
-    }
-    private bool WasKeyPressedThisFrame(string keyName)
-    {
-        if (string.IsNullOrEmpty(keyName) || Keyboard.current == null) return false;
-
-        foreach (var key in Keyboard.current.allKeys)
-        {
-            if (key.name.Equals(keyName, StringComparison.OrdinalIgnoreCase))
-            {
-                return key.wasPressedThisFrame;
-            }
-        }
-        return false;
     }
 }

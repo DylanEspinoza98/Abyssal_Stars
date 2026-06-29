@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class PatternDepthBurstSO : AttackPatternSO
 {
     [Header("Proyectil de Fondo")]
-    public GameObject depthProjectilePrefab;
+    [SerializeField] private GameObject depthProjectilePrefab;
 
     [Header("Grid Hexagonal")]
     [SerializeField] private int hexRings = 2;

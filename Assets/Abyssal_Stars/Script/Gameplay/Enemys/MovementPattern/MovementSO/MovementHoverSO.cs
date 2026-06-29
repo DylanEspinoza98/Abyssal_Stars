@@ -6,13 +6,13 @@ public class MovementHoverSO : MovementPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Amplitud de la vibración (muy pequeña para que sea sutil).")]
-    public float vibrateAmplitude = 0.08f;
+    [SerializeField] private float vibrateAmplitude = 0.08f;
 
     [Tooltip("Velocidad de la vibración.")]
-    public float vibrateSpeed = 8f;
+    [SerializeField] private float vibrateSpeed = 8f;
 
     [Tooltip("Velocidad para llegar al centro al iniciar la fase.")]
-    public float returnSpeed = 3f;
+    [SerializeField] private float returnSpeed = 3f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

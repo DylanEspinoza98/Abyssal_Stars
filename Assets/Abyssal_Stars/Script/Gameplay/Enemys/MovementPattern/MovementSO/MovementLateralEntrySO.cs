@@ -6,28 +6,28 @@ public class MovementLateralEntrySO : MovementPatternSO
 {
     [Header("Deslizamiento al Lateral")]
     [Tooltip("Velocidad con la que se mueve desde donde entró hasta el anclaje lateral.")]
-    public float slideSpeed = 5f;
+    [SerializeField] private float slideSpeed = 5f;
 
     [Header("Posición de Anclaje")]
     [Tooltip("Distancia desde el borde de pantalla en viewport. " +
              "El lado se detecta automáticamente según la zona de spawn (X positivo = derecha).")]
     [Range(0.05f, 0.35f)]
-    public float anchorViewportX = 0.1f;
+    [SerializeField] private float anchorViewportX = 0.1f;
 
     [Tooltip("Altura mínima del anclaje en viewport (0 = abajo).")]
     [Range(0f, 1f)]
-    public float anchorViewportYMin = 0.2f;
+    [SerializeField] private float anchorViewportYMin = 0.2f;
 
     [Tooltip("Altura máxima del anclaje en viewport (1 = arriba).")]
     [Range(0f, 1f)]
-    public float anchorViewportYMax = 0.8f;
+    [SerializeField] private float anchorViewportYMax = 0.8f;
 
     [Header("Flotación en el Anclaje")]
     [Tooltip("Amplitud del bob vertical una vez anclado.")]
-    public float bobAmplitude = 0.15f;
+    [SerializeField] private float bobAmplitude = 0.15f;
 
     [Tooltip("Velocidad del bob vertical.")]
-    public float bobSpeed = 1.5f;
+    [SerializeField] private float bobSpeed = 1.5f;
 
     public override IEnumerator ExecuteMovement(Transform enemyTransform, Vector2 zoneCenter)
     {

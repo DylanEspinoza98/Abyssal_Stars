@@ -7,16 +7,16 @@ public class MovementCircleSO : MovementPatternSO
     [Header("Entrada Dinámica")]
     [Tooltip("Centro = 0.5. Arriba = 0.85 a 1.0.")]
     public Vector2 viewportTarget = new Vector2(0.5f, 0.85f);
-    public float entrySpeed = 4f;
+    [SerializeField] private float entrySpeed = 4f;
 
     [Header("Órbita")]
-    public float radius = 1.2f;
-    [Range(0.1f, 1f)] public float verticalRatio = 0.5f;
-    public float orbitSpeed = 1.2f;
-    public float moveSpeed = 2f;
+    [SerializeField] private float radius = 1.2f;
+    [Range(0.1f, 1f)] [SerializeField] private float verticalRatio = 0.5f;
+    [SerializeField] private float orbitSpeed = 1.2f;
+    [SerializeField] private float moveSpeed = 2f;
 
     [Tooltip("Desfase inicial en radianes. PI/2 (1.5708) fuerza el inicio en el centro del eje X.")]
-    public float initialAngleOffset = Mathf.PI / 2f;
+    [SerializeField] private float initialAngleOffset = Mathf.PI / 2f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

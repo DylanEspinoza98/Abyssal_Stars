@@ -5,21 +5,21 @@ using System.Collections;
 public class PatternProximityBurstSO : AttackPatternSO
 {
     [Header("Disparo por Proximidad")]
-    public float triggerRange = 10f;
-    public int shotsPerBurst = 3;
-    public float timeBetweenShots = 0.15f;
-    public float bulletSpeed = 8f;
+    [SerializeField] private float triggerRange = 10f;
+    [SerializeField] private int shotsPerBurst = 3;
+    [SerializeField] private float timeBetweenShots = 0.15f;
+    [SerializeField] private float bulletSpeed = 8f;
 
     [Header("Tiempos y Recarga")]
     [Tooltip("Tiempo de espera (en segundos) tras detectar al jugador antes de disparar. Útil para sincronizar la animación.")]
-    public float chargeTime = 0.5f;
+    [SerializeField] private float chargeTime = 0.5f;
 
     [Tooltip("Tiempo de espera antes de poder detectar y disparar OTRA ráfaga.")]
-    public float cooldownBetweenBursts = 2.0f;
+    [SerializeField] private float cooldownBetweenBursts = 2.0f;
 
     [Header("Comportamiento")]
     [Tooltip("True: Cada bala apunta a la nueva posición del jugador. False: Toda la ráfaga va hacia donde estaba el jugador al iniciar.")]
-    public bool trackPlayerDuringBurst = false;
+    [SerializeField] private bool trackPlayerDuringBurst = false;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

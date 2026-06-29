@@ -6,25 +6,25 @@ public class MovementRetreatSO : MovementPatternSO
 {
     [Header("Movimiento Base")]
     [Tooltip("Flotación suave cuando no hay amenaza.")]
-    public float floatAmplitude = 0.3f;
-    public float floatSpeed     = 1.2f;
-    public float moveSpeed      = 1.5f;
+    [SerializeField] private float floatAmplitude = 0.3f;
+    [SerializeField] private float floatSpeed     = 1.2f;
+    [SerializeField] private float moveSpeed      = 1.5f;
 
     [Header("Retirada")]
     [Tooltip("Radio de detección de balas del jugador.")]
-    public float detectionRadius = 3f;
+    [SerializeField] private float detectionRadius = 3f;
 
     [Tooltip("Tag de las balas del jugador.")]
-    public string playerBulletTag = "PlayerBullet";
+    [SerializeField] private string playerBulletTag = "PlayerBullet";
 
     [Tooltip("Velocidad de retirada hacia arriba.")]
-    public float retreatSpeed = 5f;
+    [SerializeField] private float retreatSpeed = 5f;
 
     [Tooltip("Cuánto sube al retirarse (en unidades locales).")]
-    public float retreatAmount = 1.5f;
+    [SerializeField] private float retreatAmount = 1.5f;
 
     [Tooltip("Tiempo que mantiene la posición retirada antes de volver.")]
-    public float retreatHoldTime = 1.2f;
+    [SerializeField] private float retreatHoldTime = 1.2f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

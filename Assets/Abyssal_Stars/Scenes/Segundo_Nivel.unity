@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2e31adc394b194195c27ae8ed430a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  rangeX: 2
-  rangeY: 0.1
+  _rangeX: 2
+  _rangeY: 0.5
   _gizmoColor: {r: 1, g: 0.5, b: 0.1, a: 0.4}
 --- !u!1001 &739698422
 PrefabInstance:
@@ -894,8 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2e31adc394b194195c27ae8ed430a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  rangeX: 2
-  rangeY: 0.1
+  _rangeX: 2
+  _rangeY: 0.5
   _gizmoColor: {r: 1, g: 0.9, b: 0.1, a: 0.4}
 --- !u!4 &1389219021 stripped
 Transform:
@@ -975,8 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2e31adc394b194195c27ae8ed430a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  rangeX: 1.8
-  rangeY: 0.1
+  _rangeX: 2
+  _rangeY: 0.5
   _gizmoColor: {r: 0.2, g: 1, b: 0.4, a: 0.4}
 --- !u!4 &1392304714
 Transform:
@@ -1210,8 +1210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2e31adc394b194195c27ae8ed430a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnZone
-  rangeX: 2
-  rangeY: 0.1
+  _rangeX: 2
+  _rangeY: 0.5
   _gizmoColor: {r: 0.2, g: 0.6, b: 1, a: 0.4}
 --- !u!4 &1966892471
 Transform:
@@ -1710,6 +1710,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1781406963179227688, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324.13992
+      objectReference: {fileID: 0}
     - target: {fileID: 2894861661395363888, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_text
       value: Segundo Nivel Completado
@@ -1765,6 +1769,14 @@ PrefabInstance:
     - target: {fileID: 5909422010162939114, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_TagString
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059244911799093137, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324.14493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930398394230692637, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -179
       objectReference: {fileID: 0}
     - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_SizeDelta.x

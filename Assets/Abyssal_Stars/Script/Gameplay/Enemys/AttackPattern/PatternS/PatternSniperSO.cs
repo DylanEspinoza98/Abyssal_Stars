@@ -4,41 +4,41 @@ using System.Collections;
 [CreateAssetMenu(fileName = "New SniperLaser", menuName = "Boss Patterns/Attack/Sniper")]
 public class PatternSniperSO : AttackPatternSO
 {
-    [Header("Daño y Raycast")]
+    [Header("Daï¿½o y Raycast")]
     [Tooltip("Vidas que quita por cada impacto.")]
-    public int damageAmount = 1;
-    [Tooltip("Cuántas veces por segundo quita vida si el jugador está en el rayo.")]
-    public float damageRate = 4f;
+    [SerializeField] private int damageAmount = 1;
+    [Tooltip("Cuï¿½ntas veces por segundo quita vida si el jugador estï¿½ en el rayo.")]
+    [SerializeField] private float damageRate = 4f;
     [Tooltip("Largo del rayo. Suficiente para cruzar toda la pantalla.")]
-    public float laserRange = 50f;
+    [SerializeField] private float laserRange = 50f;
     [Tooltip("Debe incluir la capa del Player, igual que en PatternTargetedLaserSO.")]
-    public LayerMask whatToHit;
+    [SerializeField] private LayerMask whatToHit;
 
     [Header("Tiempos")]
-    [Tooltip("Duración del aviso visual antes de disparar.")]
-    public float telegraphDuration = 1.2f;
-    [Tooltip("Duración del disparo activo con daño.")]
-    public float fireDuration = 2f;
+    [Tooltip("Duraciï¿½n del aviso visual antes de disparar.")]
+    [SerializeField] private float telegraphDuration = 1.2f;
+    [Tooltip("Duraciï¿½n del disparo activo con daï¿½o.")]
+    [SerializeField] private float fireDuration = 2f;
     [Tooltip("Pausa entre ciclos.")]
-    public float cooldown = 2f;
+    [SerializeField] private float cooldown = 2f;
 
-    [Header("Visuales - Telegráfico")]
+    [Header("Visuales - Telegrï¿½fico")]
     [Tooltip("Ancho del rayo de aviso.")]
-    public float telegraphWidth = 0.05f;
-    public Color telegraphColor = new Color(1f, 0.9f, 0f, 0.5f);
+    [SerializeField] private float telegraphWidth = 0.05f;
+    [SerializeField] private Color telegraphColor = new Color(1f, 0.9f, 0f, 0.5f);
 
     [Header("Visuales - Disparo")]
     [Tooltip("Ancho del rayo activo. El CircleCast usa este valor como radio.")]
-    public float fireWidth = 0.35f;
-    public Color fireColor = new Color(1f, 0.1f, 0f, 1f);
+    [SerializeField] private float fireWidth = 0.35f;
+    [SerializeField] private Color fireColor = new Color(1f, 0.1f, 0f, 1f);
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {
-        if (turret.laserLineRenderer == null) yield break;
+        if (turret.LaserLineRenderer == null) yield break;
 
-        LineRenderer laser = turret.laserLineRenderer;
-        Transform firePoint = turret.laserFirePoint != null
-                                    ? turret.laserFirePoint
+        LineRenderer laser = turret.LaserLineRenderer;
+        Transform firePoint = turret.LaserFirePoint != null
+                                    ? turret.LaserFirePoint
                                     : turret.transform;
 
         while (true)

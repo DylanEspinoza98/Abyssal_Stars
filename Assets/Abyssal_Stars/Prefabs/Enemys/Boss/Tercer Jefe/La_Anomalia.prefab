@@ -104,19 +104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6020517980567016966, guid: 5009f521d6bdddf408980557f8079abd, type: 3}
-  bulletSprite: {fileID: 0}
-  bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  rotateToFireDirection: 1
-  rotationOffset: -90
-  rotationSpeed: 0
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+  _bulletSprite: {fileID: 0}
+  _bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  _rotateToFireDirection: 1
+  _rotationOffset: 90
+  _rotationSpeed: 0
   _patternPlaylist:
   - {fileID: 11400000, guid: 59dd58661803ca44780f8caa53041864, type: 2}
   _timePerPattern: 50
   _transitionDelay: 2
-  laserLineRenderer: {fileID: 0}
-  laserFirePoint: {fileID: 0}
-  turretSpriteRenderer: {fileID: 0}
+  _laserLineRenderer: {fileID: 0}
+  _laserFirePoint: {fileID: 0}
+  _turretSpriteRenderer: {fileID: 0}
 --- !u!1 &1252624352410410086
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,19 +221,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6020517980567016966, guid: 5009f521d6bdddf408980557f8079abd, type: 3}
-  bulletSprite: {fileID: 0}
-  bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  rotateToFireDirection: 1
-  rotationOffset: -90
-  rotationSpeed: 0
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 39115bf6ca7ce1840849f33cdedfc895, type: 3}
+  _bulletSprite: {fileID: 0}
+  _bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  _rotateToFireDirection: 1
+  _rotationOffset: 90
+  _rotationSpeed: 0
   _patternPlaylist:
   - {fileID: 11400000, guid: 5bcef20db04d4be478674cb848eb70bb, type: 2}
   _timePerPattern: 50
   _transitionDelay: 2
-  laserLineRenderer: {fileID: 0}
-  laserFirePoint: {fileID: 0}
-  turretSpriteRenderer: {fileID: 0}
+  _laserLineRenderer: {fileID: 0}
+  _laserFirePoint: {fileID: 0}
+  _turretSpriteRenderer: {fileID: 0}
 --- !u!1 &3294732247181110800
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,19 +338,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a58fa805e97614faf435793a3c0217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossTurret
-  bulletPrefab: {fileID: 6020517980567016966, guid: 5009f521d6bdddf408980557f8079abd, type: 3}
-  bulletSprite: {fileID: 0}
-  bulletColor: {r: 1, g: 1, b: 1, a: 1}
-  rotateToFireDirection: 1
-  rotationOffset: -90
-  rotationSpeed: 0
+  _bulletPrefab: {fileID: 6020517980567016966, guid: 669a7336ba56eee48acb3281c19f4f58, type: 3}
+  _bulletSprite: {fileID: 0}
+  _bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  _rotateToFireDirection: 1
+  _rotationOffset: 90
+  _rotationSpeed: 0
   _patternPlaylist:
   - {fileID: 11400000, guid: 59dd58661803ca44780f8caa53041864, type: 2}
   _timePerPattern: 50
   _transitionDelay: 2
-  laserLineRenderer: {fileID: 0}
-  laserFirePoint: {fileID: 0}
-  turretSpriteRenderer: {fileID: 0}
+  _laserLineRenderer: {fileID: 0}
+  _laserFirePoint: {fileID: 0}
+  _turretSpriteRenderer: {fileID: 0}
 --- !u!1 &8873400423258381309
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
   _scoreValue: 100
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 0
-  personalShieldSize: 1.5
+  _personalShieldSize: 1.5
   _turrets:
   - turret: {fileID: 7711163173945093309}
     activeByDefault: 0

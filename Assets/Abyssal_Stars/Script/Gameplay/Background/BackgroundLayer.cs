@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class BackgroundLayer : MonoBehaviour
 {
     [Header("1. Identidad y Prefabs")]
-    public string layerName = "Layer";
+    [SerializeField] private string _layerName = "Layer";
+    public string LayerName => _layerName;
     [SerializeField] private GameObject[] _prefabs;
 
     [Tooltip("Si TRUE, usa una cola inteligente para no repetir el mismo objeto seguido (Ideal para 2 o 3 Planetas).")]
@@ -219,7 +220,7 @@ public class BackgroundLayer : MonoBehaviour
         {
             if (prefab == null || _pools.ContainsKey(prefab)) continue;
 
-            Transform poolParent = new GameObject($"Pool_{layerName}_{prefab.name}").transform;
+            Transform poolParent = new GameObject($"Pool_{_layerName}_{prefab.name}").transform;
             poolParent.SetParent(transform);
             _pools[prefab] = new DecorPool(prefab, poolParent, _poolInitialSize);
         }

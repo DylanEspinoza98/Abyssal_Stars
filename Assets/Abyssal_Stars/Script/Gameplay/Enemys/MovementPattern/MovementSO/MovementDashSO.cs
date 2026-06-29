@@ -6,20 +6,20 @@ public class MovementDashSO : MovementPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Velocidad del dash.")]
-    public float dashSpeed = 12f;
+    [SerializeField] private float dashSpeed = 12f;
 
     [Tooltip("Pausa entre dashes (segundos).")]
-    public float pauseBetweenDashes = 0.8f;
+    [SerializeField] private float pauseBetweenDashes = 0.8f;
 
     [Tooltip("Cuánto puede alejarse del centro en X.")]
-    public float rangeX = 3f;
+    [SerializeField] private float rangeX = 3f;
 
     [Tooltip("Cuánto puede alejarse del centro en Y.")]
-    public float rangeY = 1f;
+    [SerializeField] private float rangeY = 1f;
 
     [Tooltip("Distancia mínima entre el punto actual y el destino " +
              "(evita dashes muy cortos).")]
-    public float minDistance = 1.5f;
+    [SerializeField] private float minDistance = 1.5f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {

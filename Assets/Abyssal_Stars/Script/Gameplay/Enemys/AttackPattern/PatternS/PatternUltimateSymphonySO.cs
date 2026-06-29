@@ -5,27 +5,27 @@ using System.Collections;
 public class PatternUltimateSymphonySO : AttackPatternSO
 {
     [Header("Bajos (Low) - Anillos Expansivos")]
-    public EnemyBullet lowBulletPrefab; 
-    public int ringBulletCount = 20;
-    public float ringSpeed = 4f;
+    [SerializeField] private EnemyBullet lowBulletPrefab; 
+    [SerializeField] private int ringBulletCount = 20;
+    [SerializeField] private float ringSpeed = 4f;
 
     [Header("Medios (Mid) - Figuras Geométricas")]
-    public EnemyBullet midBulletPrefab;
+    [SerializeField] private EnemyBullet midBulletPrefab;
     [Tooltip("Velocidad de la punta de la estrella/polígono.")]
-    public float midBulletSpeed = 8f;
+    [SerializeField] private float midBulletSpeed = 8f;
 
     [Header("Altos (High) - Lluvia")]
-    public EnemyBullet highBulletPrefab;
+    [SerializeField] private EnemyBullet highBulletPrefab;
     [Tooltip("Desde qué altura Y cae la lluvia.")]
-    public float highSpawnY = 8f;
+    [SerializeField] private float highSpawnY = 8f;
     [Tooltip("Límites X de la pantalla para la lluvia (Ej. 3 para ir de -3 a 3).")]
-    public float highSpawnXRange = 2.8f;
-    public float highBulletSpeed = 3f;
+    [SerializeField] private float highSpawnXRange = 2.8f;
+    [SerializeField] private float highBulletSpeed = 3f;
 
     [Header("Sub-Bajos (SubLow)")]
-    public EnemyBullet subLowBulletPrefab;
-    public int subLowBulletCount = 36;
-    public float subLowSpeed = 2f;
+    [SerializeField] private EnemyBullet subLowBulletPrefab;
+    [SerializeField] private int subLowBulletCount = 36;
+    [SerializeField] private float subLowSpeed = 2f;
 
     private BossTurret _activeTurret;
 

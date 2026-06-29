@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,7 +15,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private float _shotgunSpread = 30f;
     [SerializeField] private float _shotgunDuration = 10f;
     [SerializeField] private float _shotgunFireRate = 0.25f;
-    [Tooltip("Sprite que se usa mientras la escopeta está activa.")]
+    [Tooltip("Sprite que se usa mientras la escopeta estï¿½ activa.")]
     [SerializeField] private Sprite _shotgunSprite;
 
     [Header("Familiar")]
@@ -71,19 +70,14 @@ public class PlayerShooter : MonoBehaviour
     {
         if (_fireTimer > 0) _fireTimer -= Time.deltaTime;
 
-        if (Keyboard.current != null && DataManager.Instance != null)
+        if (InputManager.Instance != null && InputManager.Instance.Shoot.IsPressed() && _fireTimer <= 0)
         {
-            SettingsData settings = DataManager.Instance.SaveData.settings;
+            if (_isShotgunActive)
+                ShootShotgun();
+            else
+                ShootNormal();
 
-            if (IsKeyPressed(settings.shootKey) && _fireTimer <= 0)
-            {
-                if (_isShotgunActive)
-                    ShootShotgun();
-                else
-                    ShootNormal();
-
-                _fireTimer = _isShotgunActive ? _shotgunFireRate : _fireRate;
-            }
+            _fireTimer = _isShotgunActive ? _shotgunFireRate : _fireRate;
         }
     }
 
@@ -196,17 +190,4 @@ public class PlayerShooter : MonoBehaviour
     public bool IsShotgunActive => _isShotgunActive;
     public int FamiliarCount => _familiars.Count;
 
-    private bool IsKeyPressed(string keyName)
-    {
-        if (string.IsNullOrEmpty(keyName) || Keyboard.current == null) return false;
-
-        foreach (var key in Keyboard.current.allKeys)
-        {
-            if (key.name.Equals(keyName, System.StringComparison.OrdinalIgnoreCase))
-            {
-                return key.isPressed;
-            }
-        }
-        return false;
-    }
 }

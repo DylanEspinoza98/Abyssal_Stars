@@ -6,17 +6,17 @@ public class MovementZigzagSO : MovementPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Amplitud horizontal del zigzag.")]
-    public float amplitude = 1.5f;
+    [SerializeField] private float amplitude = 1.5f;
 
     [Tooltip("Velocidad de la oscilación.")]
-    public float frequency = 1.5f;
+    [SerializeField] private float frequency = 1.5f;
 
     [Tooltip("Qué tan rápido el boss sigue la posición objetivo.")]
-    public float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 2f;
 
     [Tooltip("Variación vertical (porcentaje del zoneSize.y).")]
     [Range(0f, 1f)]
-    public float verticalRatio = 0.3f;
+    [SerializeField] private float verticalRatio = 0.3f;
 
     public override IEnumerator ExecuteMovement(Transform bossTransform, Vector2 zoneCenter)
     {
