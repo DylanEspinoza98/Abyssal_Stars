@@ -79,16 +79,22 @@ public class PlayerBomb : MonoBehaviour
 
     private void ClearScreen()
     {
-        EnemyBullet[] activeBullets = FindObjectsByType<EnemyBullet>();
+        EnemyBullet[] activeBullets = FindObjectsByType<EnemyBullet>(FindObjectsInactive.Include);
         foreach (EnemyBullet bullet in activeBullets)
         {
-            bullet.ReturnToPool();
+            if (bullet.gameObject.activeInHierarchy)
+                bullet.ReturnToPool();
         }
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemyObj in enemies)
         {
-            Destroy(enemy);
+            EnemyBase enemyScript = enemyObj.GetComponent<EnemyBase>();
+
+            if (enemyScript != null && enemyObj.activeInHierarchy)
+            {
+                enemyScript.ReturnToPool();
+            }
         }
     }
 

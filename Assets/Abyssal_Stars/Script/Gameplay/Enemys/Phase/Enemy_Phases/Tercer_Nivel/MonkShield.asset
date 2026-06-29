@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dedcb2760339743b55ed10d7e84398, type: 3}
   m_Name: MonkShield
   m_EditorClassIdentifier: Assembly-CSharp::BossPhaseSO
-  movementPattern: {fileID: 11400000, guid: 63f71b74a649cc8418268977940f7b5c, type: 2}
+  movementPattern: {fileID: 11400000, guid: 8ff2ed077cd503f419f2473084c8965c, type: 2}
   turretPatterns:
   - {fileID: 11400000, guid: 9b4de0bfef3732440b37b80b996d990c, type: 2}
   duration: 500

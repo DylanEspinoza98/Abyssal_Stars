@@ -1,55 +1,62 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using System.Collections;
 
 [CreateAssetMenu(fileName = "New Triangle", menuName = "Boss Patterns/Attack/Triangle")]
 public class PatternTriangleSO : AttackPatternSO
 {
-    [Header("Forma del Tri·ngulo")]
-    [Tooltip("Cu·ntas balas forman cada lado del tri·ngulo (sin contar el vÈrtice).")]
+    [Header("Forma del Tri√°ngulo")]
+    [Tooltip("Cu√°ntas balas forman cada lado (sin contar el v√©rtice).")]
     [Min(1)]
     public int bulletsPerSide = 4;
 
-    [Tooltip("¡ngulo total de apertura de la base del tri·ngulo.")]
+    [Tooltip("√Ångulo total de apertura de la base.")]
     [Range(20f, 160f)]
     public float baseSpreadAngle = 80f;
 
-    [Tooltip("Velocidad de la bala del vÈrtice (la m·s r·pida ó define la punta).")]
-    public float tipSpeed = 8f;
+    [Header("Velocidad")]
+    [Tooltip("Velocidad de TODAS las balas. Escala el tri√°ngulo, pero no deforma su forma.")]
+    [Min(0.01f)]
+    public float bulletSpeed = 5f;
 
-    [Tooltip("Velocidad de las balas de la base (m·s lentas ó definen la base).")]
-    public float baseSpeed = 3.5f;
+    [Header("Espaciado visual")]
+    [Tooltip(
+        "Tiempo entre cada fila (punta ‚Üí base). " +
+        "Controla la 'altura' del tri√°ngulo independientemente de la velocidad. " +
+        "M√°s alto = tri√°ngulo m√°s alargado."
+    )]
+    [Min(0.005f)]
+    public float rowDelay = 0.08f;
 
     [Header("Cadencia")]
-    [Tooltip("Pausa entre olas de tri·ngulo.")]
-    public float wavePause = 1.2f;
+    [Tooltip("Pausa entre olas, contada desde el √∫ltimo disparo de la ola anterior.")]
+    [Min(0f)]
+    public float wavePause = 1.0f;
 
-    [Tooltip("¡ngulo central. 270 = tri·ngulo apuntando hacia abajo.")]
+    [Tooltip("√Ångulo central del tri√°ngulo. 270 = apunta hacia abajo.")]
     public float centerAngle = 270f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {
         while (true)
         {
-            FireTriangle(turret);
+            yield return FireTriangle(turret);  
             yield return new WaitForSeconds(wavePause);
         }
     }
 
-    private void FireTriangle(BossTurret turret)
+    private IEnumerator FireTriangle(BossTurret turret)
     {
-        turret.FireSingleBullet(ApplyMirror(centerAngle), tipSpeed);
-
-
         float angleStep = (baseSpreadAngle * 0.5f) / bulletsPerSide;
+
+        turret.FireSingleBullet(ApplyMirror(centerAngle), bulletSpeed);
 
         for (int i = 1; i <= bulletsPerSide; i++)
         {
-            float t = (float)i / bulletsPerSide;
-            float speed = Mathf.Lerp(tipSpeed, baseSpeed, t);
-            float offset = angleStep * i;
+            yield return new WaitForSeconds(rowDelay);
 
-            turret.FireSingleBullet(ApplyMirror(centerAngle + offset), speed);
-            turret.FireSingleBullet(ApplyMirror(centerAngle - offset), speed);
+            float offset = angleStep * i;
+            turret.FireSingleBullet(ApplyMirror(centerAngle + offset), bulletSpeed);
+            turret.FireSingleBullet(ApplyMirror(centerAngle - offset), bulletSpeed);
         }
     }
 }

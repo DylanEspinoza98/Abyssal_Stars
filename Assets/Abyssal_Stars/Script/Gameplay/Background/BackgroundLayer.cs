@@ -7,7 +7,7 @@ public class BackgroundLayer : MonoBehaviour
     [Header("1. Identidad y Prefabs")]
     public string layerName = "Layer";
     [SerializeField] private GameObject[] _prefabs;
-    
+
     [Tooltip("Si TRUE, usa una cola inteligente para no repetir el mismo objeto seguido (Ideal para 2 o 3 Planetas).")]
     [SerializeField] private bool _isUniqueLayer = false;
 
@@ -29,11 +29,11 @@ public class BackgroundLayer : MonoBehaviour
     [Tooltip("Tiempo de espera en silencio antes de que empiece el evento.")]
     [SerializeField] private float _minTimeBetweenPhases = 15f;
     [SerializeField] private float _maxTimeBetweenPhases = 30f;
-    
+
     [Tooltip("Cuánto dura la lluvia de meteoritos o el evento.")]
     [SerializeField] private float _minPhaseDuration = 3f;
     [SerializeField] private float _maxPhaseDuration = 7f;
-    
+
     [Tooltip("Qué tan rápido salen los objetos DURANTE la fase (Menos = Más rápido).")]
     [SerializeField] private float _spawnRateDuringPhase = 0.4f;
 
@@ -52,7 +52,8 @@ public class BackgroundLayer : MonoBehaviour
     [Header("6. Memoria (Pool)")]
     [SerializeField] private int _poolInitialSize = 4;
 
-    // Variables Privadas 
+    // Variables Privadas
+    private float _speedMultiplier = 1f;
     private GameObject _lastSpawnedUnique;
     private float _killY = -12f;
     private Dictionary<GameObject, DecorPool> _pools = new Dictionary<GameObject, DecorPool>();
@@ -89,6 +90,16 @@ public class BackgroundLayer : MonoBehaviour
     public void SetKillY(float killY) => _killY = killY;
     public void SetSpawning(bool state) => _canSpawn = state;
 
+
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        _speedMultiplier = multiplier;
+
+        // Propagar inmediatamente a los objetos ya en pantalla
+        foreach (SpaceDecor decor in _activeDecors)
+            decor?.SetMultiplier(_speedMultiplier);
+    }
+
     public void ReturnAll()
     {
         for (int i = _activeDecors.Count - 1; i >= 0; i--)
@@ -101,7 +112,7 @@ public class BackgroundLayer : MonoBehaviour
         _activeDecors.Clear();
     }
 
-    //  Rutina Principal Unificada 
+    // Rutina Principal Unificada
     private IEnumerator MainSpawnRoutine()
     {
         yield return new WaitForSeconds(_initialDelay);
@@ -110,7 +121,7 @@ public class BackgroundLayer : MonoBehaviour
         {
             if (!_canSpawn)
             {
-                yield return null; // Pausa el while loop si la llave general está cerrada
+                yield return null;
                 continue;
             }
 
@@ -123,24 +134,20 @@ public class BackgroundLayer : MonoBehaviour
             else
             {
                 // MODO FASES (Lluvia de Meteoros / Planetas)
-                
-                // 1. Fase de Silencio
+
+                //Fase de Silencio
                 float waitTime = Random.Range(_minTimeBetweenPhases, _maxTimeBetweenPhases);
                 yield return new WaitForSeconds(waitTime);
 
-                // 2. Fase Activa (Evento / Lluvia)
+                //Fase Activa (Evento / Lluvia)
                 float phaseDuration = Random.Range(_minPhaseDuration, _maxPhaseDuration);
                 float elapsed = 0f;
 
-                
-                
-
                 while (elapsed < phaseDuration && _canSpawn)
                 {
-                    // Añadimos un pequeño ruido vertical para que la ráfaga no sea una línea recta perfecta
                     float yRuido = transform.position.y + Random.Range(-1f, 2f);
                     SpawnAt(yRuido);
-                    
+
                     yield return new WaitForSeconds(_spawnRateDuringPhase);
                     elapsed += _spawnRateDuringPhase;
                 }
@@ -148,7 +155,7 @@ public class BackgroundLayer : MonoBehaviour
         }
     }
 
-    //  Lógica de Instanciación
+    // Lógica de Instanciación
     private void SpawnObject(Vector3 position, bool forceCommon = false)
     {
         GameObject prefab = PickPrefab(forceCommon);
@@ -176,16 +183,16 @@ public class BackgroundLayer : MonoBehaviour
             sr.color = c;
         }
 
-        
         if (_enableGlow)
         {
             DecorGlow glow = obj.GetComponent<DecorGlow>() ?? obj.AddComponent<DecorGlow>();
             glow.Setup(alpha, _glowIntensity, _glowSpeed, _scaleBreath);
         }
 
-        // movimiento
+        // Movimiento
         SpaceDecor decor = obj.GetComponent<SpaceDecor>() ?? obj.AddComponent<SpaceDecor>();
         decor.Setup(speed, _killY);
+        decor.SetMultiplier(_speedMultiplier);
 
         // Suscribirse al evento
         decor.OnOutOfBounds += HandleOutOfBounds;
@@ -231,7 +238,7 @@ public class BackgroundLayer : MonoBehaviour
         obj.SetActive(false);
     }
 
-    //  Filtro Anti-Repetición 
+    // Filtro Anti-Repetición
     private GameObject PickPrefab(bool forceCommon)
     {
         if (_prefabs == null || _prefabs.Length == 0) return null;

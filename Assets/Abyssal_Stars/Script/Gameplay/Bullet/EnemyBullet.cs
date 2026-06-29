@@ -16,14 +16,12 @@ public class EnemyBullet : Bullet
         gameObject.tag = active ? "BulletShield" : "Bullet";
     }
 
-    private SpriteRenderer _sr;
     private Rigidbody2D _rb;
     public bool HasBeenGrazed { get; set; } = false;
 
     protected override void Awake()
     {
         base.Awake();
-        _sr = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -48,10 +46,10 @@ public class EnemyBullet : Bullet
 
     public void SetAppearance(Sprite newSprite, Color newColor)
     {
-        if (_sr != null)
+        if (_spriteRenderer != null)
         {
-            _sr.sprite = newSprite;
-            _sr.color = newColor;
+            _spriteRenderer.sprite = newSprite;
+            _spriteRenderer.color = newColor;
         }
     }
 

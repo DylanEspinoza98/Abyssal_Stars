@@ -15,4 +15,8 @@ public abstract class AttackPatternSO : ScriptableObject
     }
 
     public abstract IEnumerator ExecutePattern(BossTurret turret);
+    public virtual void OnStopped(BossTurret turret)
+    {
+       
+    }
 }

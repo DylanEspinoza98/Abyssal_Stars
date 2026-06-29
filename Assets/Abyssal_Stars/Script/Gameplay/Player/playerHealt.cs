@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float _respawnTime = 2f;
     [SerializeField] private float _invincibilityDuration = 3f;
 
+    [Header("Puntuación por Vida Extra")]
+    [Tooltip("Puntos que se otorgan si el jugador recoge una vida teniendo ya el máximo.")]
+    [SerializeField] private int _bonusScoreForExtraLife = 1000;
+
     private Vector3 _startPosition;
     private bool _isDead = false;
     private bool _isInvincible = false;
@@ -42,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _startPosition = new Vector3(0, 0, transform.localPosition.z);
     }
+
     public void TakeDamage(int amount, bool ignoreInvincibility = false)
     {
         if (_isDead) return;
@@ -56,7 +61,15 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddLife()
     {
-        if (_totalLives >= _maxLives) return;
+        if (_totalLives >= _maxLives)
+        {
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(_bonusScoreForExtraLife);
+            }
+            return;
+        }
+
         _totalLives++;
         OnLivesChanged?.Invoke(_totalLives);
     }

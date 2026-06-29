@@ -3808,6 +3808,7 @@ GameObject:
   - component: {fileID: 2765264174233687026}
   - component: {fileID: 3501656936429377971}
   - component: {fileID: 8856579164567281919}
+  - component: {fileID: 5952106858572618204}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -3869,7 +3870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VictoryManager
   _victoryPanel: {fileID: 3685409159974446209}
   _victoryText: {fileID: 0}
-  _nextLevelButton: {fileID: 0}
+  _nextLevelButton: {fileID: 2121336825611841020}
   _nextLevelText: {fileID: 0}
   _menuButton: {fileID: 6975293838857818773}
   _scoreText: {fileID: 5629920949163361196}
@@ -3939,6 +3940,18 @@ MonoBehaviour:
   _menuButton: {fileID: 4261153115535730160}
   _settingsMenu: {fileID: 6795573532289692319}
   _menuSceneName: MainMenu
+--- !u!114 &5952106858572618204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5909422010162939114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7344297f8936f647958f460afd4b5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelWinHandler
 --- !u!1 &6071132251084437393
 GameObject:
   m_ObjectHideFlags: 0

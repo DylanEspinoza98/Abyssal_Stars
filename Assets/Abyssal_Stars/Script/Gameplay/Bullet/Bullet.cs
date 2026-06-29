@@ -130,8 +130,6 @@ public abstract class Bullet : MonoBehaviour
             _spriteRenderer.color = _originalColor;
         }
 
-        transform.SetParent(null);
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {

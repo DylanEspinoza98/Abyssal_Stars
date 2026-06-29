@@ -888,6 +888,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: -4781952286652205521, guid: 9a6f436fe8806b2408a167f8cdf51cba, type: 2}
+    - target: {fileID: 2894861661395363888, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_text
+      value: Primer Nivel Completado
+      objectReference: {fileID: 0}
     - target: {fileID: 3209520152001729799, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1028,9 +1032,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 842.521
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 196.794
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0000076294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 773
+      objectReference: {fileID: 0}
     - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _countDuration
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: _nextLevelSceneName
+      value: Segundo_Nivel
       objectReference: {fileID: 0}
     - target: {fileID: 8987442570077249344, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1332,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 5d2c94d2cedb59843a4da1c826d36cd0, type: 3}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 55
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1597,7 +1621,7 @@ PrefabInstance:
     - target: {fileID: 8099783995280410260, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: afc6fa48b1a1c7649be9501be6e6044e, type: 3}
+      objectReference: {fileID: 8300000, guid: af1a8571bee0b9044ad7bb08bfa51346, type: 3}
     - target: {fileID: 8099783995280410260, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0

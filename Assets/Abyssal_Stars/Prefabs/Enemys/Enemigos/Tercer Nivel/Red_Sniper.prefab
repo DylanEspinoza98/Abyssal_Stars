@@ -146,7 +146,7 @@ MonoBehaviour:
   _offScreenMargin: 0.3
   _hitColor: {r: 0.40009826, g: 1, b: 0, a: 1}
   _hitFlashDuration: 0.1
-  _scoreValue: 15
+  _scoreValue: 25
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 15
   personalShieldSize: 0.45

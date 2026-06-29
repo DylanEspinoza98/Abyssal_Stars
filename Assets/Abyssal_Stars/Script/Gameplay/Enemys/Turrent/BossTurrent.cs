@@ -33,6 +33,7 @@ public class BossTurret : MonoBehaviour
     private Coroutine _activePatternCoroutine;
     private Coroutine _activeExecuteCoroutine;
     private bool _isRunning = false;
+    private AttackPatternSO _currentPattern;
     private Quaternion _targetRotation;
     private void Awake()
     {
@@ -82,12 +83,21 @@ public class BossTurret : MonoBehaviour
     public Coroutine RunPattern(AttackPatternSO pattern, float duration)
     {
         StopCurrentPattern();
+
+        _currentPattern = pattern;
+
         _activePatternCoroutine = StartCoroutine(RunPatternRoutine(pattern, duration));
         return _activePatternCoroutine;
     }
 
     public void StopCurrentPattern()
     {
+        if (_currentPattern != null)
+        {
+            _currentPattern.OnStopped(this);
+            _currentPattern = null;
+        }
+
         if (_activeExecuteCoroutine != null)
         {
             StopCoroutine(_activeExecuteCoroutine);

@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Vida")]
     [SerializeField] private int _maxHealth = 0;
     private int _currentHealth;
+    public float HealthPercent => _maxHealth > 0 ? (float)_currentHealth / _maxHealth : 0f;
 
     [Header("Reciclaje")]
     [SerializeField] private float _offScreenMargin = 0.3f;
@@ -104,6 +105,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
 
         _currentHealth -= amount;
+        OnTookDamage();
 
         if (_currentHealth <= 0)
         {
@@ -170,6 +172,9 @@ public abstract class EnemyBase : MonoBehaviour
             StopAllCoroutines();
         }
     }
+
+    // Los enemigos normales no hacen nada con esto, pero el Boss lo sobreescribe (override).
+    protected virtual void OnTookDamage() { }
 
     public virtual void ReturnToPool()
     {

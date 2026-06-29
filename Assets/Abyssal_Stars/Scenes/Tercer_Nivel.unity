@@ -1282,6 +1282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 848556181}
     m_Modifications:
+    - target: {fileID: 1886781954120909901, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 2754925005540254256, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.023126513
@@ -1433,10 +1437,10 @@ PrefabInstance:
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossPrefab
       value: 
-      objectReference: {fileID: 8873400423258381309, guid: a3898370c9439e243952d18b8a2186d6, type: 3}
+      objectReference: {fileID: 8873400423258381309, guid: a63faaa955ad9a4408373e1a4829a47a, type: 3}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 130
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossSpawnZone
@@ -1641,7 +1645,7 @@ PrefabInstance:
     - target: {fileID: 6337061402402899822, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: de4c6b4da2ba8fd4994027b1005dd04d, type: 3}
+      objectReference: {fileID: 8300000, guid: afc6fa48b1a1c7649be9501be6e6044e, type: 3}
     - target: {fileID: 6337061402402899822, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
@@ -1653,7 +1657,7 @@ PrefabInstance:
     - target: {fileID: 8099783995280410260, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 1b33afa26c611fe4292c1b50a85cb0fb, type: 3}
+      objectReference: {fileID: 8300000, guid: cded1438280d16b4aa1c4078b75df1fe, type: 3}
     - target: {fileID: 8099783995280410260, guid: 4898ce77d85b24940b4f88cbb425982d, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
@@ -1686,6 +1690,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2894861661395363888, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_text
+      value: GRACIAS POR JUGAR Este demo
+      objectReference: {fileID: 0}
     - target: {fileID: 3333304687575260297, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_Name
       value: Canvas_HUD
@@ -1745,6 +1753,18 @@ PrefabInstance:
     - target: {fileID: 5909422010162939114, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_TagString
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 209.576
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106139805691677537, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 780
       objectReference: {fileID: 0}
     - target: {fileID: 8795555386367467506, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_Pivot.x
@@ -1829,6 +1849,14 @@ PrefabInstance:
     - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _stepDelay
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: _isLastLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+      propertyPath: _nextLevelSceneName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8987442570077249344, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: m_AnchorMax.y
