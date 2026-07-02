@@ -11,12 +11,25 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _menuButton;
 
-    [Header("UI Configuración")]
+    [Header("UI Configuración (PC)")]
     [SerializeField] private SettingsMenuUI _settingsMenu;
+
+    [Header("Botón Pausa Mobile")]
+    [SerializeField] private Button _pauseButton;
+
+    [Header("Configuración (Settings) Mobile")]
+    [SerializeField] private GameObject _settingPanel; // El panel de Configuración
+
+    [Header("Controles Mobile")]
+    [SerializeField] private GameObject _mobileControls; // Joystick + botones touch
 
     [SerializeField] private string _menuSceneName = "MainMenu";
 
     private bool _isPaused = false;
+    private bool _isInSettings = false;
+
+    private bool IsMobile =>
+        MobileInputManager.Instance != null && MobileInputManager.Instance.IsMobileActive;
 
     void Start()
     {
@@ -29,6 +42,7 @@ public class PauseManager : MonoBehaviour
         if (_menuButton != null) _menuButton.onClick.AddListener(GoToMenu);
 
         if (_settingsButton != null) _settingsButton.onClick.AddListener(OpenSettings);
+        if (_pauseButton != null) _pauseButton.onClick.AddListener(OnPauseButtonPressed);
     }
 
     void Update()
@@ -36,20 +50,29 @@ public class PauseManager : MonoBehaviour
         if (!_isPaused && Time.timeScale == 0f) return;
 
         if (InputManager.Instance != null && InputManager.Instance.Pause.WasPressedThisFrame())
+            OnPauseButtonPressed();
+    }
+
+    // Llamado por el botón táctil O por la tecla de pausa (ESC).
+    private void OnPauseButtonPressed()
+    {
+        // Si el menú de configuración de PC está abierto, la tecla lo cierra
+        if (_settingsMenu != null && _settingsMenu.gameObject.activeSelf)
         {
-            if (_settingsMenu != null && _settingsMenu.gameObject.activeSelf)
-            {
-                CloseSettings();
-            }
-            else if (_isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            CloseSettings();
+            return;
         }
+
+        // Si estamos en el panel de settings mobile, no hace nada (ese botón no debe reanudar)
+        if (_isInSettings) return;
+
+        TogglePause();
+    }
+
+    public void TogglePause()
+    {
+        if (_isPaused) Resume();
+        else Pause();
     }
 
     private void Pause()
@@ -75,23 +98,28 @@ public class PauseManager : MonoBehaviour
             AudioBeatDetector.Instance.ResumeMusic();
     }
 
-
-    private void OpenSettings()
+    // Llamado por Btn_Configuracion (o el botón de settings de PC):
+    // abre settings y oculta pausa + controles mobile
+    public void OpenSettings()
     {
-        _pausePanel.SetActive(false);
-        if (_settingsMenu != null)
-        {
-            _settingsMenu.ShowAudioOnly();
-        }
+        _isInSettings = true;
+        if (_pausePanel != null) _pausePanel.SetActive(false);
+        if (_mobileControls != null) _mobileControls.SetActive(false);
+
+        if (_settingsMenu != null) _settingsMenu.ShowAudioOnly();
     }
 
+    // Llamado por Btn_Back dentro de settings: cierra settings y vuelve a pausa
     public void CloseSettings()
     {
-        if (_settingsMenu != null)
-        {
-            _settingsMenu.gameObject.SetActive(false);
-        }
-        _pausePanel.SetActive(true);
+        _isInSettings = false;
+
+        if (_settingsMenu != null) _settingsMenu.gameObject.SetActive(false);
+        if (_settingPanel != null) _settingPanel.SetActive(false);
+        if (_pausePanel != null) _pausePanel.SetActive(true);
+
+        // Solo re-activar los controles touch si realmente estamos en mobile
+        if (IsMobile && _mobileControls != null) _mobileControls.SetActive(true);
     }
 
     private void Restart()

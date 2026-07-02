@@ -15,7 +15,7 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private float _shotgunSpread = 30f;
     [SerializeField] private float _shotgunDuration = 10f;
     [SerializeField] private float _shotgunFireRate = 0.25f;
-    [Tooltip("Sprite que se usa mientras la escopeta est� activa.")]
+    [Tooltip("Sprite que se usa mientras la escopeta está activa.")]
     [SerializeField] private Sprite _shotgunSprite;
 
     [Header("Familiar")]
@@ -32,10 +32,13 @@ public class PlayerShooter : MonoBehaviour
     private Sprite _originalSprite;
     private Vector3 _originalScale;
 
+    private MobileInputManager _mobileInput;
+
     void Start()
     {
         _health = GetComponent<PlayerHealth>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _mobileInput = MobileInputManager.Instance;
 
         if (_spriteRenderer != null)
         {
@@ -60,7 +63,6 @@ public class PlayerShooter : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0f) return;
-
         if (_health != null && _health.IsDead) return;
 
         HandleShooting();
@@ -70,7 +72,21 @@ public class PlayerShooter : MonoBehaviour
     {
         if (_fireTimer > 0) _fireTimer -= Time.deltaTime;
 
-        if (InputManager.Instance != null && InputManager.Instance.Shoot.IsPressed() && _fireTimer <= 0)
+        bool shouldShoot;
+        bool isMobile = _mobileInput != null && _mobileInput.IsMobileActive;
+
+        if (isMobile)
+        {
+            // En mobile el disparo es automatico siempre
+            shouldShoot = true;
+        }
+        else
+        {
+            // En PC dispara con el Input System (InputManager)
+            shouldShoot = InputManager.Instance != null && InputManager.Instance.Shoot.IsPressed();
+        }
+
+        if (shouldShoot && _fireTimer <= 0)
         {
             if (_isShotgunActive)
                 ShootShotgun();
@@ -157,9 +173,7 @@ public class PlayerShooter : MonoBehaviour
             if (ScoreManager.Instance != null) ScoreManager.Instance.AddScore(5000);
 
             foreach (Familiar f in _familiars)
-            {
                 if (f != null) f.ActivateOverdrive(5f);
-            }
             return;
         }
 
@@ -174,7 +188,6 @@ public class PlayerShooter : MonoBehaviour
         for (int i = 0; i < _familiars.Count; i++)
         {
             float perfectSpacing = 360f / _familiars.Count;
-
             _familiars[i]._currentAngle = baseAngle + (i * perfectSpacing);
         }
     }
@@ -183,11 +196,9 @@ public class PlayerShooter : MonoBehaviour
     {
         foreach (Familiar f in _familiars)
             if (f != null) Destroy(f.gameObject);
-
         _familiars.Clear();
     }
 
     public bool IsShotgunActive => _isShotgunActive;
     public int FamiliarCount => _familiars.Count;
-
 }
