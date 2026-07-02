@@ -1,0 +1,2730 @@
+fileFormatVersion: 2
+guid: 75df8724d2ebdb54a890e402425e1d44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2616308022520316196
+    second: Sol_blue_0
+  - first:
+      213: 758228669569283713
+    second: Sol_blue_1
+  - first:
+      213: -229895585235579466
+    second: Sol_blue_2
+  - first:
+      213: 8934904522972321500
+    second: Sol_blue_3
+  - first:
+      213: 2087587236520723679
+    second: Sol_blue_4
+  - first:
+      213: 2750796095389225265
+    second: Sol_blue_5
+  - first:
+      213: 9124753430754377687
+    second: Sol_blue_6
+  - first:
+      213: -1657026834024349934
+    second: Sol_blue_7
+  - first:
+      213: 2983798551920314231
+    second: Sol_blue_8
+  - first:
+      213: -2510642362305871929
+    second: Sol_blue_9
+  - first:
+      213: -8666605064008568994
+    second: Sol_blue_10
+  - first:
+      213: -9063093509987365787
+    second: Sol_blue_11
+  - first:
+      213: 7188800981385696746
+    second: Sol_blue_12
+  - first:
+      213: -8762615314884263465
+    second: Sol_blue_13
+  - first:
+      213: -4331644889626672673
+    second: Sol_blue_14
+  - first:
+      213: -7397245001416354390
+    second: Sol_blue_15
+  - first:
+      213: 1849920006197932384
+    second: Sol_blue_16
+  - first:
+      213: -2582090050372557508
+    second: Sol_blue_17
+  - first:
+      213: -5717623869160654847
+    second: Sol_blue_18
+  - first:
+      213: 975397998489138418
+    second: Sol_blue_19
+  - first:
+      213: 6124182017120509180
+    second: Sol_blue_20
+  - first:
+      213: -1964519607542064670
+    second: Sol_blue_21
+  - first:
+      213: -3320252486191878361
+    second: Sol_blue_22
+  - first:
+      213: -8587088456528647760
+    second: Sol_blue_23
+  - first:
+      213: 183802956880314298
+    second: Sol_blue_24
+  - first:
+      213: -5077557426897380454
+    second: Sol_blue_25
+  - first:
+      213: -380216155098008643
+    second: Sol_blue_26
+  - first:
+      213: 4972217784523333711
+    second: Sol_blue_27
+  - first:
+      213: -8577143119401190698
+    second: Sol_blue_28
+  - first:
+      213: -3023458690741570184
+    second: Sol_blue_29
+  - first:
+      213: -7464444379908114428
+    second: Sol_blue_30
+  - first:
+      213: -2965756984258038527
+    second: Sol_blue_31
+  - first:
+      213: 6250737624343203326
+    second: Sol_blue_32
+  - first:
+      213: -6796148499715517172
+    second: Sol_blue_33
+  - first:
+      213: -4423035257889586424
+    second: Sol_blue_34
+  - first:
+      213: -1240999308778976431
+    second: Sol_blue_35
+  - first:
+      213: 6137960325005641437
+    second: Sol_blue_36
+  - first:
+      213: -5578479337385054218
+    second: Sol_blue_37
+  - first:
+      213: 3982363634776942970
+    second: Sol_blue_38
+  - first:
+      213: 6354200147890939328
+    second: Sol_blue_39
+  - first:
+      213: 1819015079607806030
+    second: Sol_blue_40
+  - first:
+      213: 3799453564691840403
+    second: Sol_blue_41
+  - first:
+      213: 5781431664673232870
+    second: Sol_blue_42
+  - first:
+      213: 5484917959051142113
+    second: Sol_blue_43
+  - first:
+      213: 6791834217387948620
+    second: Sol_blue_44
+  - first:
+      213: -2206569681282468549
+    second: Sol_blue_45
+  - first:
+      213: 8787465178868100886
+    second: Sol_blue_46
+  - first:
+      213: 5725502699375990901
+    second: Sol_blue_47
+  - first:
+      213: -5648478028762912444
+    second: Sol_blue_48
+  - first:
+      213: 3272736776133426065
+    second: Sol_blue_49
+  - first:
+      213: 6912488619510618411
+    second: Sol_blue_50
+  - first:
+      213: -5027398290776835534
+    second: Sol_blue_51
+  - first:
+      213: -6408847081807786793
+    second: Sol_blue_52
+  - first:
+      213: 2616996741301038825
+    second: Sol_blue_53
+  - first:
+      213: 2457296452799539834
+    second: Sol_blue_54
+  - first:
+      213: 1253217006979719625
+    second: Sol_blue_55
+  - first:
+      213: -292249419548896697
+    second: Sol_blue_56
+  - first:
+      213: 5861489838724457145
+    second: Sol_blue_57
+  - first:
+      213: 144344448677289462
+    second: Sol_blue_58
+  - first:
+      213: -4758855354222259597
+    second: Sol_blue_59
+  - first:
+      213: -7593851333443387749
+    second: Sol_blue_60
+  - first:
+      213: 6448243129901705698
+    second: Sol_blue_61
+  - first:
+      213: -1777951694305768767
+    second: Sol_blue_62
+  - first:
+      213: 3129065621540914832
+    second: Sol_blue_63
+  - first:
+      213: -3236665643630910111
+    second: Sol_blue_64
+  - first:
+      213: 4165115816879643617
+    second: Sol_blue_65
+  - first:
+      213: 6646216884400881761
+    second: Sol_blue_66
+  - first:
+      213: 4936649021926713198
+    second: Sol_blue_67
+  - first:
+      213: -3653799209172952798
+    second: Sol_blue_68
+  - first:
+      213: 2032853808700574538
+    second: Sol_blue_69
+  - first:
+      213: -1343252899501789104
+    second: Sol_blue_70
+  - first:
+      213: 9092549221965325233
+    second: Sol_blue_71
+  - first:
+      213: -4596819926428496446
+    second: Sol_blue_72
+  - first:
+      213: 8259566927061539696
+    second: Sol_blue_73
+  - first:
+      213: -6341119099848727881
+    second: Sol_blue_74
+  - first:
+      213: 427511728880343391
+    second: Sol_blue_75
+  - first:
+      213: -5451332383494423428
+    second: Sol_blue_76
+  - first:
+      213: 5550301234015928522
+    second: Sol_blue_77
+  - first:
+      213: 7780657796729200447
+    second: Sol_blue_78
+  - first:
+      213: -7076261214214215505
+    second: Sol_blue_79
+  - first:
+      213: 1245942597406829750
+    second: Sol_blue_80
+  - first:
+      213: 2621891276037276618
+    second: Sol_blue_81
+  - first:
+      213: 8860139272013251795
+    second: Sol_blue_82
+  - first:
+      213: -6713036692184643884
+    second: Sol_blue_83
+  - first:
+      213: -3021397148867422743
+    second: Sol_blue_84
+  - first:
+      213: 9056289169289534126
+    second: Sol_blue_85
+  - first:
+      213: -3441323632341111666
+    second: Sol_blue_86
+  - first:
+      213: -5692772514699208241
+    second: Sol_blue_87
+  - first:
+      213: 5961124192631146283
+    second: Sol_blue_88
+  - first:
+      213: -7042340421571997562
+    second: Sol_blue_89
+  - first:
+      213: 2144251643358878083
+    second: Sol_blue_90
+  - first:
+      213: -4730211930508091185
+    second: Sol_blue_91
+  - first:
+      213: -2611501215943321696
+    second: Sol_blue_92
+  - first:
+      213: 8035090924818288748
+    second: Sol_blue_93
+  - first:
+      213: -4872840717468286596
+    second: Sol_blue_94
+  - first:
+      213: -236671487758936400
+    second: Sol_blue_95
+  - first:
+      213: 1754620325879701350
+    second: Sol_blue_96
+  - first:
+      213: -7786768136776958259
+    second: Sol_blue_97
+  - first:
+      213: -3732710956150964309
+    second: Sol_blue_98
+  - first:
+      213: 4186584525828149143
+    second: Sol_blue_99
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sol_blue_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdefbae17b101bbd0800000000000000
+      internalID: -2616308022520316196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186b13c25f4c58a00800000000000000
+      internalID: 758228669569283713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_2
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd4a9aee2f3fccf0800000000000000
+      internalID: -229895585235579466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_3
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6dbc113582ffb70800000000000000
+      internalID: 8934904522972321500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_4
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd40576f78998fc10800000000000000
+      internalID: 2087587236520723679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_5
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131d433797acc2620800000000000000
+      internalID: 2750796095389225265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_6
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df342776e2a1ae70800000000000000
+      internalID: 9124753430754377687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_7
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f30beafde0109e0800000000000000
+      internalID: -1657026834024349934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_8
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777098069f4986920800000000000000
+      internalID: 2983798551920314231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_9
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 2049
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cff5bcc218682dd0800000000000000
+      internalID: -2510642362305871929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fea27ac980ab780800000000000000
+      internalID: -8666605064008568994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_11
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c0e03987c693280800000000000000
+      internalID: -9063093509987365787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_12
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae559789760c3c360800000000000000
+      internalID: 7188800981385696746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_13
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d10de42ccfe46680800000000000000
+      internalID: -8762615314884263465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_14
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd18aa44ce7e2e3c0800000000000000
+      internalID: -4331644889626672673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_15
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa55b0e0dd4b75990800000000000000
+      internalID: -7397245001416354390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_16
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061f050c17c3ca910800000000000000
+      internalID: 1849920006197932384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_17
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35297997c29a2cd0800000000000000
+      internalID: -2582090050372557508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_18
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108726f526be6a0b0800000000000000
+      internalID: -5717623869160654847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_19
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1829
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4729ecf4f498d00800000000000000
+      internalID: 975397998489138418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_20
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfc9d46e8177df450800000000000000
+      internalID: 6124182017120509180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_21
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e95a2e43df9cb4e0800000000000000
+      internalID: -1964519607542064670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_22
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72feceb84f71ce1d0800000000000000
+      internalID: -3320252486191878361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_23
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9a0cd8b8884d880800000000000000
+      internalID: -8587088456528647760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_24
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf7481c0dffc8200800000000000000
+      internalID: 183802956880314298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_25
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b922b1c64e889b0800000000000000
+      internalID: -5077557426897380454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_26
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3b481eb6339baf0800000000000000
+      internalID: -380216155098008643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_27
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40a4682bbdd00540800000000000000
+      internalID: 4972217784523333711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_28
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6daf76cc6cdd7f880800000000000000
+      internalID: -8577143119401190698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_29
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1609
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875f749f6548a06d0800000000000000
+      internalID: -3023458690741570184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_30
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4087ae18267f86890800000000000000
+      internalID: -7464444379908114428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_31
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1057a2f6cb387d6d0800000000000000
+      internalID: -2965756984258038527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_32
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd452360c41fb650800000000000000
+      internalID: 6250737624343203326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_33
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0517a172fa3fa1a0800000000000000
+      internalID: -6796148499715517172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_34
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80386700ed83e92c0800000000000000
+      internalID: -4423035257889586424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_35
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b49b924b517cee0800000000000000
+      internalID: -1240999308778976431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_36
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd60761356a6e2550800000000000000
+      internalID: 6137960325005641437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_37
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffae4449924592b0800000000000000
+      internalID: -5578479337385054218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_38
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79205950a2344730800000000000000
+      internalID: 3982363634776942970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_39
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1389
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c526c65e57ae2850800000000000000
+      internalID: 6354200147890939328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_40
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e482a1dc3907e3910800000000000000
+      internalID: 1819015079607806030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_41
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d7c0003ee5ab430800000000000000
+      internalID: 3799453564691840403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_42
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e71b0ab775cb3050800000000000000
+      internalID: 5781431664673232870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_43
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3676bc2d75e1c40800000000000000
+      internalID: 5484917959051142113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_44
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a70cc6c31714e50800000000000000
+      internalID: 6791834217387948620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_45
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35f207d090b061e0800000000000000
+      internalID: -2206569681282468549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_46
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f2c8ea50953f970800000000000000
+      internalID: 8787465178868100886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_47
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57898dcbe52157f40800000000000000
+      internalID: 5725502699375990901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_48
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449ecf5e8239c91b0800000000000000
+      internalID: -5648478028762912444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_49
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 1169
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b3ac812c81b6d20800000000000000
+      internalID: 3272736776133426065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_50
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b295cd786c71eef50800000000000000
+      internalID: 6912488619510618411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_51
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a37dd04e71b3ab0800000000000000
+      internalID: -5027398290776835534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_52
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc4c0dd8833f07a0800000000000000
+      internalID: -6408847081807786793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_53
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee6a97bba0715420800000000000000
+      internalID: 2616996741301038825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_54
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7aa1f0ca121a1220800000000000000
+      internalID: 2457296452799539834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_55
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1218f5a32546110800000000000000
+      internalID: 1253217006979719625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_56
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74259f983b8b1fbf0800000000000000
+      internalID: -292249419548896697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_57
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2abbbe3f1385150800000000000000
+      internalID: 5861489838724457145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_58
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd95b4e280d00200800000000000000
+      internalID: 144344448677289462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_59
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 949
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372dd12d44625fdb0800000000000000
+      internalID: -4758855354222259597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_60
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9efaf832783d9690800000000000000
+      internalID: -7593851333443387749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_61
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9e42f56f2cc7950800000000000000
+      internalID: 6448243129901705698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_62
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cac911aa527357e0800000000000000
+      internalID: -1777951694305768767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_63
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09645d2ba9cac6b20800000000000000
+      internalID: 3129065621540914832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_64
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1652ba6eebd0513d0800000000000000
+      internalID: -3236665643630910111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_65
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ebd87984c67dc930800000000000000
+      internalID: 4165115816879643617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_66
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1600bee0b0b1c3c50800000000000000
+      internalID: 6646216884400881761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_67
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67a8b44120828440800000000000000
+      internalID: 4936649021926713198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_68
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22994a85af81b4dc0800000000000000
+      internalID: -3653799209172952798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_69
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 729
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bc5ebb4c5263c10800000000000000
+      internalID: 2032853808700574538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_70
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050bea1da9ecb5de0800000000000000
+      internalID: -1343252899501789104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_71
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b36ffdc7593f2e70800000000000000
+      internalID: 9092549221965325233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_72
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cdcac4c1a0d430c0800000000000000
+      internalID: -4596819926428496446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_73
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b511eeb50ef9270800000000000000
+      internalID: 8259566927061539696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_74
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2621f76c1dff7a0800000000000000
+      internalID: -6341119099848727881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_75
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59d93107a3dee500800000000000000
+      internalID: 427511728880343391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_76
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c3b31641af854b0800000000000000
+      internalID: -5451332383494423428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_77
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac08ee9c091a60d40800000000000000
+      internalID: 5550301234015928522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_78
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fdaecda037afb60800000000000000
+      internalID: 7780657796729200447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_79
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 509
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa823e4dae11ccd90800000000000000
+      internalID: -7076261214214215505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_80
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc26f8e03a7a4110800000000000000
+      internalID: 1245942597406829750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_81
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3c5e36934d26420800000000000000
+      internalID: 2621891276037276618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_82
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d486d099b985fa70800000000000000
+      internalID: 8860139272013251795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_83
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6cb2612b086d2a0800000000000000
+      internalID: -6713036692184643884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_84
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e511681d47d116d0800000000000000
+      internalID: -3021397148867422743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_85
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa58b664076ead70800000000000000
+      internalID: 9056289169289534126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_86
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ca629a366fd30d0800000000000000
+      internalID: -3441323632341111666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_87
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc91f3a3f853ff0b0800000000000000
+      internalID: -5692772514699208241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_88
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2744cbaeda2ab250800000000000000
+      internalID: 5961124192631146283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_89
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 289
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68093d0d2b4944e90800000000000000
+      internalID: -7042340421571997562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_90
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38914774289e1cd10800000000000000
+      internalID: 2144251643358878083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_91
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc020c99f49ea5eb0800000000000000
+      internalID: -4730211930508091185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_92
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7923dfa7512cbd0800000000000000
+      internalID: -2611501215943321696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_93
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6052c7df90628f60800000000000000
+      internalID: 8035090924818288748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_94
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c714e345f21306cb0800000000000000
+      internalID: -4872840717468286596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_95
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b65aab298c27bcf0800000000000000
+      internalID: -236671487758936400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_96
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f5db7d3e9a95810800000000000000
+      internalID: 1754620325879701350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_97
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce341bb2a7dfe390800000000000000
+      internalID: -7786768136776958259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_98
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafb961892fb23cc0800000000000000
+      internalID: -3732710956150964309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sol_blue_99
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 69
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f422cd17cb91a30800000000000000
+      internalID: 4186584525828149143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sol_blue_0: -2616308022520316196
+      Sol_blue_1: 758228669569283713
+      Sol_blue_10: -8666605064008568994
+      Sol_blue_11: -9063093509987365787
+      Sol_blue_12: 7188800981385696746
+      Sol_blue_13: -8762615314884263465
+      Sol_blue_14: -4331644889626672673
+      Sol_blue_15: -7397245001416354390
+      Sol_blue_16: 1849920006197932384
+      Sol_blue_17: -2582090050372557508
+      Sol_blue_18: -5717623869160654847
+      Sol_blue_19: 975397998489138418
+      Sol_blue_2: -229895585235579466
+      Sol_blue_20: 6124182017120509180
+      Sol_blue_21: -1964519607542064670
+      Sol_blue_22: -3320252486191878361
+      Sol_blue_23: -8587088456528647760
+      Sol_blue_24: 183802956880314298
+      Sol_blue_25: -5077557426897380454
+      Sol_blue_26: -380216155098008643
+      Sol_blue_27: 4972217784523333711
+      Sol_blue_28: -8577143119401190698
+      Sol_blue_29: -3023458690741570184
+      Sol_blue_3: 8934904522972321500
+      Sol_blue_30: -7464444379908114428
+      Sol_blue_31: -2965756984258038527
+      Sol_blue_32: 6250737624343203326
+      Sol_blue_33: -6796148499715517172
+      Sol_blue_34: -4423035257889586424
+      Sol_blue_35: -1240999308778976431
+      Sol_blue_36: 6137960325005641437
+      Sol_blue_37: -5578479337385054218
+      Sol_blue_38: 3982363634776942970
+      Sol_blue_39: 6354200147890939328
+      Sol_blue_4: 2087587236520723679
+      Sol_blue_40: 1819015079607806030
+      Sol_blue_41: 3799453564691840403
+      Sol_blue_42: 5781431664673232870
+      Sol_blue_43: 5484917959051142113
+      Sol_blue_44: 6791834217387948620
+      Sol_blue_45: -2206569681282468549
+      Sol_blue_46: 8787465178868100886
+      Sol_blue_47: 5725502699375990901
+      Sol_blue_48: -5648478028762912444
+      Sol_blue_49: 3272736776133426065
+      Sol_blue_5: 2750796095389225265
+      Sol_blue_50: 6912488619510618411
+      Sol_blue_51: -5027398290776835534
+      Sol_blue_52: -6408847081807786793
+      Sol_blue_53: 2616996741301038825
+      Sol_blue_54: 2457296452799539834
+      Sol_blue_55: 1253217006979719625
+      Sol_blue_56: -292249419548896697
+      Sol_blue_57: 5861489838724457145
+      Sol_blue_58: 144344448677289462
+      Sol_blue_59: -4758855354222259597
+      Sol_blue_6: 9124753430754377687
+      Sol_blue_60: -7593851333443387749
+      Sol_blue_61: 6448243129901705698
+      Sol_blue_62: -1777951694305768767
+      Sol_blue_63: 3129065621540914832
+      Sol_blue_64: -3236665643630910111
+      Sol_blue_65: 4165115816879643617
+      Sol_blue_66: 6646216884400881761
+      Sol_blue_67: 4936649021926713198
+      Sol_blue_68: -3653799209172952798
+      Sol_blue_69: 2032853808700574538
+      Sol_blue_7: -1657026834024349934
+      Sol_blue_70: -1343252899501789104
+      Sol_blue_71: 9092549221965325233
+      Sol_blue_72: -4596819926428496446
+      Sol_blue_73: 8259566927061539696
+      Sol_blue_74: -6341119099848727881
+      Sol_blue_75: 427511728880343391
+      Sol_blue_76: -5451332383494423428
+      Sol_blue_77: 5550301234015928522
+      Sol_blue_78: 7780657796729200447
+      Sol_blue_79: -7076261214214215505
+      Sol_blue_8: 2983798551920314231
+      Sol_blue_80: 1245942597406829750
+      Sol_blue_81: 2621891276037276618
+      Sol_blue_82: 8860139272013251795
+      Sol_blue_83: -6713036692184643884
+      Sol_blue_84: -3021397148867422743
+      Sol_blue_85: 9056289169289534126
+      Sol_blue_86: -3441323632341111666
+      Sol_blue_87: -5692772514699208241
+      Sol_blue_88: 5961124192631146283
+      Sol_blue_89: -7042340421571997562
+      Sol_blue_9: -2510642362305871929
+      Sol_blue_90: 2144251643358878083
+      Sol_blue_91: -4730211930508091185
+      Sol_blue_92: -2611501215943321696
+      Sol_blue_93: 8035090924818288748
+      Sol_blue_94: -4872840717468286596
+      Sol_blue_95: -236671487758936400
+      Sol_blue_96: 1754620325879701350
+      Sol_blue_97: -7786768136776958259
+      Sol_blue_98: -3732710956150964309
+      Sol_blue_99: 4186584525828149143
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

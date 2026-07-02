@@ -29,10 +29,13 @@ public class BulletPool : MonoBehaviour
         if (_pools[prefabKey].Count > 0)
             bullet = _pools[prefabKey].Dequeue();
         else
-        {
+{
             bullet = Instantiate(prefab, transform);
+            bullet.gameObject.hideFlags = HideFlags.HideInHierarchy;
             bullet.Setup(this, prefabKey);
         }
+
+        bullet.transform.SetParent(this.transform);
 
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
@@ -51,19 +54,13 @@ public class BulletPool : MonoBehaviour
     }
     public void ReturnAllEnemyBullets()
     {
-        int childCount = transform.childCount;
-        var toReturn = new List<Bullet>(childCount);
-
-        for (int i = 0; i < childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             Transform child = transform.GetChild(i);
             if (!child.gameObject.activeSelf) continue;
 
             EnemyBullet eb = child.GetComponent<EnemyBullet>();
-            if (eb != null) toReturn.Add(eb);
+            if (eb != null) eb.ReturnToPool();
         }
-
-        foreach (Bullet b in toReturn)
-            b.gameObject.SetActive(false);
     }
 }

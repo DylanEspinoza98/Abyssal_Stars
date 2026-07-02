@@ -5,24 +5,24 @@ using System.Collections;
 public class PatternLaserSO : AttackPatternSO
 {
     [Header("Barrido")]
-    public float startAngle = 200f;
-    public float endAngle = 300f;
-    public float sweepSpeed = 40f;
-    public bool alternateSweep = true;
+    [SerializeField] private float startAngle = 200f;
+    [SerializeField] private float endAngle = 300f;
+    [SerializeField] private float sweepSpeed = 40f;
+    [SerializeField] private bool alternateSweep = true;
 
     [Header("Disparo")]
-    public float fireRate = 0.02f;
-    public float bulletSpeed = 10f;
+    [SerializeField] private float fireRate = 0.02f;
+    [SerializeField] private float bulletSpeed = 10f;
 
     [Header("Huecos de Escape (Gaps)")]
     [Tooltip("Cuántos huecos por barrido. 1 = justo al centro, 2 = divididos simétricamente, etc.")]
-    public int gapsPerSweep = 1;
-    public float gapDuration = 0.5f;
+    [SerializeField] private int gapsPerSweep = 1;
+    [SerializeField] private float gapDuration = 0.5f;
 
     [Header("Aviso Visual (Telegraph)")]
-    public bool telegraphGap = true;
-    public float telegraphDuration = 0.25f;
-    [Range(0.1f, 0.9f)] public float telegraphSpeedFactor = 0.35f;
+    [SerializeField] private bool telegraphGap = true;
+    [SerializeField] private float telegraphDuration = 0.25f;
+    [Range(0.1f, 0.9f)] [SerializeField] private float telegraphSpeedFactor = 0.35f;
 
     private float _currentAngle;
     private float _direction;

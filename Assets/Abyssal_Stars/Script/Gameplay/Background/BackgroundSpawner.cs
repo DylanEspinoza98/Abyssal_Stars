@@ -79,6 +79,12 @@ public class BackgroundSpawner : MonoBehaviour
 
         OnPreWarmComplete?.Invoke();
     }
+    public void SetGlobalSpeedMultiplier(float multiplier)
+    {
+        if (_layers == null) return;
+        foreach (var layer in _layers)
+            layer?.SetSpeedMultiplier(multiplier);
+    }
 
     public void ResetAllLayers()
     {
@@ -92,7 +98,7 @@ public class BackgroundSpawner : MonoBehaviour
         if (_layers == null) return;
         foreach (var layer in _layers)
         {
-            if (layer != null && layer.layerName == layerName)
+            if (layer != null && layer.LayerName == layerName)
                 layer.gameObject.SetActive(active);
         }
     }

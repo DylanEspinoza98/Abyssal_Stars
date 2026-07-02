@@ -34,9 +34,9 @@ public class PlayerGraze : MonoBehaviour
         {
             ScoreManager.Instance.AddScore(_grazeScore);
         }
-        if (_grazeSound != null)
+        if (_grazeSound != null && AudioManager.Instance != null)
         {
-            AudioSource.PlayClipAtPoint(_grazeSound, Camera.main.transform.position, _soundVolume);
+            AudioManager.Instance.PlaySFX(_grazeSound, _soundVolume);
         }
     }
 }

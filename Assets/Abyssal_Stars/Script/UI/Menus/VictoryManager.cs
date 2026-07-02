@@ -22,6 +22,8 @@ public class VictoryManager : MonoBehaviour
 
     [Header("Configuración de Nivel")]
     [SerializeField] private bool _isLastLevel = false;
+
+    [SerializeField] private string _levelID = "";
     [SerializeField] private string _nextLevelSceneName = "";
     [SerializeField] private string _menuSceneName = "MainMenu";
 
@@ -36,10 +38,10 @@ public class VictoryManager : MonoBehaviour
     [SerializeField] private float _countDuration = 1.0f;
 
     [Header("Efectos de Sonido")]
-    [SerializeField] private AudioClip _scoreTickingSound; // Sonido de conteo (loop)
-    [SerializeField] private AudioClip _bonusSuccessSound; // Sonido al ganar el bono
-    [SerializeField] private AudioClip _bonusFailSound;    // Sonido de error al perderlo
-    [SerializeField] private AudioClip _rankRevealSound;   // El impacto del rango final
+    [SerializeField] private AudioClip _scoreTickingSound;
+    [SerializeField] private AudioClip _bonusSuccessSound;
+    [SerializeField] private AudioClip _bonusFailSound;
+    [SerializeField] private AudioClip _rankRevealSound;
 
     private AudioSource _tickingAudioSource;
 
@@ -87,8 +89,11 @@ public class VictoryManager : MonoBehaviour
         _victoryPanel.SetActive(true);
         Time.timeScale = 0f;
 
-        AudioSource audio = FindAnyObjectByType<AudioSource>();
-        if (audio != null) audio.Stop();
+
+        foreach (AudioSource audio in FindObjectsByType<AudioSource>())
+        {
+            if (audio != _tickingAudioSource) audio.Stop();
+        }
 
         StartCoroutine(VictorySequenceRoutine());
     }
@@ -118,8 +123,11 @@ public class VictoryManager : MonoBehaviour
 
         if (ScoreboardManager.Instance != null)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            ScoreboardManager.Instance.AddScore(currentSceneName, finalScore, finalRank);
+            string levelID = string.IsNullOrEmpty(_levelID)
+                ? SceneManager.GetActiveScene().name
+                : _levelID;
+
+            ScoreboardManager.Instance.AddScore(levelID, finalScore, finalRank);
         }
 
         switch (finalRank)
@@ -203,11 +211,9 @@ public class VictoryManager : MonoBehaviour
             _rankText.text = finalRank;
 
             if (_rankRevealSound != null)
-            {
                 AudioSource.PlayClipAtPoint(_rankRevealSound, Camera.main.transform.position);
-            }
 
-            float stampDuration = 0.3f; 
+            float stampDuration = 0.3f;
             float elapsedTime = 0f;
 
             Vector3 startScale = new Vector3(4f, 4f, 4f);

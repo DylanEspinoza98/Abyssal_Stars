@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710e163556f655f4d8ab23571ee9e752, type: 3}
+  m_Name: Orbitador_Circle
+  m_EditorClassIdentifier: Assembly-CSharp::MovementCircleSO
+  viewportTarget: {x: 0.5, y: 0.85}
+  entrySpeed: 4
+  radius: 1.5
+  verticalRatio: 0.7
+  orbitSpeed: 1.2
+  moveSpeed: 2
+  initialAngleOffset: 1.5707964

@@ -1,5 +1,4 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+ï»¿using UnityEngine;
 using System;
 
 public class PlayerBomb : MonoBehaviour
@@ -17,7 +16,7 @@ public class PlayerBomb : MonoBehaviour
 
     [Header("Feedback Visual y Sonoro")]
     [SerializeField] private AudioClip _bombSound;
-    [Tooltip("Arrastra aquí tu Prefab del humo expansivo")]
+    [Tooltip("Arrastra aquï¿½ tu Prefab del humo expansivo")]
     [SerializeField] private GameObject _smokeEffectPrefab;
 
     private void Awake()
@@ -37,14 +36,9 @@ public class PlayerBomb : MonoBehaviour
 
         if (PlayerHealth.Instance != null && PlayerHealth.Instance.IsDead) return;
 
-        if (Keyboard.current != null && DataManager.Instance != null)
+        if (InputManager.Instance != null && InputManager.Instance.GetBombPressed())
         {
-            SettingsData settings = DataManager.Instance.SaveData.settings;
-
-            if (WasKeyPressedThisFrame(settings.bombKey))
-            {
-                TryUseBomb();
-            }
+            TryUseBomb();
         }
     }
 
@@ -79,42 +73,35 @@ public class PlayerBomb : MonoBehaviour
 
     private void ClearScreen()
     {
-        EnemyBullet[] activeBullets = FindObjectsByType<EnemyBullet>();
+        EnemyBullet[] activeBullets = FindObjectsByType<EnemyBullet>(FindObjectsInactive.Include);
         foreach (EnemyBullet bullet in activeBullets)
         {
-            bullet.ReturnToPool();
+            if (bullet.gameObject.activeInHierarchy)
+                bullet.ReturnToPool();
         }
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemyObj in enemies)
         {
-            Destroy(enemy);
+            EnemyBase enemyScript = enemyObj.GetComponent<EnemyBase>();
+
+            if (enemyScript != null && enemyObj.activeInHierarchy)
+            {
+                enemyScript.ReturnToPool();
+            }
         }
     }
 
     private void PlayFeedback()
     {
-        if (_bombSound != null)
+        if (_bombSound != null && AudioManager.Instance != null)
         {
-            AudioSource.PlayClipAtPoint(_bombSound, Camera.main.transform.position);
+            AudioManager.Instance.PlaySFX(_bombSound);
         }
 
         if (_smokeEffectPrefab != null)
         {
             Instantiate(_smokeEffectPrefab, transform.position, Quaternion.identity);
         }
-    }
-    private bool WasKeyPressedThisFrame(string keyName)
-    {
-        if (string.IsNullOrEmpty(keyName) || Keyboard.current == null) return false;
-
-        foreach (var key in Keyboard.current.allKeys)
-        {
-            if (key.name.Equals(keyName, StringComparison.OrdinalIgnoreCase))
-            {
-                return key.wasPressedThisFrame;
-            }
-        }
-        return false;
     }
 }

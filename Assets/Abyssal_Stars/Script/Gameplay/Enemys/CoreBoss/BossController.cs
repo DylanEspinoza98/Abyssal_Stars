@@ -1,23 +1,58 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
+// BossPhaseThreshold
+/* Define un umbral de HP en el que el jefe interrumpe su patrón actual,
+   ejecuta un ataque especial de transición y reemplaza su rotación de fases. */
+[Serializable]
+public class BossPhaseThreshold
+{
+    [Tooltip("% de vida al que se activa este umbral. Ej: 0.6 = al bajar del 60%.")]
+    [Range(0.01f, 0.99f)]
+    public float healthPercent = 0.5f;
+
+    [Tooltip("Fase especial (BossPhaseSO) que se ejecuta UNA SOLA VEZ como transición (ej: ir al fondo).")]
+    public BossPhaseSO transitionPhase;
+
+    [Tooltip("Fases NUEVAS que se sumarán automáticamente a la rotación actual después de la transición.")]
+    public BossPhaseSO[] phasesToAdd;
+
+    [HideInInspector] public bool triggered;
+}
+
+// BossController
 public class BossController : EnemyBase
 {
+    public static event Action OnBossDefeated;
 
-    [Header("Torretas (orden importante — coincide con turretPatterns en cada fase)")]
+    [Header("Torretas (orden coincide con turretPatterns en cada fase)")]
     [SerializeField] private TurretAssignment[] _turrets;
 
-    [Header("Fases")]
+    [Header("Fases Base")]
     [SerializeField] private BossPhaseSO[] _phases;
+
+    [Header("Umbrales de HP")]
+    [Tooltip("El orden en el Inspector no importa: se ordenan automáticamente de mayor a menor HP%.")]
+    [SerializeField] private BossPhaseThreshold[] _thresholds;
 
     [Header("Entrada")]
     [SerializeField] private Vector2 _zoneCenter = new Vector2(0f, 2.5f);
     [SerializeField] private float _entrySpeed = 2f;
 
+    // Estado interno
+    private BossPhaseSO[] _activePhases;
     private bool _isDying = false;
+    private bool _inTransition = false;
     private Coroutine _phaseLoop;
     private Coroutine _activeMovement;
+    private MovementPatternSO _activeMovementPattern;
+    private Coroutine _transitionCoroutine;
     private Camera _cam;
+    private bool _transitionPending = false;
+
+    // Ciclo de vida
 
     protected override void OnEnable()
     {
@@ -25,6 +60,15 @@ public class BossController : EnemyBase
 
         _cam = Camera.main;
         _isDying = false;
+        _inTransition = false;
+        _activePhases = _phases;
+
+        if (_thresholds != null)
+        {
+            foreach (BossPhaseThreshold t in _thresholds)
+                t.triggered = false;
+            Array.Sort(_thresholds, (a, b) => b.healthPercent.CompareTo(a.healthPercent));
+        }
 
         if (transform.parent == null && _cam != null)
             transform.SetParent(_cam.transform);
@@ -40,6 +84,90 @@ public class BossController : EnemyBase
         if (_isDying) return;
         base.Update();
     }
+
+    // Sistema de umbrales de HP del Boss
+
+    protected override void OnTookDamage()
+    {
+        if (_isDying || _inTransition || _transitionPending) return;
+
+        BossPhaseThreshold pending = GetPendingThreshold();
+        if (pending != null)
+        {
+            _transitionPending = true;
+        }
+    }
+
+    // Devuelve el primer umbral no disparado cuyo HP% supera la vida actual.
+    private BossPhaseThreshold GetPendingThreshold()
+    {
+        if (_thresholds == null) return null;
+
+        float hp = HealthPercent;
+        foreach (BossPhaseThreshold t in _thresholds)
+        {
+            if (!t.triggered && hp <= t.healthPercent)
+                return t;
+        }
+        return null;
+    }
+
+    private IEnumerator ExecuteTransition(BossPhaseThreshold threshold)
+    {
+        _inTransition = true;
+
+        // Interrumpir limpiamente el ciclo actual
+        if (_phaseLoop != null) { StopCoroutine(_phaseLoop); _phaseLoop = null; }
+        StopActiveMovement();
+        StopAllTurrets();
+
+        // Ejecutar la Fase de Transición (misma lógica que las fases normales)
+        if (threshold.transitionPhase != null)
+        {
+            ApplyTurrets(threshold.transitionPhase);
+
+            if (threshold.transitionPhase.movementPattern != null)
+            {
+                _activeMovementPattern = threshold.transitionPhase.movementPattern;  // << NUEVO
+                _activeMovement = StartCoroutine(
+                    _activeMovementPattern.ExecuteMovement(transform, _zoneCenter)
+                );
+            }
+
+            yield return new WaitForSeconds(threshold.transitionPhase.Duration);
+
+            StopActiveMovement();
+            StopAllTurrets();
+
+            if (threshold.transitionPhase.TransitionDelay > 0f)
+                yield return new WaitForSeconds(threshold.transitionPhase.TransitionDelay);
+        }
+
+        // Sumar las nuevas fases a la rotación sin perder las anteriores
+        if (threshold.phasesToAdd != null && threshold.phasesToAdd.Length > 0)
+        {
+            List<BossPhaseSO> updatedPhases = new List<BossPhaseSO>(_activePhases);
+            updatedPhases.AddRange(threshold.phasesToAdd);
+            _activePhases = updatedPhases.ToArray();
+        }
+
+        _transitionCoroutine = null;
+        _inTransition = false;
+
+        // Revisar si hay que encadenar otro umbral o volver al ciclo normal
+        BossPhaseThreshold chained = GetPendingThreshold();
+        if (chained != null)
+        {
+            chained.triggered = true;
+            _transitionCoroutine = StartCoroutine(ExecuteTransition(chained));
+        }
+        else
+        {
+            _phaseLoop = StartCoroutine(CyclePhasesRoutine());
+        }
+    }
+
+    // Ciclo de fases
 
     private IEnumerator EnterAndStartPhases()
     {
@@ -58,38 +186,95 @@ public class BossController : EnemyBase
 
     private IEnumerator CyclePhasesRoutine()
     {
-        if (_phases == null || _phases.Length == 0) yield break;
+        if (_activePhases == null || _activePhases.Length == 0) yield break;
 
         int index = 0;
 
         while (!_isDying)
         {
-            BossPhaseSO phase = _phases[index];
+            // Verificación de Transición Pendiente
+            if (_transitionPending)
+            {
+                _transitionPending = false;
+                BossPhaseThreshold next = GetPendingThreshold();
+                if (next != null)
+                {
+                    next.triggered = true;
+                    yield return StartCoroutine(ExecuteTransition(next));
+                    yield break;
+                }
+            }
+
+            // Ejecución normal de fase
+            BossPhaseSO phase = _activePhases[index];
 
             if (phase == null)
             {
-                index = (index + 1) % _phases.Length;
+                index = (index + 1) % _activePhases.Length;
                 continue;
             }
 
             ApplyTurrets(phase);
 
             if (phase.movementPattern != null)
+            {
+                _activeMovementPattern = phase.movementPattern;                     
                 _activeMovement = StartCoroutine(
-                    phase.movementPattern.ExecuteMovement(transform, _zoneCenter)
+                    _activeMovementPattern.ExecuteMovement(transform, _zoneCenter)
                 );
+            }
 
-            yield return new WaitForSeconds(phase.duration);
+            yield return new WaitForSeconds(phase.Duration);
 
             StopActiveMovement();
             StopAllTurrets();
 
-            if (phase.transitionDelay > 0f)
-                yield return new WaitForSeconds(phase.transitionDelay);
+            if (phase.TransitionDelay > 0f)
+                yield return new WaitForSeconds(phase.TransitionDelay);
 
-            index = (index + 1) % _phases.Length;
+            index = (index + 1) % _activePhases.Length;
         }
     }
+
+    // Muerte
+
+    protected override void Die()
+    {
+        if (_isDying) return;
+        StartCoroutine(TheatricalDeathRoutine());
+    }
+
+    private IEnumerator TheatricalDeathRoutine()
+    {
+        _isDying = true;
+
+        if (_transitionCoroutine != null) { StopCoroutine(_transitionCoroutine); _transitionCoroutine = null; }
+        if (_phaseLoop != null) { StopCoroutine(_phaseLoop); _phaseLoop = null; }
+        StopActiveMovement();
+        SetAllTurrets(active: false);
+
+        AudioBeatDetector.Instance?.StopMusic();
+
+        for (int i = 0; i < 6; i++)
+        {
+            if (_explosionEffectPrefab != null)
+            {
+                Vector3 offset = new Vector3(
+                    UnityEngine.Random.Range(-2f, 2f),
+                    UnityEngine.Random.Range(-1.5f, 1.5f),
+                    0f
+                );
+                Instantiate(_explosionEffectPrefab, transform.position + offset, Quaternion.identity);
+            }
+            yield return new WaitForSeconds(Mathf.Max(0.05f, 0.4f - i * 0.05f));
+        }
+
+        OnBossDefeated?.Invoke();
+
+        base.Die();
+    }
+
+    // Helpers de torretas
 
     private void ApplyTurrets(BossPhaseSO phase)
     {
@@ -107,7 +292,7 @@ public class BossController : EnemyBase
             if (hasPattern)
             {
                 turret.gameObject.SetActive(true);
-                turret.RunPattern(phase.turretPatterns[i], phase.duration);
+                turret.RunPattern(phase.turretPatterns[i], phase.Duration);
             }
             else
             {
@@ -135,39 +320,6 @@ public class BossController : EnemyBase
         }
     }
 
-    protected override void Die()
-    {
-        if (_isDying) return;
-        StartCoroutine(TheatricalDeathRoutine());
-    }
-
-    private IEnumerator TheatricalDeathRoutine()
-    {
-        _isDying = true;
-
-        StopActiveMovement();
-        SetAllTurrets(active: false);
-
-        if (_phaseLoop != null) { StopCoroutine(_phaseLoop); _phaseLoop = null; }
-
-        AudioBeatDetector.Instance?.StopMusic();
-
-        for (int i = 0; i < 6; i++)
-        {
-            if (_explosionEffectPrefab != null)
-            {
-                Vector3 offset = new Vector3(
-                    Random.Range(-2f, 2f), Random.Range(-1.5f, 1.5f), 0f
-                );
-                Instantiate(_explosionEffectPrefab, transform.position + offset, Quaternion.identity);
-            }
-            yield return new WaitForSeconds(Mathf.Max(0.05f, 0.4f - i * 0.05f));
-        }
-
-        VictoryManager.Instance?.ShowVictory();
-        base.Die();
-    }
-
     private void StopActiveMovement()
     {
         if (_activeMovement != null)
@@ -175,5 +327,10 @@ public class BossController : EnemyBase
             StopCoroutine(_activeMovement);
             _activeMovement = null;
         }
+
+        // Dar oportunidad al patrón de limpiar sus efectos secundarios
+        // (ej: RetreatToDepth restaura velocidad del parallax y escala del boss)
+        _activeMovementPattern?.OnStopped(transform);
+        _activeMovementPattern = null;
     }
 }

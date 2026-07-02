@@ -5,7 +5,8 @@ public class SpaceDecor : MonoBehaviour
 {
     public event Action<SpaceDecor> OnOutOfBounds;
 
-    private float _speed;
+    private float _baseSpeed;
+    private float _multiplier = 1f;
     private float _killY;
     private bool _triggered;
 
@@ -14,23 +15,23 @@ public class SpaceDecor : MonoBehaviour
 
     public void Setup(float speed, float killY)
     {
-        _speed = speed;
+        _baseSpeed = speed;
+        _multiplier = 1f;  
         _killY = killY;
         _aliveTime = 0f;
         _triggered = false;
     }
 
+    public void SetMultiplier(float m) => _multiplier = m;
+
     private void Update()
     {
         if (_triggered) return;
 
-        // 1. Movimiento puro hacia abajo
-        transform.Translate(Vector3.down * _speed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.down * _baseSpeed * _multiplier * Time.deltaTime, Space.World);
 
-        // 2. Temporizador rápido
         _aliveTime += Time.deltaTime;
 
-        // 3. Única regla de muerte: Cruzar la coordenada 
         if (_aliveTime >= MIN_LIFETIME && transform.position.y <= _killY)
         {
             _triggered = true;

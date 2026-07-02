@@ -6,47 +6,47 @@ public class PatternCageSO : AttackPatternSO
 {
     [Header("Jaula Circular (Estilo Asgore)")]
     [Tooltip("Cantidad total de balas si el círculo estuviera completo.")]
-    [Min(10)] public int bulletsPerRing = 24;
+    [Min(10)] [SerializeField] private int bulletsPerRing = 24;
 
     [Tooltip("Radio desde el que spawnan las balas. ¡Cuidado con el borde de cámara!")]
-    public float spawnRadius = 7f;
+    [SerializeField] private float spawnRadius = 7f;
 
     [Tooltip("Tamaño del hueco de escape en grados.")]
-    [Range(30f, 120f)] public float gapSizeDegrees = 60f;
+    [Range(30f, 120f)] [SerializeField] private float gapSizeDegrees = 60f;
 
     [Tooltip("Velocidad a la que se cierra la jaula.")]
-    public float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 5f;
 
     [Header("Kill Point (centro de la jaula)")]
     [Tooltip("Radio alrededor del centro en el que las balas desaparecen al converger. " +
              "Ajustá según el tamaño visual de tu jugador.")]
-    [Range(0.1f, 2f)] public float killRadius = 0.4f;
+    [Range(0.1f, 2f)] [SerializeField] private float killRadius = 0.4f;
 
     [Header("Timing de Disparo")]
     [Tooltip("Cuántos anillos dispara por cada ataque.")]
-    public int ringsPerAttack = 3;
+    [SerializeField] private int ringsPerAttack = 3;
 
     [Tooltip("Pausa rápida entre cada anillo del mismo combo.")]
-    public float timeBetweenRings = 0.5f;
+    [SerializeField] private float timeBetweenRings = 0.5f;
 
     [Tooltip("Pausa larga antes de empezar el siguiente combo.")]
-    public float cageCooldown = 2f;
+    [SerializeField] private float cageCooldown = 2f;
 
     [Tooltip("Segundos que las balas 'esperan' antes de moverse (aviso visual).")]
-    [Range(0f, 1f)] public float warmupDuration = 0.25f;
+    [Range(0f, 1f)] [SerializeField] private float warmupDuration = 0.25f;
 
     [Header("Dificultad del Hueco")]
     [Tooltip("Offset máximo en grados del hueco respecto al jugador. " +
              "0 = siempre apunta al jugador; 90 = hasta 90° de variación.")]
-    [Range(0f, 90f)] public float gapAngleVariance = 30f;
+    [Range(0f, 90f)] [SerializeField] private float gapAngleVariance = 30f;
 
     [Tooltip("Rotación adicional entre anillos del mismo combo (grados).")]
-    [Range(0f, 45f)] public float ringRotationStep = 15f;
+    [Range(0f, 45f)] [SerializeField] private float ringRotationStep = 15f;
 
     [Header("Centro de la Jaula")]
     [Tooltip("Desplazamiento vertical desde el centro de la cámara. " +
              "Negativo = más abajo. Ej: -1.5 pone la jaula un poco bajo el centro.")]
-    public float verticalOffset = -1.5f;
+    [SerializeField] private float verticalOffset = -1.5f;
 
     private Vector2 GetCageCenter()
     {
@@ -114,29 +114,29 @@ public class PatternCageSO : AttackPatternSO
 
     private void SpawnWarmupBullet(BossTurret turret, Vector2 worldPosition, Vector2 center)
     {
-        if (BulletPool.Instance == null || turret.bulletPrefab == null) return;
+        if (BulletPool.Instance == null || turret.BulletPrefab == null) return;
 
         EnemyBullet bullet = BulletPool.Instance.GetBullet(
-            turret.bulletPrefab, worldPosition, Quaternion.identity, Vector2.zero
+            turret.BulletPrefab, worldPosition, Quaternion.identity, Vector2.zero
         );
 
         if (bullet == null) return;
 
         bullet.SetKillPoint(center, killRadius);
 
-        if (turret.bulletSprite != null)
-            bullet.SetAppearance(turret.bulletSprite, turret.bulletColor);
+        if (turret.BulletSprite != null)
+            bullet.SetAppearance(turret.BulletSprite, turret.BulletColor);
     }
 
     private void FireCageBullet(BossTurret turret, Vector2 worldPosition, float angle, Vector2 center)
     {
-        if (BulletPool.Instance == null || turret.bulletPrefab == null) return;
+        if (BulletPool.Instance == null || turret.BulletPrefab == null) return;
 
         float rad = angle * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
         EnemyBullet bullet = BulletPool.Instance.GetBullet(
-            turret.bulletPrefab, worldPosition, Quaternion.identity, dir * bulletSpeed
+            turret.BulletPrefab, worldPosition, Quaternion.identity, dir * bulletSpeed
         );
 
         if (bullet == null) return;
@@ -144,7 +144,7 @@ public class PatternCageSO : AttackPatternSO
         bullet.SetKillPoint(center, killRadius);
 
         bullet.SetRotationByVelocity();
-        if (turret.bulletSprite != null)
-            bullet.SetAppearance(turret.bulletSprite, turret.bulletColor);
+        if (turret.BulletSprite != null)
+            bullet.SetAppearance(turret.BulletSprite, turret.BulletColor);
     }
 }

@@ -21,7 +21,18 @@ public abstract class Bullet : MonoBehaviour
     private Vector2 _killPoint;
     private float _killRadiusSqr;
 
+    protected SpriteRenderer _spriteRenderer;
+    protected Color _originalColor;
     public Vector2 Velocity { get; set; }
+
+    protected virtual void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_spriteRenderer != null)
+        {
+            _originalColor = _spriteRenderer.color;
+        }
+    }
 
     public void Setup(BulletPool pool, GameObject prefabKey)
     {
@@ -99,6 +110,8 @@ public abstract class Bullet : MonoBehaviour
 
     public void ReturnToPool()
     {
+        ResetBullet();
+
         if (_myPool != null)
             _myPool.ReturnBullet(_myPrefabKey, this);
         else
@@ -108,5 +121,20 @@ public abstract class Bullet : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         ReturnToPool();
+    }
+
+    public virtual void ResetBullet()
+    {
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.color = _originalColor;
+        }
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
     }
 }

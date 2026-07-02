@@ -6,22 +6,22 @@ public class PatternBurstSO : AttackPatternSO
 {
     [Header("Configuración")]
     [Tooltip("Balas por ráfaga.")]
-    [Min(1)] public int   bulletsPerBurst = 4;
+    [Min(1)] [SerializeField] private int   bulletsPerBurst = 4;
 
     [Tooltip("Delay entre balas dentro de la ráfaga.")]
-    public float inBurstDelay = 0.08f;
+    [SerializeField] private float inBurstDelay = 0.08f;
 
     [Tooltip("Pausa entre ráfagas.")]
-    public float pauseBetweenBursts = 0.8f;
+    [SerializeField] private float pauseBetweenBursts = 0.8f;
 
     [Tooltip("Velocidad de las balas.")]
-    public float bulletSpeed = 6f;
+    [SerializeField] private float bulletSpeed = 6f;
 
     [Tooltip("Ángulo central del disparo. 270 = hacia abajo.")]
-    public float fireAngle = 270f;
+    [SerializeField] private float fireAngle = 270f;
 
     [Tooltip("Dispersión aleatoria por bala (grados). 0 = disparo perfectamente recto.")]
-    public float randomSpread = 5f;
+    [SerializeField] private float randomSpread = 5f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

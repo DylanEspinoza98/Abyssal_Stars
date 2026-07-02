@@ -68,12 +68,12 @@ public class EnemyController : EnemyBase
                 ApplyTurrets(phase);
                 ExecuteMovement(phase);
 
-                yield return new WaitForSeconds(phase.duration);
+                yield return new WaitForSeconds(phase.Duration);
 
                 StopCurrentActivities();
 
-                if (phase.transitionDelay > 0f)
-                    yield return new WaitForSeconds(phase.transitionDelay);
+                if (phase.TransitionDelay > 0f)
+                    yield return new WaitForSeconds(phase.TransitionDelay);
             }
 
             index++;
@@ -115,7 +115,7 @@ public class EnemyController : EnemyBase
             if (hasPattern)
             {
                 turret.gameObject.SetActive(true);
-                turret.RunPattern(phase.turretPatterns[i], phase.duration);
+                turret.RunPattern(phase.turretPatterns[i], phase.Duration);
             }
             else
             {

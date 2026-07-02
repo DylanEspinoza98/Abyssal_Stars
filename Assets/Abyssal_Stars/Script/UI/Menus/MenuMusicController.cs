@@ -1,21 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(AudioSource))]
 public class MenuMusicController : MonoBehaviour
 {
     [SerializeField] private AudioClip menuMusic;
-    private AudioSource audioSource;
 
-    void Awake()
+    IEnumerator Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.loop = true;
-        audioSource.playOnAwake = false;
+        while (AudioManager.Instance == null) yield return null;
 
         if (menuMusic != null)
         {
-            audioSource.clip = menuMusic;
-            audioSource.Play();
+            AudioManager.Instance.PlayMusic(menuMusic);
         }
     }
 }

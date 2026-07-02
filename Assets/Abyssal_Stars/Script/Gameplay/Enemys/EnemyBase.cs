@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Vida")]
     [SerializeField] private int _maxHealth = 0;
     private int _currentHealth;
+    public float HealthPercent => _maxHealth > 0 ? (float)_currentHealth / _maxHealth : 0f;
 
     [Header("Reciclaje")]
     [SerializeField] private float _offScreenMargin = 0.3f;
@@ -17,7 +18,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] private Color _hitColor = Color.red;
     [SerializeField] private float _hitFlashDuration = 0.1f;
 
-    [Header("Puntuación")]
+    [Header("Puntuaciï¿½n")]
     [SerializeField] protected int _scoreValue = 100;
 
     [Header("Feedback Visual")]
@@ -25,6 +26,13 @@ public abstract class EnemyBase : MonoBehaviour
 
     [Header("Huida del Jefe")]
     [SerializeField] private float _retreatSpeed = 15f;
+
+    [Header("Configuraciï¿½n de Escudo (protecciï¿½n de enemigos)")]
+    [Tooltip("Tamaï¿½o exacto del escudo para este enemigo. Ajustar a ojo en el Inspector.")]
+    [SerializeField] private float _personalShieldSize = 1.5f;
+    public float PersonalShieldSize => _personalShieldSize;
+
+
     protected bool _isRetreating = false;
     private Vector3 _retreatDirection;
 
@@ -98,6 +106,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
 
         _currentHealth -= amount;
+        OnTookDamage();
 
         if (_currentHealth <= 0)
         {
@@ -164,6 +173,9 @@ public abstract class EnemyBase : MonoBehaviour
             StopAllCoroutines();
         }
     }
+
+    // Los enemigos normales no hacen nada con esto, pero el Boss lo sobreescribe (override).
+    protected virtual void OnTookDamage() { }
 
     public virtual void ReturnToPool()
     {
