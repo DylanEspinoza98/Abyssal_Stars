@@ -10,6 +10,7 @@ TagManager:
   - PowerUps
   - PlayerBullet
   - BulletShield
+  - Graze
   layers:
   - Default
   - TransparentFX

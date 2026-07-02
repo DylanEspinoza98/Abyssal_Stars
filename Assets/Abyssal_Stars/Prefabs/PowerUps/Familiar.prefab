@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Familiar
   _orbitRadius: 1.2
   _orbitSpeed: 90
-  _bulletPrefab: {fileID: 6544520562468066579, guid: 4e78bc30379d4e4418a78b788f40152f, type: 3}
+  _bulletPrefab: {fileID: 6544520562468066579, guid: 7e143ce999297464db1fc6f89c8a19d1, type: 3}
   _fireRate: 0.3
   _bulletSpeed: 12
-  _bulletColor: {r: 0.98589355, g: 0.98874784, b: 0.990566, a: 1}
+  _bulletColor: {r: 1, g: 1, b: 1, a: 1}
