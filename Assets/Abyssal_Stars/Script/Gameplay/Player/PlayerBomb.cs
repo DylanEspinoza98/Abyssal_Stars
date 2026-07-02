@@ -36,7 +36,7 @@ public class PlayerBomb : MonoBehaviour
 
         if (PlayerHealth.Instance != null && PlayerHealth.Instance.IsDead) return;
 
-        if (InputManager.Instance != null && InputManager.Instance.GetBombPressed())
+        if (InputManager.Instance != null && InputManager.Instance.Bomb.WasPressedThisFrame())
         {
             TryUseBomb();
         }

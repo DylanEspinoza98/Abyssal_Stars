@@ -16,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerHealth health;
     private Vector2 _moveInput;
     private float _currentSpeed;
+    private MobileInputManager _mobileInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
+        _mobileInput = MobileInputManager.Instance;
     }
 
     void Update()
@@ -51,12 +53,26 @@ public class PlayerMovement : MonoBehaviour
         _moveInput = Vector2.zero;
         _currentSpeed = _movSpeed;
 
-        if (InputManager.Instance == null) return;
+        bool isMobile = _mobileInput != null && _mobileInput.IsMobileActive;
 
-        if (InputManager.Instance.GetFocusHeld())
-            _currentSpeed *= _focusSpeedMultiplier;
+        if (isMobile)
+        {
+            // En mobile se mueve con el joystick virtual
+            _moveInput = _mobileInput.MoveDirection;
 
-        _moveInput = InputManager.Instance.GetMove();
+            // Si el joystick se mueve poco activa el modo foco automaticamente
+            if (_mobileInput.IsFocusHeld)
+                _currentSpeed *= _focusSpeedMultiplier;
+        }
+        else
+        {
+            if (InputManager.Instance == null) return;
+
+            if (InputManager.Instance.Focus.IsPressed())
+                _currentSpeed *= _focusSpeedMultiplier;
+
+            _moveInput = InputManager.Instance.Move.ReadValue<Vector2>();
+        }
 
         if (_thrusterAnimator != null)
             _thrusterAnimator.SetBool("isMoving", _moveInput != Vector2.zero);

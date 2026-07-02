@@ -18,51 +18,6 @@ public class InputManager : MonoBehaviour
     public InputAction Bomb  { get; private set; }  // Button
     public InputAction Pause { get; private set; }  // Button (Escape, no remapeable)
 
-    // ── API agregada (PC + movil) ──────────────────────────────────────────
-    // Los sistemas de gameplay deben leer el input desde estos metodos para
-    // funcionar en ambas plataformas. En PC devuelven los InputAction de
-    // teclado; en movil, si hay un MobileInputManager activo en la escena,
-    // devuelven el input tactil (joystick + botones). Si no hay movil, el
-    // comportamiento es identico al de PC (cero regresion).
-
-    private bool MobileActive =>
-        MobileInputManager.Instance != null && MobileInputManager.Instance.IsMobileActive;
-
-    /// <summary>Direccion de movimiento (teclado en PC, joystick en movil).</summary>
-    public Vector2 GetMove()
-    {
-        if (MobileActive) return MobileInputManager.Instance.MoveDirection;
-        return Move.ReadValue<Vector2>();
-    }
-
-    /// <summary>Modo foco mantenido (tecla en PC, joystick suave en movil).</summary>
-    public bool GetFocusHeld()
-    {
-        if (MobileActive) return MobileInputManager.Instance.IsFocusHeld;
-        return Focus.IsPressed();
-    }
-
-    /// <summary>Disparo mantenido (tecla en PC, autofire en movil).</summary>
-    public bool GetShootHeld()
-    {
-        if (MobileActive) return MobileInputManager.Instance.ShootHeld;
-        return Shoot.IsPressed();
-    }
-
-    /// <summary>Bomba pulsada este frame (tecla en PC, boton en movil).</summary>
-    public bool GetBombPressed()
-    {
-        if (MobileActive && MobileInputManager.Instance.ConsumeBombPress()) return true;
-        return Bomb.WasPressedThisFrame();
-    }
-
-    /// <summary>Pausa pulsada este frame (Escape en PC, boton en movil).</summary>
-    public bool GetPausePressed()
-    {
-        if (MobileActive && MobileInputManager.Instance.ConsumePausePress()) return true;
-        return Pause.WasPressedThisFrame();
-    }
-
     // ── Lifecycle ──────────────────────────────────────────────────────────
     private void Awake()
     {
