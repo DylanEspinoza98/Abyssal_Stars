@@ -1467,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 8873400423258381309, guid: a63faaa955ad9a4408373e1a4829a47a, type: 3}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _bossSpawnZone

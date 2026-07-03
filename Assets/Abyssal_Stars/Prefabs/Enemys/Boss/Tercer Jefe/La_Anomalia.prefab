@@ -522,7 +522,7 @@ MonoBehaviour:
     transitionPhase: {fileID: 11400000, guid: c83795991d2cd5d4facf8aaab393969a, type: 2}
     phasesToAdd: []
     triggered: 0
-  - healthPercent: 0.2
+  - healthPercent: 0.25
     transitionPhase: {fileID: 11400000, guid: 94c993a72ff9a5846845354ef41ea01a, type: 2}
     phasesToAdd: []
     triggered: 0

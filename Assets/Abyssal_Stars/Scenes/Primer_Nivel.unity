@@ -1760,7 +1760,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 5d2c94d2cedb59843a4da1c826d36cd0, type: 3}
     - target: {fileID: 7078067160699729010, guid: a14a3c80aa4d47b4aaac100d75e2ecc1, type: 3}
       propertyPath: _timeToBoss
-      value: 60
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
