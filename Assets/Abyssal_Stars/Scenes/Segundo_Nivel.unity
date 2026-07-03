@@ -2060,7 +2060,7 @@ PrefabInstance:
     - target: {fileID: 8856579164567281919, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _pauseButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3892626464189104095}
     - target: {fileID: 8856579164567281919, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _settingPanel
       value: 
@@ -2068,7 +2068,7 @@ PrefabInstance:
     - target: {fileID: 8856579164567281919, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _mobileControls
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3892626464189104091}
     - target: {fileID: 8865511658264164145, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
       propertyPath: _stepDelay
       value: 1.5
@@ -2090,6 +2090,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+--- !u!1 &3892626464189104091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 336328888056393429, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+  m_PrefabInstance: {fileID: 3892626464189104090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3892626464189104092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8856579164567281919, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
@@ -2117,6 +2122,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eedf358374da64098edcf158c3942e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenuUI
+--- !u!114 &3892626464189104095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1567952335826969250, guid: e8880ce6ad184634b9c59291bfe15ad0, type: 3}
+  m_PrefabInstance: {fileID: 3892626464189104090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!4 &4145718066816848878
 Transform:
   m_ObjectHideFlags: 0
