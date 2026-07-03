@@ -41,16 +41,21 @@ public class GameOverManager : MonoBehaviour
         AudioBeatDetector.Instance?.StopMusic();
 
         _gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
 
-        
         if (_gameOverAudioSource != null && _gameOverMusic != null)
         {
+            if (!_gameOverAudioSource.enabled)
+            {
+                _gameOverAudioSource.enabled = true;
+            }
+
             _gameOverAudioSource.clip = _gameOverMusic;
             _gameOverAudioSource.loop = true;
             _gameOverAudioSource.ignoreListenerPause = true;
             _gameOverAudioSource.Play();
         }
+
+        Time.timeScale = 0f;
     }
 
     private void StopGameOverMusic()

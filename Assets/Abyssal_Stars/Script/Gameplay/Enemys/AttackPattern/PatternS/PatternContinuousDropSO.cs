@@ -5,11 +5,11 @@ using System.Collections;
 public class PatternContinuousDropSO : AttackPatternSO
 {
     [Header("Disparo Continuo")]
-    public float fireRate = 0.4f;
-    public float bulletSpeed = 1.0f;
+    [SerializeField] private float fireRate = 0.4f;
+    [SerializeField] private float bulletSpeed = 1.0f;
 
     [Tooltip("Ángulo de disparo. 270 = Abajo (como el original). 90 = Arriba (cola literal tras de él).")]
-    public float dropAngle = 270f;
+    [SerializeField] private float dropAngle = 270f;
 
     public override IEnumerator ExecutePattern(BossTurret turret)
     {

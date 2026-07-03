@@ -84,7 +84,7 @@ public class BossPhaseController : MonoBehaviour
         if (_bossSpawnZone == null) return;
 
         Gizmos.color = new Color(1f, 0.15f, 0.15f, 0.4f);
-        Vector3 size = new Vector3(_bossSpawnZone.rangeX * 2f, _bossSpawnZone.rangeY * 2f, 0f);
+        Vector3 size = new Vector3(_bossSpawnZone.RangeX * 2f, _bossSpawnZone.RangeY * 2f, 0f);
         Gizmos.DrawWireCube(_bossSpawnZone.transform.position, size);
 
         Color fill = new Color(1f, 0.15f, 0.15f, 0.08f);
@@ -93,7 +93,7 @@ public class BossPhaseController : MonoBehaviour
 
         UnityEditor.Handles.color = Color.red;
         UnityEditor.Handles.Label(
-            _bossSpawnZone.transform.position + Vector3.up * (_bossSpawnZone.rangeY + 0.25f),
+            _bossSpawnZone.transform.position + Vector3.up * (_bossSpawnZone.RangeY + 0.25f),
             "Boss Zone"
         );
     }

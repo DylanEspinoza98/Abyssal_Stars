@@ -146,9 +146,10 @@ MonoBehaviour:
   _offScreenMargin: 0.3
   _hitColor: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
   _hitFlashDuration: 0.1
-  _scoreValue: 15
+  _scoreValue: 80
   _explosionEffectPrefab: {fileID: 6116114864061771597, guid: 769d41a804098034492907e446449002, type: 3}
   _retreatSpeed: 15
+  _personalShieldSize: 1.5
   _turrets:
   - turret: {fileID: 4157737020741648554}
     activeByDefault: 1
@@ -167,6 +168,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4999549957660255571, guid: 7829e748f2c160e42a04e25e9b7d5e92, type: 3}
       propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
+    - target: {fileID: -4999549957660255571, guid: 7829e748f2c160e42a04e25e9b7d5e92, type: 3}
+      propertyPath: _bulletPrefab
       value: 
       objectReference: {fileID: 6020517980567016966, guid: d2c35ad90142ec8439b9cd5bff77d80e, type: 3}
     - target: {fileID: -4999549957660255571, guid: 7829e748f2c160e42a04e25e9b7d5e92, type: 3}

@@ -17,7 +17,6 @@ public class Familiar : MonoBehaviour
     private float _fireTimer = 0f;
     private Transform _player;
 
-    // Variables para el Frenesí
     private float _baseFireRate;
     private float _baseOrbitSpeed;
     private Color _baseColor;
@@ -29,7 +28,6 @@ public class Familiar : MonoBehaviour
         _bulletPrefab = bulletPrefab;
         _currentAngle = angleOffset;
 
-        // Guardamos las estadísticas normales al nacer
         _baseFireRate = _fireRate;
         _baseOrbitSpeed = _orbitSpeed;
         _baseColor = _bulletColor;
@@ -71,7 +69,6 @@ public class Familiar : MonoBehaviour
         if (sr != null) sr.color = _bulletColor;
     }
 
-    // --- NUEVO: EL MODO FRENESÍ ---
     public void ActivateOverdrive(float duration)
     {
         if (_overdriveCoroutine != null) StopCoroutine(_overdriveCoroutine);
@@ -86,19 +83,8 @@ public class Familiar : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        // Vuelven a la normalidad
         _fireRate = _baseFireRate;
         _orbitSpeed = _baseOrbitSpeed;
         _bulletColor = _baseColor;
-    }
-
-    private void OnDestroy()
-    {
-        PlayerBullet[] todas = FindObjectsByType<PlayerBullet>(FindObjectsInactive.Include);
-        foreach (PlayerBullet b in todas)
-        {
-            SpriteRenderer sr = b.GetComponent<SpriteRenderer>();
-            if (sr != null) sr.color = Color.white;
-        }
     }
 }

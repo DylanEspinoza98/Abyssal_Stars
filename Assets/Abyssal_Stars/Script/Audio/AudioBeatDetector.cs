@@ -58,6 +58,11 @@ public class AudioBeatDetector : MonoBehaviour
     {
         _samples = new float[_sampleSize];
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopMusic();
+        }
+
         _currentAudioSource = _levelAudioSource;
         if (_levelAudioSource != null) _levelAudioSource.Play();
 
@@ -168,5 +173,18 @@ public class AudioBeatDetector : MonoBehaviour
     {
         if (_levelAudioSource != null) _levelAudioSource.Stop();
         if (_bossAudioSource != null) _bossAudioSource.Stop();
+    }
+    public void PauseMusic()
+    {
+        if (_levelAudioSource != null && _levelAudioSource.isPlaying)
+            _levelAudioSource.Pause();
+        if (_bossAudioSource != null && _bossAudioSource.isPlaying)
+            _bossAudioSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        if (_levelAudioSource != null) _levelAudioSource.UnPause();
+        if (_bossAudioSource != null) _bossAudioSource.UnPause();
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc04887c26c3bc45b8464984a1e6c93, type: 3}
+  m_Name: ShieldGrant
+  m_EditorClassIdentifier: Assembly-CSharp::PatternShieldGrantSO
+  mirrorX: 0
+  shieldPrefab: {fileID: 2650181461673630908, guid: ae30ba71a8ea0b6468333b14b0f3f585, type: 3}
+  shieldSelf: 0
+  scanInterval: 1.5
