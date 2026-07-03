@@ -19,7 +19,7 @@ Pilota tu nave a través del abismo estelar mientras las oleadas enemigas nacen 
 ![Género](https://img.shields.io/badge/Género-Bullet_Hell-ff2e63?style=flat-square)
 ![Resolución](https://img.shields.io/badge/Resolución-9%3A16_vertical-8a2be2?style=flat-square)
 ![Niveles](https://img.shields.io/badge/Niveles-3_+_Menú-08d9d6?style=flat-square)
-![Estado](https://img.shields.io/badge/Estado-Demo_+_Finalizada-green?style=flat-square)
+![Estado](https://img.shields.io/badge/Estado-Demo_Finalizada-green?style=flat-square)
 
 </div>
 
